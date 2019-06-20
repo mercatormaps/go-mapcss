@@ -12,10 +12,10 @@ import (
 )
 
 type Stylesheet struct {
-	parser *parser.MapCSSParser
+	Canvas Canvas
 }
 
-func NewStylesheet(r io.Reader) (*Stylesheet, error) {
+func Parse(r io.Reader) (*Stylesheet, error) {
 	buf, err := ioutil.ReadAll(r)
 	if err != nil {
 		return nil, err
@@ -26,19 +26,17 @@ func NewStylesheet(r io.Reader) (*Stylesheet, error) {
 	})
 
 	stream := antlr.NewCommonTokenStream(lex, 0)
-	return &Stylesheet{
-		parser: parser.NewMapCSSParser(stream),
-	}, nil
-}
+	p := parser.NewMapCSSParser(stream)
+	p.BuildParseTrees = true
 
-func (p *Stylesheet) Parse() (err error) {
-	p.parser.BuildParseTrees = true
-	tree := p.parser.Stylesheet()
+	tree := p.Stylesheet()
 	listener := &parser.BaseMapCSSListener{}
-	return p.walk(listener, tree)
+
+	s := &Stylesheet{}
+	return s, s.walk(listener, tree)
 }
 
-func (p *Stylesheet) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
+func (s *Stylesheet) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 	ctx, err := walk(listener, t)
 	if err != nil {
 		return err
@@ -48,13 +46,12 @@ func (p *Stylesheet) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) err
 
 	switch tt := ctx.(type) {
 	case *parser.Canvas_declaration_blockContext:
-		canvas := &Canvas{}
-		if err := canvas.Parse(tt); err != nil {
+		if err := s.Canvas.parse(tt); err != nil {
 			return errors.Wrap(err, "canvas parse error")
 		}
 	default:
 		for i := 0; i < tt.GetChildCount(); i++ {
-			if err := p.walk(listener, tt.GetChild(i)); err != nil {
+			if err := s.walk(listener, tt.GetChild(i)); err != nil {
 				return err
 			}
 		}

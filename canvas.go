@@ -2,17 +2,16 @@ package mapcss
 
 import (
 	parser "github.com/mercatormaps/go-mapcss/internal"
-	"github.com/mercatormaps/go-mapcss/property"
 
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
 type Canvas struct {
-	property.Antialiasing
+	Antialiasing Antialiasing
 }
 
-func (c *Canvas) Parse(ctx *parser.Canvas_declaration_blockContext) error {
-	c.Antialiasing = property.AntialiasingFull
+func (c *Canvas) parse(ctx *parser.Canvas_declaration_blockContext) error {
+	c.Antialiasing = AntialiasingFull
 	return c.walk(&parser.BaseMapCSSListener{}, ctx)
 }
 
@@ -26,7 +25,7 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 
 	switch tt := ctx.(type) {
 	case *parser.AntialiasingContext:
-		if c.Antialiasing, err = property.AntialiasingString(tt.GetText()); err != nil {
+		if c.Antialiasing, err = AntialiasingString(tt.GetText()); err != nil {
 			return err
 		}
 	default:

@@ -16,22 +16,23 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 12, 43, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 12, 45, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 3,
 	2, 7, 2, 16, 10, 2, 12, 2, 14, 2, 19, 11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3,
 	4, 3, 4, 3, 5, 3, 5, 3, 5, 6, 5, 30, 10, 5, 13, 5, 14, 5, 31, 3, 5, 3,
-	5, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 2, 2, 8, 2, 4, 6, 8,
-	10, 12, 2, 2, 2, 38, 2, 17, 3, 2, 2, 2, 4, 22, 3, 2, 2, 2, 6, 24, 3, 2,
-	2, 2, 8, 26, 3, 2, 2, 2, 10, 35, 3, 2, 2, 2, 12, 40, 3, 2, 2, 2, 14, 16,
-	5, 4, 3, 2, 15, 14, 3, 2, 2, 2, 16, 19, 3, 2, 2, 2, 17, 15, 3, 2, 2, 2,
-	17, 18, 3, 2, 2, 2, 18, 20, 3, 2, 2, 2, 19, 17, 3, 2, 2, 2, 20, 21, 7,
-	2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 23, 5, 6, 4, 2, 23, 5, 3, 2, 2, 2, 24,
-	25, 5, 8, 5, 2, 25, 7, 3, 2, 2, 2, 26, 27, 7, 3, 2, 2, 27, 29, 7, 5, 2,
-	2, 28, 30, 5, 10, 6, 2, 29, 28, 3, 2, 2, 2, 30, 31, 3, 2, 2, 2, 31, 29,
-	3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 33, 3, 2, 2, 2, 33, 34, 7, 6, 2, 2,
-	34, 9, 3, 2, 2, 2, 35, 36, 7, 11, 2, 2, 36, 37, 7, 7, 2, 2, 37, 38, 5,
-	12, 7, 2, 38, 39, 7, 8, 2, 2, 39, 11, 3, 2, 2, 2, 40, 41, 7, 12, 2, 2,
-	41, 13, 3, 2, 2, 2, 4, 17, 31,
+	5, 3, 6, 3, 6, 3, 6, 5, 6, 39, 10, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 2,
+	2, 8, 2, 4, 6, 8, 10, 12, 2, 2, 2, 41, 2, 17, 3, 2, 2, 2, 4, 22, 3, 2,
+	2, 2, 6, 24, 3, 2, 2, 2, 8, 26, 3, 2, 2, 2, 10, 35, 3, 2, 2, 2, 12, 42,
+	3, 2, 2, 2, 14, 16, 5, 4, 3, 2, 15, 14, 3, 2, 2, 2, 16, 19, 3, 2, 2, 2,
+	17, 15, 3, 2, 2, 2, 17, 18, 3, 2, 2, 2, 18, 20, 3, 2, 2, 2, 19, 17, 3,
+	2, 2, 2, 20, 21, 7, 2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 23, 5, 6, 4, 2, 23,
+	5, 3, 2, 2, 2, 24, 25, 5, 8, 5, 2, 25, 7, 3, 2, 2, 2, 26, 27, 7, 3, 2,
+	2, 27, 29, 7, 5, 2, 2, 28, 30, 5, 10, 6, 2, 29, 28, 3, 2, 2, 2, 30, 31,
+	3, 2, 2, 2, 31, 29, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 33, 3, 2, 2, 2,
+	33, 34, 7, 6, 2, 2, 34, 9, 3, 2, 2, 2, 35, 36, 7, 11, 2, 2, 36, 38, 7,
+	7, 2, 2, 37, 39, 5, 12, 7, 2, 38, 37, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39,
+	40, 3, 2, 2, 2, 40, 41, 7, 8, 2, 2, 41, 11, 3, 2, 2, 2, 42, 43, 7, 12,
+	2, 2, 43, 13, 3, 2, 2, 2, 5, 17, 31, 38,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -609,6 +610,10 @@ func (s *Canvas_declarationContext) COLON() antlr.TerminalNode {
 	return s.GetToken(MapCSSParserCOLON, 0)
 }
 
+func (s *Canvas_declarationContext) SEMICOLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserSEMICOLON, 0)
+}
+
 func (s *Canvas_declarationContext) Antialiasing() IAntialiasingContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAntialiasingContext)(nil)).Elem(), 0)
 
@@ -617,10 +622,6 @@ func (s *Canvas_declarationContext) Antialiasing() IAntialiasingContext {
 	}
 
 	return t.(IAntialiasingContext)
-}
-
-func (s *Canvas_declarationContext) SEMICOLON() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserSEMICOLON, 0)
 }
 
 func (s *Canvas_declarationContext) GetRuleContext() antlr.RuleContext {
@@ -646,6 +647,7 @@ func (s *Canvas_declarationContext) ExitRule(listener antlr.ParseTreeListener) {
 func (p *MapCSSParser) Canvas_declaration() (localctx ICanvas_declarationContext) {
 	localctx = NewCanvas_declarationContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, MapCSSParserRULE_canvas_declaration)
+	var _la int
 
 	defer func() {
 		p.ExitRule()
@@ -672,12 +674,19 @@ func (p *MapCSSParser) Canvas_declaration() (localctx ICanvas_declarationContext
 		p.SetState(34)
 		p.Match(MapCSSParserCOLON)
 	}
-	{
-		p.SetState(35)
-		p.Antialiasing()
+	p.SetState(36)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == MapCSSParserPROP_ANTIALIASING_VALUES {
+		{
+			p.SetState(35)
+			p.Antialiasing()
+		}
+
 	}
 	{
-		p.SetState(36)
+		p.SetState(38)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -768,7 +777,7 @@ func (p *MapCSSParser) Antialiasing() (localctx IAntialiasingContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(38)
+		p.SetState(40)
 		p.Match(MapCSSParserPROP_ANTIALIASING_VALUES)
 	}
 

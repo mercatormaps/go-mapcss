@@ -36,7 +36,7 @@ canvas_declaration_block
     ;
 
 canvas_declaration
-    : PROP_ANTIALIASING COLON antialiasing SEMICOLON
+    : PROP_ANTIALIASING COLON antialiasing? SEMICOLON
     ;
 
 // Properties

@@ -1,6 +1,6 @@
 //go:generate enumer -type=Antialiasing -trimprefix=Antialiasing -transform=snake
 
-package property
+package mapcss
 
 type Antialiasing int
 
