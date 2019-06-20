@@ -1,0 +1,4 @@
+canvas {
+  antialiasing: text;
+  antialiasing: none;
+}
