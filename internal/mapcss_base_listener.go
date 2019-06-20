@@ -56,3 +56,9 @@ func (s *BaseMapCSSListener) EnterAntialiasing(ctx *AntialiasingContext) {}
 
 // ExitAntialiasing is called when production antialiasing is exited.
 func (s *BaseMapCSSListener) ExitAntialiasing(ctx *AntialiasingContext) {}
+
+// EnterFill_opacity is called when production fill_opacity is entered.
+func (s *BaseMapCSSListener) EnterFill_opacity(ctx *Fill_opacityContext) {}
+
+// ExitFill_opacity is called when production fill_opacity is exited.
+func (s *BaseMapCSSListener) ExitFill_opacity(ctx *Fill_opacityContext) {}

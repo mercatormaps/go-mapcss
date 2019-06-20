@@ -4,12 +4,12 @@
 
 ### `canvas` ###
 
-| Properties     | Supported              |
-| -------------- |:----------------------:|
-| `antialiasing` | `full`, `text`, `none` |
-| `fill-color`   |                        |
-| `fill-opacity` |                        |
-| `fill-image`   |                        |
+| Properties     | Supported                                           |
+| -------------- |:---------------------------------------------------:|
+| `antialiasing` | :heavy_check_mark: `full`, `text`, `none`           |
+| `fill-color`   |                                                     |
+| `fill-opacity` | :heavy_check_mark: `0` (transparent) — `1` (opaque) |
+| `fill-image`   |                                                     |
 
 ## Development ##
 

@@ -16,38 +16,45 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 12, 45, 4,
-	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 3,
-	2, 7, 2, 16, 10, 2, 12, 2, 14, 2, 19, 11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3,
-	4, 3, 4, 3, 5, 3, 5, 3, 5, 6, 5, 30, 10, 5, 13, 5, 14, 5, 31, 3, 5, 3,
-	5, 3, 6, 3, 6, 3, 6, 5, 6, 39, 10, 6, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 2,
-	2, 8, 2, 4, 6, 8, 10, 12, 2, 2, 2, 41, 2, 17, 3, 2, 2, 2, 4, 22, 3, 2,
-	2, 2, 6, 24, 3, 2, 2, 2, 8, 26, 3, 2, 2, 2, 10, 35, 3, 2, 2, 2, 12, 42,
-	3, 2, 2, 2, 14, 16, 5, 4, 3, 2, 15, 14, 3, 2, 2, 2, 16, 19, 3, 2, 2, 2,
-	17, 15, 3, 2, 2, 2, 17, 18, 3, 2, 2, 2, 18, 20, 3, 2, 2, 2, 19, 17, 3,
-	2, 2, 2, 20, 21, 7, 2, 2, 3, 21, 3, 3, 2, 2, 2, 22, 23, 5, 6, 4, 2, 23,
-	5, 3, 2, 2, 2, 24, 25, 5, 8, 5, 2, 25, 7, 3, 2, 2, 2, 26, 27, 7, 3, 2,
-	2, 27, 29, 7, 5, 2, 2, 28, 30, 5, 10, 6, 2, 29, 28, 3, 2, 2, 2, 30, 31,
-	3, 2, 2, 2, 31, 29, 3, 2, 2, 2, 31, 32, 3, 2, 2, 2, 32, 33, 3, 2, 2, 2,
-	33, 34, 7, 6, 2, 2, 34, 9, 3, 2, 2, 2, 35, 36, 7, 11, 2, 2, 36, 38, 7,
-	7, 2, 2, 37, 39, 5, 12, 7, 2, 38, 37, 3, 2, 2, 2, 38, 39, 3, 2, 2, 2, 39,
-	40, 3, 2, 2, 2, 40, 41, 7, 8, 2, 2, 41, 11, 3, 2, 2, 2, 42, 43, 7, 12,
-	2, 2, 43, 13, 3, 2, 2, 2, 5, 17, 31, 38,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 17, 56, 4,
+	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
+	8, 9, 8, 3, 2, 7, 2, 18, 10, 2, 12, 2, 14, 2, 21, 11, 2, 3, 2, 3, 2, 3,
+	3, 3, 3, 3, 4, 3, 4, 3, 5, 3, 5, 3, 5, 6, 5, 32, 10, 5, 13, 5, 14, 5, 33,
+	3, 5, 3, 5, 3, 6, 3, 6, 3, 6, 5, 6, 41, 10, 6, 3, 6, 3, 6, 3, 6, 3, 6,
+	5, 6, 47, 10, 6, 3, 6, 5, 6, 50, 10, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 2,
+	2, 9, 2, 4, 6, 8, 10, 12, 14, 2, 3, 4, 2, 11, 11, 13, 13, 2, 53, 2, 19,
+	3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 26, 3, 2, 2, 2, 8, 28, 3, 2, 2, 2, 10,
+	49, 3, 2, 2, 2, 12, 51, 3, 2, 2, 2, 14, 53, 3, 2, 2, 2, 16, 18, 5, 4, 3,
+	2, 17, 16, 3, 2, 2, 2, 18, 21, 3, 2, 2, 2, 19, 17, 3, 2, 2, 2, 19, 20,
+	3, 2, 2, 2, 20, 22, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2, 22, 23, 7, 2, 2, 3,
+	23, 3, 3, 2, 2, 2, 24, 25, 5, 6, 4, 2, 25, 5, 3, 2, 2, 2, 26, 27, 5, 8,
+	5, 2, 27, 7, 3, 2, 2, 2, 28, 29, 7, 3, 2, 2, 29, 31, 7, 5, 2, 2, 30, 32,
+	5, 10, 6, 2, 31, 30, 3, 2, 2, 2, 32, 33, 3, 2, 2, 2, 33, 31, 3, 2, 2, 2,
+	33, 34, 3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 36, 7, 6, 2, 2, 36, 9, 3, 2,
+	2, 2, 37, 38, 7, 15, 2, 2, 38, 40, 7, 7, 2, 2, 39, 41, 5, 12, 7, 2, 40,
+	39, 3, 2, 2, 2, 40, 41, 3, 2, 2, 2, 41, 42, 3, 2, 2, 2, 42, 50, 7, 8, 2,
+	2, 43, 44, 7, 17, 2, 2, 44, 46, 7, 7, 2, 2, 45, 47, 5, 14, 8, 2, 46, 45,
+	3, 2, 2, 2, 46, 47, 3, 2, 2, 2, 47, 48, 3, 2, 2, 2, 48, 50, 7, 8, 2, 2,
+	49, 37, 3, 2, 2, 2, 49, 43, 3, 2, 2, 2, 50, 11, 3, 2, 2, 2, 51, 52, 7,
+	16, 2, 2, 52, 13, 3, 2, 2, 2, 53, 54, 9, 2, 2, 2, 54, 15, 3, 2, 2, 2, 7,
+	19, 33, 40, 46, 49,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'canvas'", "", "'{'", "'}'", "':'", "';'", "", "", "'antialiasing'",
+	"", "'canvas'", "", "'{'", "'}'", "':'", "';'", "", "", "", "", "", "",
+	"'antialiasing'", "", "'fill-opacity'",
 }
 var symbolicNames = []string{
 	"", "", "WS", "LBRACE", "RBRACE", "COLON", "SEMICOLON", "DQUOTED_STRING",
-	"SQUOTED_STRING", "PROP_ANTIALIASING", "PROP_ANTIALIASING_VALUES",
+	"SQUOTED_STRING", "POSITIVE_INT", "NEGATIVE_INT", "POSITIVE_FLOAT", "NEGATIVE_FLOAT",
+	"PROP_ANTIALIASING", "PROP_ANTIALIASING_VALUES", "PROP_FILL_OPACITY",
 }
 
 var ruleNames = []string{
 	"stylesheet", "entry", "rule_", "canvas_declaration_block", "canvas_declaration",
-	"antialiasing",
+	"antialiasing", "fill_opacity",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -86,8 +93,13 @@ const (
 	MapCSSParserSEMICOLON                = 6
 	MapCSSParserDQUOTED_STRING           = 7
 	MapCSSParserSQUOTED_STRING           = 8
-	MapCSSParserPROP_ANTIALIASING        = 9
-	MapCSSParserPROP_ANTIALIASING_VALUES = 10
+	MapCSSParserPOSITIVE_INT             = 9
+	MapCSSParserNEGATIVE_INT             = 10
+	MapCSSParserPOSITIVE_FLOAT           = 11
+	MapCSSParserNEGATIVE_FLOAT           = 12
+	MapCSSParserPROP_ANTIALIASING        = 13
+	MapCSSParserPROP_ANTIALIASING_VALUES = 14
+	MapCSSParserPROP_FILL_OPACITY        = 15
 )
 
 // MapCSSParser rules.
@@ -98,6 +110,7 @@ const (
 	MapCSSParserRULE_canvas_declaration_block = 3
 	MapCSSParserRULE_canvas_declaration       = 4
 	MapCSSParserRULE_antialiasing             = 5
+	MapCSSParserRULE_fill_opacity             = 6
 )
 
 // IStylesheetContext is an interface to support dynamic dispatch.
@@ -207,22 +220,22 @@ func (p *MapCSSParser) Stylesheet() (localctx IStylesheetContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(15)
+	p.SetState(17)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == MapCSSParserT__0 {
 		{
-			p.SetState(12)
+			p.SetState(14)
 			p.Entry()
 		}
 
-		p.SetState(17)
+		p.SetState(19)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(18)
+		p.SetState(20)
 		p.Match(MapCSSParserEOF)
 	}
 
@@ -319,7 +332,7 @@ func (p *MapCSSParser) Entry() (localctx IEntryContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(20)
+		p.SetState(22)
 		p.Rule_()
 	}
 
@@ -416,7 +429,7 @@ func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(22)
+		p.SetState(24)
 		p.Canvas_declaration_block()
 	}
 
@@ -535,29 +548,29 @@ func (p *MapCSSParser) Canvas_declaration_block() (localctx ICanvas_declaration_
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(24)
+		p.SetState(26)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(25)
+		p.SetState(27)
 		p.Match(MapCSSParserLBRACE)
 	}
-	p.SetState(27)
+	p.SetState(29)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = _la == MapCSSParserPROP_ANTIALIASING {
+	for ok := true; ok; ok = _la == MapCSSParserPROP_ANTIALIASING || _la == MapCSSParserPROP_FILL_OPACITY {
 		{
-			p.SetState(26)
+			p.SetState(28)
 			p.Canvas_declaration()
 		}
 
-		p.SetState(29)
+		p.SetState(31)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(31)
+		p.SetState(33)
 		p.Match(MapCSSParserRBRACE)
 	}
 
@@ -624,6 +637,20 @@ func (s *Canvas_declarationContext) Antialiasing() IAntialiasingContext {
 	return t.(IAntialiasingContext)
 }
 
+func (s *Canvas_declarationContext) PROP_FILL_OPACITY() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPROP_FILL_OPACITY, 0)
+}
+
+func (s *Canvas_declarationContext) Fill_opacity() IFill_opacityContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFill_opacityContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFill_opacityContext)
+}
+
 func (s *Canvas_declarationContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -665,29 +692,64 @@ func (p *MapCSSParser) Canvas_declaration() (localctx ICanvas_declarationContext
 		}
 	}()
 
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(33)
-		p.Match(MapCSSParserPROP_ANTIALIASING)
-	}
-	{
-		p.SetState(34)
-		p.Match(MapCSSParserCOLON)
-	}
-	p.SetState(36)
+	p.SetState(47)
 	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	if _la == MapCSSParserPROP_ANTIALIASING_VALUES {
+	switch p.GetTokenStream().LA(1) {
+	case MapCSSParserPROP_ANTIALIASING:
+		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(35)
-			p.Antialiasing()
+			p.Match(MapCSSParserPROP_ANTIALIASING)
+		}
+		{
+			p.SetState(36)
+			p.Match(MapCSSParserCOLON)
+		}
+		p.SetState(38)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == MapCSSParserPROP_ANTIALIASING_VALUES {
+			{
+				p.SetState(37)
+				p.Antialiasing()
+			}
+
+		}
+		{
+			p.SetState(40)
+			p.Match(MapCSSParserSEMICOLON)
 		}
 
-	}
-	{
-		p.SetState(38)
-		p.Match(MapCSSParserSEMICOLON)
+	case MapCSSParserPROP_FILL_OPACITY:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(41)
+			p.Match(MapCSSParserPROP_FILL_OPACITY)
+		}
+		{
+			p.SetState(42)
+			p.Match(MapCSSParserCOLON)
+		}
+		p.SetState(44)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT {
+			{
+				p.SetState(43)
+				p.Fill_opacity()
+			}
+
+		}
+		{
+			p.SetState(46)
+			p.Match(MapCSSParserSEMICOLON)
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 
 	return localctx
@@ -777,8 +839,111 @@ func (p *MapCSSParser) Antialiasing() (localctx IAntialiasingContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(40)
+		p.SetState(49)
 		p.Match(MapCSSParserPROP_ANTIALIASING_VALUES)
+	}
+
+	return localctx
+}
+
+// IFill_opacityContext is an interface to support dynamic dispatch.
+type IFill_opacityContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsFill_opacityContext differentiates from other interfaces.
+	IsFill_opacityContext()
+}
+
+type Fill_opacityContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFill_opacityContext() *Fill_opacityContext {
+	var p = new(Fill_opacityContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_fill_opacity
+	return p
+}
+
+func (*Fill_opacityContext) IsFill_opacityContext() {}
+
+func NewFill_opacityContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Fill_opacityContext {
+	var p = new(Fill_opacityContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_fill_opacity
+
+	return p
+}
+
+func (s *Fill_opacityContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Fill_opacityContext) POSITIVE_INT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+}
+
+func (s *Fill_opacityContext) POSITIVE_FLOAT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_FLOAT, 0)
+}
+
+func (s *Fill_opacityContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Fill_opacityContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Fill_opacityContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterFill_opacity(s)
+	}
+}
+
+func (s *Fill_opacityContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitFill_opacity(s)
+	}
+}
+
+func (p *MapCSSParser) Fill_opacity() (localctx IFill_opacityContext) {
+	localctx = NewFill_opacityContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 12, MapCSSParserRULE_fill_opacity)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(51)
+		_la = p.GetTokenStream().LA(1)
+
+		if !(_la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT) {
+			p.GetErrorHandler().RecoverInline(p)
+		} else {
+			p.GetErrorHandler().ReportMatch(p)
+			p.Consume()
+		}
 	}
 
 	return localctx

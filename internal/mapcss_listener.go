@@ -26,6 +26,9 @@ type MapCSSListener interface {
 	// EnterAntialiasing is called when entering the antialiasing production.
 	EnterAntialiasing(c *AntialiasingContext)
 
+	// EnterFill_opacity is called when entering the fill_opacity production.
+	EnterFill_opacity(c *Fill_opacityContext)
+
 	// ExitStylesheet is called when exiting the stylesheet production.
 	ExitStylesheet(c *StylesheetContext)
 
@@ -43,4 +46,7 @@ type MapCSSListener interface {
 
 	// ExitAntialiasing is called when exiting the antialiasing production.
 	ExitAntialiasing(c *AntialiasingContext)
+
+	// ExitFill_opacity is called when exiting the fill_opacity production.
+	ExitFill_opacity(c *Fill_opacityContext)
 }

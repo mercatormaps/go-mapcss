@@ -14,8 +14,17 @@ fragment ESQUOTE:    '\\\'';
 DQUOTED_STRING:      '"' (' ' | '!' | '#'..'[' | ']'..'~' | '°' | UNICODE | EDQUOTE | EBACKSLASH)* '"';
 SQUOTED_STRING:      '\'' (' '..'&' | '('..'[' | ']'..'~' | '°' | UNICODE | ESQUOTE | EBACKSLASH)* '\'';
 
+POSITIVE_INT:   [0-9]+;
+NEGATIVE_INT:   '-' POSITIVE_INT;
+POSITIVE_FLOAT: [0-9]+ | [0-9]* '.' [0-9]+;
+NEGATIVE_FLOAT: '-' POSITIVE_FLOAT;
+
+// Properties
+
 PROP_ANTIALIASING:        'antialiasing';
 PROP_ANTIALIASING_VALUES: ('full' | 'text' | 'none');
+
+PROP_FILL_OPACITY: 'fill-opacity';
 
 // Structure
 
@@ -37,10 +46,16 @@ canvas_declaration_block
 
 canvas_declaration
     : PROP_ANTIALIASING COLON antialiasing? SEMICOLON
+    | PROP_FILL_OPACITY COLON fill_opacity? SEMICOLON
     ;
 
 // Properties
 
 antialiasing
     : PROP_ANTIALIASING_VALUES
+    ;
+
+fill_opacity
+    : POSITIVE_INT
+    | POSITIVE_FLOAT
     ;
