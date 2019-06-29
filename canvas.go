@@ -12,6 +12,7 @@ import (
 type Canvas struct {
 	Antialiasing Antialiasing
 	FillOpacity  float32
+	FillColor    *Color
 }
 
 func (c *Canvas) parse(ctx *parser.Canvas_declaration_blockContext) error {
@@ -31,17 +32,23 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 
 	switch tt := ctx.(type) {
 	case *parser.AntialiasingContext:
-		if c.Antialiasing, err = AntialiasingString(tt.GetText()); err != nil {
+		if c.Antialiasing, err = antialiasing(tt.GetText()); err != nil {
 			return err
 		}
 	case *parser.Fill_opacityContext:
-		v, err := strconv.ParseFloat(tt.GetText(), 32)
+		if c.FillOpacity, err = zeroToOneValue(tt.GetText()); err != nil {
+			return err
+		}
+	case *parser.ColorContext:
+		color, err := parseColor(tt)
 		if err != nil {
 			return err
-		} else if v > 1 {
-			return fmt.Errorf("fill-opacity invalid value '%f'", v)
 		}
-		c.FillOpacity = float32(v)
+
+		switch tt.GetParent().(type) {
+		case *parser.Fill_colorContext:
+			c.FillColor = color
+		}
 	default:
 		for i := 0; i < tt.GetChildCount(); i++ {
 			if err := c.walk(listener, tt.GetChild(i)); err != nil {
@@ -51,4 +58,25 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 	}
 
 	return nil
+}
+
+func antialiasing(str string) (Antialiasing, error) {
+	if str == "" {
+		return AntialiasingFull, nil
+	}
+	return AntialiasingString(str)
+}
+
+func zeroToOneValue(str string) (float32, error) {
+	if str == "" {
+		return 1, nil
+	}
+
+	val, err := strconv.ParseFloat(str, 32)
+	if err != nil {
+		return 0, err
+	} else if val < 0 || val > 1 {
+		return 0, fmt.Errorf("fill-opacity invalid value '%f'", val)
+	}
+	return float32(val), nil
 }

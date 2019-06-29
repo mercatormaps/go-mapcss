@@ -29,6 +29,21 @@ type MapCSSListener interface {
 	// EnterFill_opacity is called when entering the fill_opacity production.
 	EnterFill_opacity(c *Fill_opacityContext)
 
+	// EnterFill_color is called when entering the fill_color production.
+	EnterFill_color(c *Fill_colorContext)
+
+	// EnterAlpha is called when entering the alpha production.
+	EnterAlpha(c *AlphaContext)
+
+	// EnterColor is called when entering the color production.
+	EnterColor(c *ColorContext)
+
+	// EnterRgb_color is called when entering the rgb_color production.
+	EnterRgb_color(c *Rgb_colorContext)
+
+	// EnterRgba_color is called when entering the rgba_color production.
+	EnterRgba_color(c *Rgba_colorContext)
+
 	// ExitStylesheet is called when exiting the stylesheet production.
 	ExitStylesheet(c *StylesheetContext)
 
@@ -49,4 +64,19 @@ type MapCSSListener interface {
 
 	// ExitFill_opacity is called when exiting the fill_opacity production.
 	ExitFill_opacity(c *Fill_opacityContext)
+
+	// ExitFill_color is called when exiting the fill_color production.
+	ExitFill_color(c *Fill_colorContext)
+
+	// ExitAlpha is called when exiting the alpha production.
+	ExitAlpha(c *AlphaContext)
+
+	// ExitColor is called when exiting the color production.
+	ExitColor(c *ColorContext)
+
+	// ExitRgb_color is called when exiting the rgb_color production.
+	ExitRgb_color(c *Rgb_colorContext)
+
+	// ExitRgba_color is called when exiting the rgba_color production.
+	ExitRgba_color(c *Rgba_colorContext)
 }

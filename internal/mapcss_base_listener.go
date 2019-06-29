@@ -62,3 +62,33 @@ func (s *BaseMapCSSListener) EnterFill_opacity(ctx *Fill_opacityContext) {}
 
 // ExitFill_opacity is called when production fill_opacity is exited.
 func (s *BaseMapCSSListener) ExitFill_opacity(ctx *Fill_opacityContext) {}
+
+// EnterFill_color is called when production fill_color is entered.
+func (s *BaseMapCSSListener) EnterFill_color(ctx *Fill_colorContext) {}
+
+// ExitFill_color is called when production fill_color is exited.
+func (s *BaseMapCSSListener) ExitFill_color(ctx *Fill_colorContext) {}
+
+// EnterAlpha is called when production alpha is entered.
+func (s *BaseMapCSSListener) EnterAlpha(ctx *AlphaContext) {}
+
+// ExitAlpha is called when production alpha is exited.
+func (s *BaseMapCSSListener) ExitAlpha(ctx *AlphaContext) {}
+
+// EnterColor is called when production color is entered.
+func (s *BaseMapCSSListener) EnterColor(ctx *ColorContext) {}
+
+// ExitColor is called when production color is exited.
+func (s *BaseMapCSSListener) ExitColor(ctx *ColorContext) {}
+
+// EnterRgb_color is called when production rgb_color is entered.
+func (s *BaseMapCSSListener) EnterRgb_color(ctx *Rgb_colorContext) {}
+
+// ExitRgb_color is called when production rgb_color is exited.
+func (s *BaseMapCSSListener) ExitRgb_color(ctx *Rgb_colorContext) {}
+
+// EnterRgba_color is called when production rgba_color is entered.
+func (s *BaseMapCSSListener) EnterRgba_color(ctx *Rgba_colorContext) {}
+
+// ExitRgba_color is called when production rgba_color is exited.
+func (s *BaseMapCSSListener) ExitRgba_color(ctx *Rgba_colorContext) {}

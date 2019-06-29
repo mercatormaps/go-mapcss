@@ -15,19 +15,31 @@ type Stylesheet struct {
 	Canvas Canvas
 }
 
-func Parse(r io.Reader) (*Stylesheet, error) {
+func Parse(r io.Reader, opts ...Option) (*Stylesheet, error) {
+	conf := config{}
+	for _, opt := range opts {
+		opt(&conf)
+	}
+
 	buf, err := ioutil.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}
 
-	lex := parser.NewMapCSSLexer(&antlr.FileStream{
+	eh := &ErrorHandler{Reporter: conf.reporter}
+	antlr.NewDefaultErrorListener()
+
+	lexer := parser.NewMapCSSLexer(&antlr.FileStream{
 		InputStream: antlr.NewInputStream(string(buf)),
 	})
+	lexer.RemoveErrorListeners()
+	lexer.AddErrorListener(eh)
 
-	stream := antlr.NewCommonTokenStream(lex, 0)
+	stream := antlr.NewCommonTokenStream(lexer, 0)
 	p := parser.NewMapCSSParser(stream)
 	p.BuildParseTrees = true
+	p.RemoveErrorListeners()
+	p.AddErrorListener(eh)
 
 	tree := p.Stylesheet()
 	listener := &parser.BaseMapCSSListener{}
@@ -71,4 +83,16 @@ func walk(listener *parser.BaseMapCSSListener, t antlr.Tree) (antlr.ParserRuleCo
 	default:
 		return t.(antlr.RuleNode).GetRuleContext().(antlr.ParserRuleContext), nil
 	}
+}
+
+type Option func(*config)
+
+func WithErrorReporter(r ErrorReporter) Option {
+	return func(c *config) {
+		c.reporter = r
+	}
+}
+
+type config struct {
+	reporter ErrorReporter
 }

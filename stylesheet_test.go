@@ -14,17 +14,23 @@ func TestParseCanvasAntialiasing(t *testing.T) {
 	tests := []struct {
 		value    string
 		expected mapcss.Antialiasing
+		ok       bool
 	}{
-		{"", mapcss.AntialiasingFull},
-		{"none", mapcss.AntialiasingNone},
-		{"text", mapcss.AntialiasingText},
-		{"full", mapcss.AntialiasingFull},
+		{"", 0, true},
+		{"none", mapcss.AntialiasingNone, true},
+		{"text", mapcss.AntialiasingText, true},
+		{"full", mapcss.AntialiasingFull, true},
+		{"unknown", 0, false},
 	}
 
 	for _, tt := range tests {
-		run(t, tt.value, func(s *mapcss.Stylesheet, err error) {
-			require.NoError(t, err)
-			require.Equal(t, tt.expected, s.Canvas.Antialiasing)
+		run(t, tt.value, func(t *testing.T, s *mapcss.Stylesheet, err error) {
+			if tt.ok {
+				require.NoError(t, err)
+				require.Equal(t, tt.expected, s.Canvas.Antialiasing)
+			} else {
+				require.Error(t, err)
+			}
 		}, `
 			canvas {
 				antialiasing: %s;
@@ -44,10 +50,11 @@ func TestParseCanvasFillOpacity(t *testing.T) {
 		{"0.5", 0.5, true},
 		{"1", 1, true},
 		{"2", 0, false},
+		{"-1", 0, false},
 	}
 
 	for _, tt := range tests {
-		run(t, tt.value, func(s *mapcss.Stylesheet, err error) {
+		run(t, tt.value, func(t *testing.T, s *mapcss.Stylesheet, err error) {
 			if tt.ok {
 				require.NoError(t, err)
 				require.Equal(t, tt.expected, s.Canvas.FillOpacity)
@@ -62,13 +69,88 @@ func TestParseCanvasFillOpacity(t *testing.T) {
 	}
 }
 
-func run(t *testing.T, name string, f func(*mapcss.Stylesheet, error), format string, args ...interface{}) {
+func TestParseCanvasFillColor(t *testing.T) {
+	tests := []struct {
+		name     string
+		value    string
+		expected mapcss.Color
+		ok       bool
+	}{
+		{
+			name:     "simple hex",
+			value:    "#a1Ff09",
+			expected: mapcss.Color{161, 255, 9, 1},
+			ok:       true,
+		},
+		{
+			name:     "hex with alpha",
+			value:    "#a1Ff0933",
+			expected: mapcss.Color{161, 255, 9, 0.2},
+			ok:       true,
+		},
+		{
+			name:     "shorthand hex",
+			value:    "#f06",
+			expected: mapcss.Color{255, 0, 102, 1},
+			ok:       true,
+		},
+		{
+			name:     "shorthand hex with alpha",
+			value:    "#f063",
+			expected: mapcss.Color{255, 0, 102, 0.2},
+			ok:       true,
+		},
+		{
+			name:     "rgb",
+			value:    "rgb(126, 54, 213)",
+			expected: mapcss.Color{126, 54, 213, 1},
+			ok:       true,
+		},
+		{
+			name:     "rgba",
+			value:    "rgba(126, 54, 213, 0.8)",
+			expected: mapcss.Color{126, 54, 213, 0.8},
+			ok:       true,
+		},
+		{
+			name:  "invalid rgb",
+			value: "rgb(360, 54, 213)",
+			ok:    false,
+		},
+		{
+			name:  "invalid rgba",
+			value: "rgba(126, 54, 213, 1.2)",
+			ok:    false,
+		},
+	}
+
+	for _, tt := range tests {
+		run(t, tt.name, func(t *testing.T, s *mapcss.Stylesheet, err error) {
+			if tt.ok {
+				require.NoError(t, err)
+				require.NotNil(t, s.Canvas.FillColor)
+				require.Equal(t, tt.expected, *s.Canvas.FillColor)
+			} else {
+				require.Error(t, err)
+			}
+		}, `
+			canvas {
+				fill-color: %s;
+			}
+		`, tt.value)
+	}
+}
+
+func run(t *testing.T, name string, f func(*testing.T, *mapcss.Stylesheet, error), format string, args ...interface{}) {
 	if name == "" {
 		name = "empty"
 	}
 
 	t.Run(name, func(t *testing.T) {
-		s, err := mapcss.Parse(strings.NewReader(fmt.Sprintf(format, args...)))
-		f(s, err)
+		s, err := mapcss.Parse(strings.NewReader(fmt.Sprintf(format, args...)),
+			mapcss.WithErrorReporter(func(msg string) {
+				t.Log(msg)
+			}))
+		f(t, s, err)
 	})
 }
