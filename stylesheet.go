@@ -13,6 +13,7 @@ import (
 
 type Stylesheet struct {
 	Canvas Canvas
+	Rules  []Rule
 }
 
 func Parse(r io.Reader, opts ...Option) (*Stylesheet, error) {
@@ -57,10 +58,16 @@ func (s *Stylesheet) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) err
 	}
 
 	switch tt := ctx.(type) {
-	case *parser.Canvas_declaration_blockContext:
+	case *parser.Canvas_ruleContext:
 		if err := s.Canvas.parse(tt); err != nil {
 			return errors.Wrap(err, "canvas parse error")
 		}
+	case *parser.Rule_Context:
+		r := Rule{}
+		if err := r.parse(tt); err != nil {
+			return errors.Wrap(err, "rule parse error")
+		}
+		s.Rules = append(s.Rules, r)
 	default:
 		for i := 0; i < tt.GetChildCount(); i++ {
 			if err := s.walk(listener, tt.GetChild(i)); err != nil {

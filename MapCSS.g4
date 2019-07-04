@@ -1,6 +1,7 @@
 grammar MapCSS;
 
-WS: (' ' | '\t' | '\n' | '\r' | '\f') -> skip;
+fragment COMMENT: ('/*' .*? '*/') | ('//' .*? '\n');
+WS: (' ' | '\t' | '\n' | '\r' | '\f' | COMMENT) -> skip;
 
 LBRACE:    '{';
 RBRACE:    '}';
@@ -28,18 +29,9 @@ fragment HEX_6_DIGITS: '#' HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR
 fragment HEX_8_DIGITS: '#' HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR;
 HEX:                   (HEX_3_DIGITS | HEX_4_DIGITS | HEX_6_DIGITS | HEX_8_DIGITS);
 
-//RGBA: 'rgba(' POSITIVE_INT ',' POSITIVE_INT ',' POSITIVE_INT ',' ALPHA ')';
-
 // Properties
 
-PROP_ANTIALIASING:      'antialiasing';
-PROP_ANTIALIASING_FULL: 'full';
-PROP_ANTIALIASING_TEXT: 'text';
-PROP_ANTIALIASING_NONE: 'none';
-
-PROP_FILL_OPACITY: 'fill-opacity';
-
-PROP_FILL_COLOR: 'fill-color';
+IDENTIFIER: [A-Za-z]+ [A-Za-z0-9\-]*;
 
 // Structure
 
@@ -48,42 +40,56 @@ stylesheet
     ;
 
 entry
-    : rule_
+    : canvas_rule
+    | rule_
     ;
+
+// Selectors
 
 rule_
-    : canvas_declaration_block
+    : selector (',' selector)+ decl_block
     ;
 
-canvas_declaration_block
-    : 'canvas' LBRACE (canvas_declaration)+ RBRACE
+selector
+    : typ=IDENTIFIER (attribute)+
     ;
 
-canvas_declaration
-    : PROP_ANTIALIASING COLON antialiasing SEMICOLON
-    | PROP_FILL_OPACITY COLON fill_opacity SEMICOLON
-    | PROP_FILL_COLOR COLON fill_color SEMICOLON
+attribute
+    : '[' neg='!'? name=IDENTIFIER ']'
+    ;
+
+decl_block
+    : LBRACE RBRACE
+    ;
+
+// Canvas rule
+
+canvas_rule
+    : 'canvas' canvas_decl_block
+    ;
+
+canvas_decl_block
+    : LBRACE (canvas_decl)+ RBRACE
+    ;
+
+canvas_decl
+    : antialiasing_decl
+    | fill_opacity_decl
+    | fill_color_decl
     ;
 
 // Properties
 
-antialiasing
-    : PROP_ANTIALIASING_FULL
-    | PROP_ANTIALIASING_TEXT
-    | PROP_ANTIALIASING_NONE
+antialiasing_decl
+    : 'antialiasing' COLON v=('full' | 'text' | 'none') SEMICOLON
     ;
 
-fill_opacity
-    : POSITIVE_INT
-    | POSITIVE_FLOAT
+fill_opacity_decl
+    : 'fill-opacity' COLON v=(POSITIVE_INT | POSITIVE_FLOAT) SEMICOLON
     ;
 
-fill_color
-    : color
-    ;
-
-alpha
-    : POSITIVE_INT
+fill_color_decl
+    : 'fill-color' COLON color SEMICOLON
     ;
 
 color

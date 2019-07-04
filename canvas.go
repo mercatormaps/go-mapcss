@@ -15,7 +15,7 @@ type Canvas struct {
 	FillColor    *Color
 }
 
-func (c *Canvas) parse(ctx *parser.Canvas_declaration_blockContext) error {
+func (c *Canvas) parse(ctx *parser.Canvas_ruleContext) error {
 	c.Antialiasing = AntialiasingFull
 	c.FillOpacity = 1
 
@@ -31,12 +31,12 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 	}
 
 	switch tt := ctx.(type) {
-	case *parser.AntialiasingContext:
-		if c.Antialiasing, err = antialiasing(tt.GetText()); err != nil {
+	case *parser.Antialiasing_declContext:
+		if c.Antialiasing, err = antialiasing(tt.GetV().GetText()); err != nil {
 			return err
 		}
-	case *parser.Fill_opacityContext:
-		if c.FillOpacity, err = zeroToOneValue(tt.GetText()); err != nil {
+	case *parser.Fill_opacity_declContext:
+		if c.FillOpacity, err = zeroToOneValue(tt.GetV().GetText()); err != nil {
 			return err
 		}
 	case *parser.ColorContext:
@@ -46,7 +46,7 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 		}
 
 		switch tt.GetParent().(type) {
-		case *parser.Fill_colorContext:
+		case *parser.Fill_color_declContext:
 			c.FillColor = color
 		}
 	default:

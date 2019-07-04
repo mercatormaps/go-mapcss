@@ -16,63 +16,74 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 25, 96, 4,
-	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 4,
-	8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13, 9,
-	13, 3, 2, 7, 2, 28, 10, 2, 12, 2, 14, 2, 31, 11, 2, 3, 2, 3, 2, 3, 3, 3,
-	3, 3, 4, 3, 4, 3, 5, 3, 5, 3, 5, 6, 5, 42, 10, 5, 13, 5, 14, 5, 43, 3,
-	5, 3, 5, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
-	6, 3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 63, 10, 6, 3, 7, 3, 7, 3, 8, 3, 8, 3,
-	9, 3, 9, 3, 10, 3, 10, 3, 11, 3, 11, 3, 11, 5, 11, 76, 10, 11, 3, 12, 3,
-	12, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3, 13, 3, 13, 3, 13, 3, 13,
-	3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 2, 2, 14, 2, 4, 6, 8,
-	10, 12, 14, 16, 18, 20, 22, 24, 2, 4, 3, 2, 21, 23, 4, 2, 15, 15, 17, 17,
-	2, 89, 2, 29, 3, 2, 2, 2, 4, 34, 3, 2, 2, 2, 6, 36, 3, 2, 2, 2, 8, 38,
-	3, 2, 2, 2, 10, 62, 3, 2, 2, 2, 12, 64, 3, 2, 2, 2, 14, 66, 3, 2, 2, 2,
-	16, 68, 3, 2, 2, 2, 18, 70, 3, 2, 2, 2, 20, 75, 3, 2, 2, 2, 22, 77, 3,
-	2, 2, 2, 24, 85, 3, 2, 2, 2, 26, 28, 5, 4, 3, 2, 27, 26, 3, 2, 2, 2, 28,
-	31, 3, 2, 2, 2, 29, 27, 3, 2, 2, 2, 29, 30, 3, 2, 2, 2, 30, 32, 3, 2, 2,
-	2, 31, 29, 3, 2, 2, 2, 32, 33, 7, 2, 2, 3, 33, 3, 3, 2, 2, 2, 34, 35, 5,
-	6, 4, 2, 35, 5, 3, 2, 2, 2, 36, 37, 5, 8, 5, 2, 37, 7, 3, 2, 2, 2, 38,
-	39, 7, 3, 2, 2, 39, 41, 7, 9, 2, 2, 40, 42, 5, 10, 6, 2, 41, 40, 3, 2,
-	2, 2, 42, 43, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2, 43, 44, 3, 2, 2, 2, 44, 45,
-	3, 2, 2, 2, 45, 46, 7, 10, 2, 2, 46, 9, 3, 2, 2, 2, 47, 48, 7, 20, 2, 2,
-	48, 49, 7, 11, 2, 2, 49, 50, 5, 12, 7, 2, 50, 51, 7, 12, 2, 2, 51, 63,
-	3, 2, 2, 2, 52, 53, 7, 24, 2, 2, 53, 54, 7, 11, 2, 2, 54, 55, 5, 14, 8,
-	2, 55, 56, 7, 12, 2, 2, 56, 63, 3, 2, 2, 2, 57, 58, 7, 25, 2, 2, 58, 59,
-	7, 11, 2, 2, 59, 60, 5, 16, 9, 2, 60, 61, 7, 12, 2, 2, 61, 63, 3, 2, 2,
-	2, 62, 47, 3, 2, 2, 2, 62, 52, 3, 2, 2, 2, 62, 57, 3, 2, 2, 2, 63, 11,
-	3, 2, 2, 2, 64, 65, 9, 2, 2, 2, 65, 13, 3, 2, 2, 2, 66, 67, 9, 3, 2, 2,
-	67, 15, 3, 2, 2, 2, 68, 69, 5, 20, 11, 2, 69, 17, 3, 2, 2, 2, 70, 71, 7,
-	15, 2, 2, 71, 19, 3, 2, 2, 2, 72, 76, 7, 19, 2, 2, 73, 76, 5, 22, 12, 2,
-	74, 76, 5, 24, 13, 2, 75, 72, 3, 2, 2, 2, 75, 73, 3, 2, 2, 2, 75, 74, 3,
-	2, 2, 2, 76, 21, 3, 2, 2, 2, 77, 78, 7, 4, 2, 2, 78, 79, 7, 15, 2, 2, 79,
-	80, 7, 5, 2, 2, 80, 81, 7, 15, 2, 2, 81, 82, 7, 5, 2, 2, 82, 83, 7, 15,
-	2, 2, 83, 84, 7, 6, 2, 2, 84, 23, 3, 2, 2, 2, 85, 86, 7, 7, 2, 2, 86, 87,
-	7, 15, 2, 2, 87, 88, 7, 5, 2, 2, 88, 89, 7, 15, 2, 2, 89, 90, 7, 5, 2,
-	2, 90, 91, 7, 15, 2, 2, 91, 92, 7, 5, 2, 2, 92, 93, 9, 3, 2, 2, 93, 94,
-	7, 6, 2, 2, 94, 25, 3, 2, 2, 2, 6, 29, 43, 62, 75,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 29, 124,
+	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
+	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
+	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 3, 2, 7, 2, 34, 10, 2,
+	12, 2, 14, 2, 37, 11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 5, 3, 43, 10, 3, 3, 4,
+	3, 4, 3, 4, 6, 4, 48, 10, 4, 13, 4, 14, 4, 49, 3, 4, 3, 4, 3, 5, 3, 5,
+	6, 5, 56, 10, 5, 13, 5, 14, 5, 57, 3, 6, 3, 6, 5, 6, 62, 10, 6, 3, 6, 3,
+	6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 6, 9, 75, 10,
+	9, 13, 9, 14, 9, 76, 3, 9, 3, 9, 3, 10, 3, 10, 3, 10, 5, 10, 84, 10, 10,
+	3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3,
+	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 5, 14, 104, 10, 14,
+	3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 16, 3, 16, 3,
+	16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 2, 2, 17, 2,
+	4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 2, 4, 3, 2, 9, 11,
+	4, 2, 24, 24, 26, 26, 2, 118, 2, 35, 3, 2, 2, 2, 4, 42, 3, 2, 2, 2, 6,
+	44, 3, 2, 2, 2, 8, 53, 3, 2, 2, 2, 10, 59, 3, 2, 2, 2, 12, 66, 3, 2, 2,
+	2, 14, 69, 3, 2, 2, 2, 16, 72, 3, 2, 2, 2, 18, 83, 3, 2, 2, 2, 20, 85,
+	3, 2, 2, 2, 22, 90, 3, 2, 2, 2, 24, 95, 3, 2, 2, 2, 26, 103, 3, 2, 2, 2,
+	28, 105, 3, 2, 2, 2, 30, 113, 3, 2, 2, 2, 32, 34, 5, 4, 3, 2, 33, 32, 3,
+	2, 2, 2, 34, 37, 3, 2, 2, 2, 35, 33, 3, 2, 2, 2, 35, 36, 3, 2, 2, 2, 36,
+	38, 3, 2, 2, 2, 37, 35, 3, 2, 2, 2, 38, 39, 7, 2, 2, 3, 39, 3, 3, 2, 2,
+	2, 40, 43, 5, 14, 8, 2, 41, 43, 5, 6, 4, 2, 42, 40, 3, 2, 2, 2, 42, 41,
+	3, 2, 2, 2, 43, 5, 3, 2, 2, 2, 44, 47, 5, 8, 5, 2, 45, 46, 7, 3, 2, 2,
+	46, 48, 5, 8, 5, 2, 47, 45, 3, 2, 2, 2, 48, 49, 3, 2, 2, 2, 49, 47, 3,
+	2, 2, 2, 49, 50, 3, 2, 2, 2, 50, 51, 3, 2, 2, 2, 51, 52, 5, 12, 7, 2, 52,
+	7, 3, 2, 2, 2, 53, 55, 7, 29, 2, 2, 54, 56, 5, 10, 6, 2, 55, 54, 3, 2,
+	2, 2, 56, 57, 3, 2, 2, 2, 57, 55, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58, 9,
+	3, 2, 2, 2, 59, 61, 7, 4, 2, 2, 60, 62, 7, 5, 2, 2, 61, 60, 3, 2, 2, 2,
+	61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 64, 7, 29, 2, 2, 64, 65, 7,
+	6, 2, 2, 65, 11, 3, 2, 2, 2, 66, 67, 7, 18, 2, 2, 67, 68, 7, 19, 2, 2,
+	68, 13, 3, 2, 2, 2, 69, 70, 7, 7, 2, 2, 70, 71, 5, 16, 9, 2, 71, 15, 3,
+	2, 2, 2, 72, 74, 7, 18, 2, 2, 73, 75, 5, 18, 10, 2, 74, 73, 3, 2, 2, 2,
+	75, 76, 3, 2, 2, 2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 78, 3,
+	2, 2, 2, 78, 79, 7, 19, 2, 2, 79, 17, 3, 2, 2, 2, 80, 84, 5, 20, 11, 2,
+	81, 84, 5, 22, 12, 2, 82, 84, 5, 24, 13, 2, 83, 80, 3, 2, 2, 2, 83, 81,
+	3, 2, 2, 2, 83, 82, 3, 2, 2, 2, 84, 19, 3, 2, 2, 2, 85, 86, 7, 8, 2, 2,
+	86, 87, 7, 20, 2, 2, 87, 88, 9, 2, 2, 2, 88, 89, 7, 21, 2, 2, 89, 21, 3,
+	2, 2, 2, 90, 91, 7, 12, 2, 2, 91, 92, 7, 20, 2, 2, 92, 93, 9, 3, 2, 2,
+	93, 94, 7, 21, 2, 2, 94, 23, 3, 2, 2, 2, 95, 96, 7, 13, 2, 2, 96, 97, 7,
+	20, 2, 2, 97, 98, 5, 26, 14, 2, 98, 99, 7, 21, 2, 2, 99, 25, 3, 2, 2, 2,
+	100, 104, 7, 28, 2, 2, 101, 104, 5, 28, 15, 2, 102, 104, 5, 30, 16, 2,
+	103, 100, 3, 2, 2, 2, 103, 101, 3, 2, 2, 2, 103, 102, 3, 2, 2, 2, 104,
+	27, 3, 2, 2, 2, 105, 106, 7, 14, 2, 2, 106, 107, 7, 24, 2, 2, 107, 108,
+	7, 3, 2, 2, 108, 109, 7, 24, 2, 2, 109, 110, 7, 3, 2, 2, 110, 111, 7, 24,
+	2, 2, 111, 112, 7, 15, 2, 2, 112, 29, 3, 2, 2, 2, 113, 114, 7, 16, 2, 2,
+	114, 115, 7, 24, 2, 2, 115, 116, 7, 3, 2, 2, 116, 117, 7, 24, 2, 2, 117,
+	118, 7, 3, 2, 2, 118, 119, 7, 24, 2, 2, 119, 120, 7, 3, 2, 2, 120, 121,
+	9, 3, 2, 2, 121, 122, 7, 15, 2, 2, 122, 31, 3, 2, 2, 2, 10, 35, 42, 49,
+	57, 61, 76, 83, 103,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'canvas'", "'rgb('", "','", "')'", "'rgba('", "", "'{'", "'}'", "':'",
-	"';'", "", "", "", "", "", "", "", "'antialiasing'", "'full'", "'text'",
-	"'none'", "'fill-opacity'", "'fill-color'",
+	"", "','", "'['", "'!'", "']'", "'canvas'", "'antialiasing'", "'full'",
+	"'text'", "'none'", "'fill-opacity'", "'fill-color'", "'rgb('", "')'",
+	"'rgba('", "", "'{'", "'}'", "':'", "';'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "WS", "LBRACE", "RBRACE", "COLON", "SEMICOLON",
-	"DQUOTED_STRING", "SQUOTED_STRING", "POSITIVE_INT", "NEGATIVE_INT", "POSITIVE_FLOAT",
-	"NEGATIVE_FLOAT", "HEX", "PROP_ANTIALIASING", "PROP_ANTIALIASING_FULL",
-	"PROP_ANTIALIASING_TEXT", "PROP_ANTIALIASING_NONE", "PROP_FILL_OPACITY",
-	"PROP_FILL_COLOR",
+	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "WS", "LBRACE",
+	"RBRACE", "COLON", "SEMICOLON", "DQUOTED_STRING", "SQUOTED_STRING", "POSITIVE_INT",
+	"NEGATIVE_INT", "POSITIVE_FLOAT", "NEGATIVE_FLOAT", "HEX", "IDENTIFIER",
 }
 
 var ruleNames = []string{
-	"stylesheet", "entry", "rule_", "canvas_declaration_block", "canvas_declaration",
-	"antialiasing", "fill_opacity", "fill_color", "alpha", "color", "rgb_color",
-	"rgba_color",
+	"stylesheet", "entry", "rule_", "selector", "attribute", "decl_block",
+	"canvas_rule", "canvas_decl_block", "canvas_decl", "antialiasing_decl",
+	"fill_opacity_decl", "fill_color_decl", "color", "rgb_color", "rgba_color",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -102,46 +113,53 @@ func NewMapCSSParser(input antlr.TokenStream) *MapCSSParser {
 
 // MapCSSParser tokens.
 const (
-	MapCSSParserEOF                    = antlr.TokenEOF
-	MapCSSParserT__0                   = 1
-	MapCSSParserT__1                   = 2
-	MapCSSParserT__2                   = 3
-	MapCSSParserT__3                   = 4
-	MapCSSParserT__4                   = 5
-	MapCSSParserWS                     = 6
-	MapCSSParserLBRACE                 = 7
-	MapCSSParserRBRACE                 = 8
-	MapCSSParserCOLON                  = 9
-	MapCSSParserSEMICOLON              = 10
-	MapCSSParserDQUOTED_STRING         = 11
-	MapCSSParserSQUOTED_STRING         = 12
-	MapCSSParserPOSITIVE_INT           = 13
-	MapCSSParserNEGATIVE_INT           = 14
-	MapCSSParserPOSITIVE_FLOAT         = 15
-	MapCSSParserNEGATIVE_FLOAT         = 16
-	MapCSSParserHEX                    = 17
-	MapCSSParserPROP_ANTIALIASING      = 18
-	MapCSSParserPROP_ANTIALIASING_FULL = 19
-	MapCSSParserPROP_ANTIALIASING_TEXT = 20
-	MapCSSParserPROP_ANTIALIASING_NONE = 21
-	MapCSSParserPROP_FILL_OPACITY      = 22
-	MapCSSParserPROP_FILL_COLOR        = 23
+	MapCSSParserEOF            = antlr.TokenEOF
+	MapCSSParserT__0           = 1
+	MapCSSParserT__1           = 2
+	MapCSSParserT__2           = 3
+	MapCSSParserT__3           = 4
+	MapCSSParserT__4           = 5
+	MapCSSParserT__5           = 6
+	MapCSSParserT__6           = 7
+	MapCSSParserT__7           = 8
+	MapCSSParserT__8           = 9
+	MapCSSParserT__9           = 10
+	MapCSSParserT__10          = 11
+	MapCSSParserT__11          = 12
+	MapCSSParserT__12          = 13
+	MapCSSParserT__13          = 14
+	MapCSSParserWS             = 15
+	MapCSSParserLBRACE         = 16
+	MapCSSParserRBRACE         = 17
+	MapCSSParserCOLON          = 18
+	MapCSSParserSEMICOLON      = 19
+	MapCSSParserDQUOTED_STRING = 20
+	MapCSSParserSQUOTED_STRING = 21
+	MapCSSParserPOSITIVE_INT   = 22
+	MapCSSParserNEGATIVE_INT   = 23
+	MapCSSParserPOSITIVE_FLOAT = 24
+	MapCSSParserNEGATIVE_FLOAT = 25
+	MapCSSParserHEX            = 26
+	MapCSSParserIDENTIFIER     = 27
 )
 
 // MapCSSParser rules.
 const (
-	MapCSSParserRULE_stylesheet               = 0
-	MapCSSParserRULE_entry                    = 1
-	MapCSSParserRULE_rule_                    = 2
-	MapCSSParserRULE_canvas_declaration_block = 3
-	MapCSSParserRULE_canvas_declaration       = 4
-	MapCSSParserRULE_antialiasing             = 5
-	MapCSSParserRULE_fill_opacity             = 6
-	MapCSSParserRULE_fill_color               = 7
-	MapCSSParserRULE_alpha                    = 8
-	MapCSSParserRULE_color                    = 9
-	MapCSSParserRULE_rgb_color                = 10
-	MapCSSParserRULE_rgba_color               = 11
+	MapCSSParserRULE_stylesheet        = 0
+	MapCSSParserRULE_entry             = 1
+	MapCSSParserRULE_rule_             = 2
+	MapCSSParserRULE_selector          = 3
+	MapCSSParserRULE_attribute         = 4
+	MapCSSParserRULE_decl_block        = 5
+	MapCSSParserRULE_canvas_rule       = 6
+	MapCSSParserRULE_canvas_decl_block = 7
+	MapCSSParserRULE_canvas_decl       = 8
+	MapCSSParserRULE_antialiasing_decl = 9
+	MapCSSParserRULE_fill_opacity_decl = 10
+	MapCSSParserRULE_fill_color_decl   = 11
+	MapCSSParserRULE_color             = 12
+	MapCSSParserRULE_rgb_color         = 13
+	MapCSSParserRULE_rgba_color        = 14
 )
 
 // IStylesheetContext is an interface to support dynamic dispatch.
@@ -251,22 +269,22 @@ func (p *MapCSSParser) Stylesheet() (localctx IStylesheetContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(27)
+	p.SetState(33)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == MapCSSParserT__0 {
+	for _la == MapCSSParserT__4 || _la == MapCSSParserIDENTIFIER {
 		{
-			p.SetState(24)
+			p.SetState(30)
 			p.Entry()
 		}
 
-		p.SetState(29)
+		p.SetState(35)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(30)
+		p.SetState(36)
 		p.Match(MapCSSParserEOF)
 	}
 
@@ -310,6 +328,16 @@ func NewEntryContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 }
 
 func (s *EntryContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *EntryContext) Canvas_rule() ICanvas_ruleContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICanvas_ruleContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICanvas_ruleContext)
+}
 
 func (s *EntryContext) Rule_() IRule_Context {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRule_Context)(nil)).Elem(), 0)
@@ -361,10 +389,26 @@ func (p *MapCSSParser) Entry() (localctx IEntryContext) {
 		}
 	}()
 
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(32)
-		p.Rule_()
+	p.SetState(40)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case MapCSSParserT__4:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(38)
+			p.Canvas_rule()
+		}
+
+	case MapCSSParserIDENTIFIER:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(39)
+			p.Rule_()
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 
 	return localctx
@@ -408,14 +452,37 @@ func NewRule_Context(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *Rule_Context) GetParser() antlr.Parser { return s.parser }
 
-func (s *Rule_Context) Canvas_declaration_block() ICanvas_declaration_blockContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICanvas_declaration_blockContext)(nil)).Elem(), 0)
+func (s *Rule_Context) AllSelector() []ISelectorContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ISelectorContext)(nil)).Elem())
+	var tst = make([]ISelectorContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(ISelectorContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *Rule_Context) Selector(i int) ISelectorContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISelectorContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ICanvas_declaration_blockContext)
+	return t.(ISelectorContext)
+}
+
+func (s *Rule_Context) Decl_block() IDecl_blockContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IDecl_blockContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IDecl_blockContext)
 }
 
 func (s *Rule_Context) GetRuleContext() antlr.RuleContext {
@@ -441,6 +508,7 @@ func (s *Rule_Context) ExitRule(listener antlr.ParseTreeListener) {
 func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 	localctx = NewRule_Context(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, MapCSSParserRULE_rule_)
+	var _la int
 
 	defer func() {
 		p.ExitRule()
@@ -460,105 +528,134 @@ func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(34)
-		p.Canvas_declaration_block()
+		p.SetState(42)
+		p.Selector()
+	}
+	p.SetState(45)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = _la == MapCSSParserT__0 {
+		{
+			p.SetState(43)
+			p.Match(MapCSSParserT__0)
+		}
+		{
+			p.SetState(44)
+			p.Selector()
+		}
+
+		p.SetState(47)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+	{
+		p.SetState(49)
+		p.Decl_block()
 	}
 
 	return localctx
 }
 
-// ICanvas_declaration_blockContext is an interface to support dynamic dispatch.
-type ICanvas_declaration_blockContext interface {
+// ISelectorContext is an interface to support dynamic dispatch.
+type ISelectorContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsCanvas_declaration_blockContext differentiates from other interfaces.
-	IsCanvas_declaration_blockContext()
+	// GetTyp returns the typ token.
+	GetTyp() antlr.Token
+
+	// SetTyp sets the typ token.
+	SetTyp(antlr.Token)
+
+	// IsSelectorContext differentiates from other interfaces.
+	IsSelectorContext()
 }
 
-type Canvas_declaration_blockContext struct {
+type SelectorContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
+	typ    antlr.Token
 }
 
-func NewEmptyCanvas_declaration_blockContext() *Canvas_declaration_blockContext {
-	var p = new(Canvas_declaration_blockContext)
+func NewEmptySelectorContext() *SelectorContext {
+	var p = new(SelectorContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_canvas_declaration_block
+	p.RuleIndex = MapCSSParserRULE_selector
 	return p
 }
 
-func (*Canvas_declaration_blockContext) IsCanvas_declaration_blockContext() {}
+func (*SelectorContext) IsSelectorContext() {}
 
-func NewCanvas_declaration_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Canvas_declaration_blockContext {
-	var p = new(Canvas_declaration_blockContext)
+func NewSelectorContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SelectorContext {
+	var p = new(SelectorContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_canvas_declaration_block
+	p.RuleIndex = MapCSSParserRULE_selector
 
 	return p
 }
 
-func (s *Canvas_declaration_blockContext) GetParser() antlr.Parser { return s.parser }
+func (s *SelectorContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Canvas_declaration_blockContext) LBRACE() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserLBRACE, 0)
+func (s *SelectorContext) GetTyp() antlr.Token { return s.typ }
+
+func (s *SelectorContext) SetTyp(v antlr.Token) { s.typ = v }
+
+func (s *SelectorContext) IDENTIFIER() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserIDENTIFIER, 0)
 }
 
-func (s *Canvas_declaration_blockContext) RBRACE() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserRBRACE, 0)
-}
-
-func (s *Canvas_declaration_blockContext) AllCanvas_declaration() []ICanvas_declarationContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ICanvas_declarationContext)(nil)).Elem())
-	var tst = make([]ICanvas_declarationContext, len(ts))
+func (s *SelectorContext) AllAttribute() []IAttributeContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IAttributeContext)(nil)).Elem())
+	var tst = make([]IAttributeContext, len(ts))
 
 	for i, t := range ts {
 		if t != nil {
-			tst[i] = t.(ICanvas_declarationContext)
+			tst[i] = t.(IAttributeContext)
 		}
 	}
 
 	return tst
 }
 
-func (s *Canvas_declaration_blockContext) Canvas_declaration(i int) ICanvas_declarationContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICanvas_declarationContext)(nil)).Elem(), i)
+func (s *SelectorContext) Attribute(i int) IAttributeContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAttributeContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ICanvas_declarationContext)
+	return t.(IAttributeContext)
 }
 
-func (s *Canvas_declaration_blockContext) GetRuleContext() antlr.RuleContext {
+func (s *SelectorContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Canvas_declaration_blockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *SelectorContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Canvas_declaration_blockContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *SelectorContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterCanvas_declaration_block(s)
+		listenerT.EnterSelector(s)
 	}
 }
 
-func (s *Canvas_declaration_blockContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *SelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitCanvas_declaration_block(s)
+		listenerT.ExitSelector(s)
 	}
 }
 
-func (p *MapCSSParser) Canvas_declaration_block() (localctx ICanvas_declaration_blockContext) {
-	localctx = NewCanvas_declaration_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, MapCSSParserRULE_canvas_declaration_block)
+func (p *MapCSSParser) Selector() (localctx ISelectorContext) {
+	localctx = NewSelectorContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 6, MapCSSParserRULE_selector)
 	var _la int
 
 	defer func() {
@@ -579,304 +676,117 @@ func (p *MapCSSParser) Canvas_declaration_block() (localctx ICanvas_declaration_
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(36)
-		p.Match(MapCSSParserT__0)
+		p.SetState(51)
+
+		var _m = p.Match(MapCSSParserIDENTIFIER)
+
+		localctx.(*SelectorContext).typ = _m
 	}
-	{
-		p.SetState(37)
-		p.Match(MapCSSParserLBRACE)
-	}
-	p.SetState(39)
+	p.SetState(53)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserPROP_ANTIALIASING)|(1<<MapCSSParserPROP_FILL_OPACITY)|(1<<MapCSSParserPROP_FILL_COLOR))) != 0) {
+	for ok := true; ok; ok = _la == MapCSSParserT__1 {
 		{
-			p.SetState(38)
-			p.Canvas_declaration()
+			p.SetState(52)
+			p.Attribute()
 		}
 
-		p.SetState(41)
+		p.SetState(55)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
-	{
-		p.SetState(43)
-		p.Match(MapCSSParserRBRACE)
-	}
 
 	return localctx
 }
 
-// ICanvas_declarationContext is an interface to support dynamic dispatch.
-type ICanvas_declarationContext interface {
+// IAttributeContext is an interface to support dynamic dispatch.
+type IAttributeContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsCanvas_declarationContext differentiates from other interfaces.
-	IsCanvas_declarationContext()
+	// GetNeg returns the neg token.
+	GetNeg() antlr.Token
+
+	// GetName returns the name token.
+	GetName() antlr.Token
+
+	// SetNeg sets the neg token.
+	SetNeg(antlr.Token)
+
+	// SetName sets the name token.
+	SetName(antlr.Token)
+
+	// IsAttributeContext differentiates from other interfaces.
+	IsAttributeContext()
 }
 
-type Canvas_declarationContext struct {
+type AttributeContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
+	neg    antlr.Token
+	name   antlr.Token
 }
 
-func NewEmptyCanvas_declarationContext() *Canvas_declarationContext {
-	var p = new(Canvas_declarationContext)
+func NewEmptyAttributeContext() *AttributeContext {
+	var p = new(AttributeContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_canvas_declaration
+	p.RuleIndex = MapCSSParserRULE_attribute
 	return p
 }
 
-func (*Canvas_declarationContext) IsCanvas_declarationContext() {}
+func (*AttributeContext) IsAttributeContext() {}
 
-func NewCanvas_declarationContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Canvas_declarationContext {
-	var p = new(Canvas_declarationContext)
+func NewAttributeContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *AttributeContext {
+	var p = new(AttributeContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_canvas_declaration
+	p.RuleIndex = MapCSSParserRULE_attribute
 
 	return p
 }
 
-func (s *Canvas_declarationContext) GetParser() antlr.Parser { return s.parser }
+func (s *AttributeContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Canvas_declarationContext) PROP_ANTIALIASING() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_ANTIALIASING, 0)
+func (s *AttributeContext) GetNeg() antlr.Token { return s.neg }
+
+func (s *AttributeContext) GetName() antlr.Token { return s.name }
+
+func (s *AttributeContext) SetNeg(v antlr.Token) { s.neg = v }
+
+func (s *AttributeContext) SetName(v antlr.Token) { s.name = v }
+
+func (s *AttributeContext) IDENTIFIER() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserIDENTIFIER, 0)
 }
 
-func (s *Canvas_declarationContext) COLON() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserCOLON, 0)
-}
-
-func (s *Canvas_declarationContext) Antialiasing() IAntialiasingContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAntialiasingContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IAntialiasingContext)
-}
-
-func (s *Canvas_declarationContext) SEMICOLON() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserSEMICOLON, 0)
-}
-
-func (s *Canvas_declarationContext) PROP_FILL_OPACITY() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_FILL_OPACITY, 0)
-}
-
-func (s *Canvas_declarationContext) Fill_opacity() IFill_opacityContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFill_opacityContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFill_opacityContext)
-}
-
-func (s *Canvas_declarationContext) PROP_FILL_COLOR() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_FILL_COLOR, 0)
-}
-
-func (s *Canvas_declarationContext) Fill_color() IFill_colorContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFill_colorContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFill_colorContext)
-}
-
-func (s *Canvas_declarationContext) GetRuleContext() antlr.RuleContext {
+func (s *AttributeContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Canvas_declarationContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *AttributeContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Canvas_declarationContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *AttributeContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterCanvas_declaration(s)
+		listenerT.EnterAttribute(s)
 	}
 }
 
-func (s *Canvas_declarationContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *AttributeContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitCanvas_declaration(s)
+		listenerT.ExitAttribute(s)
 	}
 }
 
-func (p *MapCSSParser) Canvas_declaration() (localctx ICanvas_declarationContext) {
-	localctx = NewCanvas_declarationContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, MapCSSParserRULE_canvas_declaration)
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.SetState(60)
-	p.GetErrorHandler().Sync(p)
-
-	switch p.GetTokenStream().LA(1) {
-	case MapCSSParserPROP_ANTIALIASING:
-		p.EnterOuterAlt(localctx, 1)
-		{
-			p.SetState(45)
-			p.Match(MapCSSParserPROP_ANTIALIASING)
-		}
-		{
-			p.SetState(46)
-			p.Match(MapCSSParserCOLON)
-		}
-		{
-			p.SetState(47)
-			p.Antialiasing()
-		}
-		{
-			p.SetState(48)
-			p.Match(MapCSSParserSEMICOLON)
-		}
-
-	case MapCSSParserPROP_FILL_OPACITY:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(50)
-			p.Match(MapCSSParserPROP_FILL_OPACITY)
-		}
-		{
-			p.SetState(51)
-			p.Match(MapCSSParserCOLON)
-		}
-		{
-			p.SetState(52)
-			p.Fill_opacity()
-		}
-		{
-			p.SetState(53)
-			p.Match(MapCSSParserSEMICOLON)
-		}
-
-	case MapCSSParserPROP_FILL_COLOR:
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(55)
-			p.Match(MapCSSParserPROP_FILL_COLOR)
-		}
-		{
-			p.SetState(56)
-			p.Match(MapCSSParserCOLON)
-		}
-		{
-			p.SetState(57)
-			p.Fill_color()
-		}
-		{
-			p.SetState(58)
-			p.Match(MapCSSParserSEMICOLON)
-		}
-
-	default:
-		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
-	}
-
-	return localctx
-}
-
-// IAntialiasingContext is an interface to support dynamic dispatch.
-type IAntialiasingContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsAntialiasingContext differentiates from other interfaces.
-	IsAntialiasingContext()
-}
-
-type AntialiasingContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyAntialiasingContext() *AntialiasingContext {
-	var p = new(AntialiasingContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_antialiasing
-	return p
-}
-
-func (*AntialiasingContext) IsAntialiasingContext() {}
-
-func NewAntialiasingContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *AntialiasingContext {
-	var p = new(AntialiasingContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_antialiasing
-
-	return p
-}
-
-func (s *AntialiasingContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *AntialiasingContext) PROP_ANTIALIASING_FULL() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_ANTIALIASING_FULL, 0)
-}
-
-func (s *AntialiasingContext) PROP_ANTIALIASING_TEXT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_ANTIALIASING_TEXT, 0)
-}
-
-func (s *AntialiasingContext) PROP_ANTIALIASING_NONE() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPROP_ANTIALIASING_NONE, 0)
-}
-
-func (s *AntialiasingContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *AntialiasingContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *AntialiasingContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterAntialiasing(s)
-	}
-}
-
-func (s *AntialiasingContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitAntialiasing(s)
-	}
-}
-
-func (p *MapCSSParser) Antialiasing() (localctx IAntialiasingContext) {
-	localctx = NewAntialiasingContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, MapCSSParserRULE_antialiasing)
+func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
+	localctx = NewAttributeContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 8, MapCSSParserRULE_attribute)
 	var _la int
 
 	defer func() {
@@ -897,90 +807,107 @@ func (p *MapCSSParser) Antialiasing() (localctx IAntialiasingContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(62)
-		_la = p.GetTokenStream().LA(1)
+		p.SetState(57)
+		p.Match(MapCSSParserT__1)
+	}
+	p.SetState(59)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserPROP_ANTIALIASING_FULL)|(1<<MapCSSParserPROP_ANTIALIASING_TEXT)|(1<<MapCSSParserPROP_ANTIALIASING_NONE))) != 0) {
-			p.GetErrorHandler().RecoverInline(p)
-		} else {
-			p.GetErrorHandler().ReportMatch(p)
-			p.Consume()
+	if _la == MapCSSParserT__2 {
+		{
+			p.SetState(58)
+
+			var _m = p.Match(MapCSSParserT__2)
+
+			localctx.(*AttributeContext).neg = _m
 		}
+
+	}
+	{
+		p.SetState(61)
+
+		var _m = p.Match(MapCSSParserIDENTIFIER)
+
+		localctx.(*AttributeContext).name = _m
+	}
+	{
+		p.SetState(62)
+		p.Match(MapCSSParserT__3)
 	}
 
 	return localctx
 }
 
-// IFill_opacityContext is an interface to support dynamic dispatch.
-type IFill_opacityContext interface {
+// IDecl_blockContext is an interface to support dynamic dispatch.
+type IDecl_blockContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsFill_opacityContext differentiates from other interfaces.
-	IsFill_opacityContext()
+	// IsDecl_blockContext differentiates from other interfaces.
+	IsDecl_blockContext()
 }
 
-type Fill_opacityContext struct {
+type Decl_blockContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyFill_opacityContext() *Fill_opacityContext {
-	var p = new(Fill_opacityContext)
+func NewEmptyDecl_blockContext() *Decl_blockContext {
+	var p = new(Decl_blockContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_fill_opacity
+	p.RuleIndex = MapCSSParserRULE_decl_block
 	return p
 }
 
-func (*Fill_opacityContext) IsFill_opacityContext() {}
+func (*Decl_blockContext) IsDecl_blockContext() {}
 
-func NewFill_opacityContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Fill_opacityContext {
-	var p = new(Fill_opacityContext)
+func NewDecl_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Decl_blockContext {
+	var p = new(Decl_blockContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_fill_opacity
+	p.RuleIndex = MapCSSParserRULE_decl_block
 
 	return p
 }
 
-func (s *Fill_opacityContext) GetParser() antlr.Parser { return s.parser }
+func (s *Decl_blockContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Fill_opacityContext) POSITIVE_INT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+func (s *Decl_blockContext) LBRACE() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserLBRACE, 0)
 }
 
-func (s *Fill_opacityContext) POSITIVE_FLOAT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_FLOAT, 0)
+func (s *Decl_blockContext) RBRACE() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserRBRACE, 0)
 }
 
-func (s *Fill_opacityContext) GetRuleContext() antlr.RuleContext {
+func (s *Decl_blockContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Fill_opacityContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *Decl_blockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Fill_opacityContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *Decl_blockContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterFill_opacity(s)
+		listenerT.EnterDecl_block(s)
 	}
 }
 
-func (s *Fill_opacityContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *Decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitFill_opacity(s)
+		listenerT.ExitDecl_block(s)
 	}
 }
 
-func (p *MapCSSParser) Fill_opacity() (localctx IFill_opacityContext) {
-	localctx = NewFill_opacityContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, MapCSSParserRULE_fill_opacity)
-	var _la int
+func (p *MapCSSParser) Decl_block() (localctx IDecl_blockContext) {
+	localctx = NewDecl_blockContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 10, MapCSSParserRULE_decl_block)
 
 	defer func() {
 		p.ExitRule()
@@ -1001,58 +928,711 @@ func (p *MapCSSParser) Fill_opacity() (localctx IFill_opacityContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(64)
-		_la = p.GetTokenStream().LA(1)
-
-		if !(_la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT) {
-			p.GetErrorHandler().RecoverInline(p)
-		} else {
-			p.GetErrorHandler().ReportMatch(p)
-			p.Consume()
-		}
+		p.Match(MapCSSParserLBRACE)
+	}
+	{
+		p.SetState(65)
+		p.Match(MapCSSParserRBRACE)
 	}
 
 	return localctx
 }
 
-// IFill_colorContext is an interface to support dynamic dispatch.
-type IFill_colorContext interface {
+// ICanvas_ruleContext is an interface to support dynamic dispatch.
+type ICanvas_ruleContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsFill_colorContext differentiates from other interfaces.
-	IsFill_colorContext()
+	// IsCanvas_ruleContext differentiates from other interfaces.
+	IsCanvas_ruleContext()
 }
 
-type Fill_colorContext struct {
+type Canvas_ruleContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyFill_colorContext() *Fill_colorContext {
-	var p = new(Fill_colorContext)
+func NewEmptyCanvas_ruleContext() *Canvas_ruleContext {
+	var p = new(Canvas_ruleContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_fill_color
+	p.RuleIndex = MapCSSParserRULE_canvas_rule
 	return p
 }
 
-func (*Fill_colorContext) IsFill_colorContext() {}
+func (*Canvas_ruleContext) IsCanvas_ruleContext() {}
 
-func NewFill_colorContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Fill_colorContext {
-	var p = new(Fill_colorContext)
+func NewCanvas_ruleContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Canvas_ruleContext {
+	var p = new(Canvas_ruleContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_fill_color
+	p.RuleIndex = MapCSSParserRULE_canvas_rule
 
 	return p
 }
 
-func (s *Fill_colorContext) GetParser() antlr.Parser { return s.parser }
+func (s *Canvas_ruleContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Fill_colorContext) Color() IColorContext {
+func (s *Canvas_ruleContext) Canvas_decl_block() ICanvas_decl_blockContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICanvas_decl_blockContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICanvas_decl_blockContext)
+}
+
+func (s *Canvas_ruleContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Canvas_ruleContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Canvas_ruleContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterCanvas_rule(s)
+	}
+}
+
+func (s *Canvas_ruleContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitCanvas_rule(s)
+	}
+}
+
+func (p *MapCSSParser) Canvas_rule() (localctx ICanvas_ruleContext) {
+	localctx = NewCanvas_ruleContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 12, MapCSSParserRULE_canvas_rule)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(67)
+		p.Match(MapCSSParserT__4)
+	}
+	{
+		p.SetState(68)
+		p.Canvas_decl_block()
+	}
+
+	return localctx
+}
+
+// ICanvas_decl_blockContext is an interface to support dynamic dispatch.
+type ICanvas_decl_blockContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsCanvas_decl_blockContext differentiates from other interfaces.
+	IsCanvas_decl_blockContext()
+}
+
+type Canvas_decl_blockContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyCanvas_decl_blockContext() *Canvas_decl_blockContext {
+	var p = new(Canvas_decl_blockContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_canvas_decl_block
+	return p
+}
+
+func (*Canvas_decl_blockContext) IsCanvas_decl_blockContext() {}
+
+func NewCanvas_decl_blockContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Canvas_decl_blockContext {
+	var p = new(Canvas_decl_blockContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_canvas_decl_block
+
+	return p
+}
+
+func (s *Canvas_decl_blockContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Canvas_decl_blockContext) LBRACE() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserLBRACE, 0)
+}
+
+func (s *Canvas_decl_blockContext) RBRACE() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserRBRACE, 0)
+}
+
+func (s *Canvas_decl_blockContext) AllCanvas_decl() []ICanvas_declContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ICanvas_declContext)(nil)).Elem())
+	var tst = make([]ICanvas_declContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(ICanvas_declContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *Canvas_decl_blockContext) Canvas_decl(i int) ICanvas_declContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICanvas_declContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICanvas_declContext)
+}
+
+func (s *Canvas_decl_blockContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Canvas_decl_blockContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Canvas_decl_blockContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterCanvas_decl_block(s)
+	}
+}
+
+func (s *Canvas_decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitCanvas_decl_block(s)
+	}
+}
+
+func (p *MapCSSParser) Canvas_decl_block() (localctx ICanvas_decl_blockContext) {
+	localctx = NewCanvas_decl_blockContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 14, MapCSSParserRULE_canvas_decl_block)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(70)
+		p.Match(MapCSSParserLBRACE)
+	}
+	p.SetState(72)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__5)|(1<<MapCSSParserT__9)|(1<<MapCSSParserT__10))) != 0) {
+		{
+			p.SetState(71)
+			p.Canvas_decl()
+		}
+
+		p.SetState(74)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+	{
+		p.SetState(76)
+		p.Match(MapCSSParserRBRACE)
+	}
+
+	return localctx
+}
+
+// ICanvas_declContext is an interface to support dynamic dispatch.
+type ICanvas_declContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsCanvas_declContext differentiates from other interfaces.
+	IsCanvas_declContext()
+}
+
+type Canvas_declContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyCanvas_declContext() *Canvas_declContext {
+	var p = new(Canvas_declContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_canvas_decl
+	return p
+}
+
+func (*Canvas_declContext) IsCanvas_declContext() {}
+
+func NewCanvas_declContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Canvas_declContext {
+	var p = new(Canvas_declContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_canvas_decl
+
+	return p
+}
+
+func (s *Canvas_declContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Canvas_declContext) Antialiasing_decl() IAntialiasing_declContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IAntialiasing_declContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IAntialiasing_declContext)
+}
+
+func (s *Canvas_declContext) Fill_opacity_decl() IFill_opacity_declContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFill_opacity_declContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFill_opacity_declContext)
+}
+
+func (s *Canvas_declContext) Fill_color_decl() IFill_color_declContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFill_color_declContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFill_color_declContext)
+}
+
+func (s *Canvas_declContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Canvas_declContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Canvas_declContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterCanvas_decl(s)
+	}
+}
+
+func (s *Canvas_declContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitCanvas_decl(s)
+	}
+}
+
+func (p *MapCSSParser) Canvas_decl() (localctx ICanvas_declContext) {
+	localctx = NewCanvas_declContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 16, MapCSSParserRULE_canvas_decl)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(81)
+	p.GetErrorHandler().Sync(p)
+
+	switch p.GetTokenStream().LA(1) {
+	case MapCSSParserT__5:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(78)
+			p.Antialiasing_decl()
+		}
+
+	case MapCSSParserT__9:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(79)
+			p.Fill_opacity_decl()
+		}
+
+	case MapCSSParserT__10:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(80)
+			p.Fill_color_decl()
+		}
+
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
+	}
+
+	return localctx
+}
+
+// IAntialiasing_declContext is an interface to support dynamic dispatch.
+type IAntialiasing_declContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetV returns the v token.
+	GetV() antlr.Token
+
+	// SetV sets the v token.
+	SetV(antlr.Token)
+
+	// IsAntialiasing_declContext differentiates from other interfaces.
+	IsAntialiasing_declContext()
+}
+
+type Antialiasing_declContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+	v      antlr.Token
+}
+
+func NewEmptyAntialiasing_declContext() *Antialiasing_declContext {
+	var p = new(Antialiasing_declContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_antialiasing_decl
+	return p
+}
+
+func (*Antialiasing_declContext) IsAntialiasing_declContext() {}
+
+func NewAntialiasing_declContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Antialiasing_declContext {
+	var p = new(Antialiasing_declContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_antialiasing_decl
+
+	return p
+}
+
+func (s *Antialiasing_declContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Antialiasing_declContext) GetV() antlr.Token { return s.v }
+
+func (s *Antialiasing_declContext) SetV(v antlr.Token) { s.v = v }
+
+func (s *Antialiasing_declContext) COLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserCOLON, 0)
+}
+
+func (s *Antialiasing_declContext) SEMICOLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserSEMICOLON, 0)
+}
+
+func (s *Antialiasing_declContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Antialiasing_declContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Antialiasing_declContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterAntialiasing_decl(s)
+	}
+}
+
+func (s *Antialiasing_declContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitAntialiasing_decl(s)
+	}
+}
+
+func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) {
+	localctx = NewAntialiasing_declContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 18, MapCSSParserRULE_antialiasing_decl)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(83)
+		p.Match(MapCSSParserT__5)
+	}
+	{
+		p.SetState(84)
+		p.Match(MapCSSParserCOLON)
+	}
+	{
+		p.SetState(85)
+
+		var _lt = p.GetTokenStream().LT(1)
+
+		localctx.(*Antialiasing_declContext).v = _lt
+
+		_la = p.GetTokenStream().LA(1)
+
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__6)|(1<<MapCSSParserT__7)|(1<<MapCSSParserT__8))) != 0) {
+			var _ri = p.GetErrorHandler().RecoverInline(p)
+
+			localctx.(*Antialiasing_declContext).v = _ri
+		} else {
+			p.GetErrorHandler().ReportMatch(p)
+			p.Consume()
+		}
+	}
+	{
+		p.SetState(86)
+		p.Match(MapCSSParserSEMICOLON)
+	}
+
+	return localctx
+}
+
+// IFill_opacity_declContext is an interface to support dynamic dispatch.
+type IFill_opacity_declContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetV returns the v token.
+	GetV() antlr.Token
+
+	// SetV sets the v token.
+	SetV(antlr.Token)
+
+	// IsFill_opacity_declContext differentiates from other interfaces.
+	IsFill_opacity_declContext()
+}
+
+type Fill_opacity_declContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+	v      antlr.Token
+}
+
+func NewEmptyFill_opacity_declContext() *Fill_opacity_declContext {
+	var p = new(Fill_opacity_declContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_fill_opacity_decl
+	return p
+}
+
+func (*Fill_opacity_declContext) IsFill_opacity_declContext() {}
+
+func NewFill_opacity_declContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Fill_opacity_declContext {
+	var p = new(Fill_opacity_declContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_fill_opacity_decl
+
+	return p
+}
+
+func (s *Fill_opacity_declContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Fill_opacity_declContext) GetV() antlr.Token { return s.v }
+
+func (s *Fill_opacity_declContext) SetV(v antlr.Token) { s.v = v }
+
+func (s *Fill_opacity_declContext) COLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserCOLON, 0)
+}
+
+func (s *Fill_opacity_declContext) SEMICOLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserSEMICOLON, 0)
+}
+
+func (s *Fill_opacity_declContext) POSITIVE_INT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+}
+
+func (s *Fill_opacity_declContext) POSITIVE_FLOAT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_FLOAT, 0)
+}
+
+func (s *Fill_opacity_declContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Fill_opacity_declContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Fill_opacity_declContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterFill_opacity_decl(s)
+	}
+}
+
+func (s *Fill_opacity_declContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitFill_opacity_decl(s)
+	}
+}
+
+func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) {
+	localctx = NewFill_opacity_declContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 20, MapCSSParserRULE_fill_opacity_decl)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(88)
+		p.Match(MapCSSParserT__9)
+	}
+	{
+		p.SetState(89)
+		p.Match(MapCSSParserCOLON)
+	}
+	{
+		p.SetState(90)
+
+		var _lt = p.GetTokenStream().LT(1)
+
+		localctx.(*Fill_opacity_declContext).v = _lt
+
+		_la = p.GetTokenStream().LA(1)
+
+		if !(_la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT) {
+			var _ri = p.GetErrorHandler().RecoverInline(p)
+
+			localctx.(*Fill_opacity_declContext).v = _ri
+		} else {
+			p.GetErrorHandler().ReportMatch(p)
+			p.Consume()
+		}
+	}
+	{
+		p.SetState(91)
+		p.Match(MapCSSParserSEMICOLON)
+	}
+
+	return localctx
+}
+
+// IFill_color_declContext is an interface to support dynamic dispatch.
+type IFill_color_declContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsFill_color_declContext differentiates from other interfaces.
+	IsFill_color_declContext()
+}
+
+type Fill_color_declContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFill_color_declContext() *Fill_color_declContext {
+	var p = new(Fill_color_declContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_fill_color_decl
+	return p
+}
+
+func (*Fill_color_declContext) IsFill_color_declContext() {}
+
+func NewFill_color_declContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Fill_color_declContext {
+	var p = new(Fill_color_declContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_fill_color_decl
+
+	return p
+}
+
+func (s *Fill_color_declContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Fill_color_declContext) COLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserCOLON, 0)
+}
+
+func (s *Fill_color_declContext) Color() IColorContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IColorContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -1062,29 +1642,33 @@ func (s *Fill_colorContext) Color() IColorContext {
 	return t.(IColorContext)
 }
 
-func (s *Fill_colorContext) GetRuleContext() antlr.RuleContext {
+func (s *Fill_color_declContext) SEMICOLON() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserSEMICOLON, 0)
+}
+
+func (s *Fill_color_declContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Fill_colorContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *Fill_color_declContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Fill_colorContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *Fill_color_declContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterFill_color(s)
+		listenerT.EnterFill_color_decl(s)
 	}
 }
 
-func (s *Fill_colorContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *Fill_color_declContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitFill_color(s)
+		listenerT.ExitFill_color_decl(s)
 	}
 }
 
-func (p *MapCSSParser) Fill_color() (localctx IFill_colorContext) {
-	localctx = NewFill_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, MapCSSParserRULE_fill_color)
+func (p *MapCSSParser) Fill_color_decl() (localctx IFill_color_declContext) {
+	localctx = NewFill_color_declContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 22, MapCSSParserRULE_fill_color_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -1104,99 +1688,20 @@ func (p *MapCSSParser) Fill_color() (localctx IFill_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(66)
+		p.SetState(93)
+		p.Match(MapCSSParserT__10)
+	}
+	{
+		p.SetState(94)
+		p.Match(MapCSSParserCOLON)
+	}
+	{
+		p.SetState(95)
 		p.Color()
 	}
-
-	return localctx
-}
-
-// IAlphaContext is an interface to support dynamic dispatch.
-type IAlphaContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsAlphaContext differentiates from other interfaces.
-	IsAlphaContext()
-}
-
-type AlphaContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyAlphaContext() *AlphaContext {
-	var p = new(AlphaContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MapCSSParserRULE_alpha
-	return p
-}
-
-func (*AlphaContext) IsAlphaContext() {}
-
-func NewAlphaContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *AlphaContext {
-	var p = new(AlphaContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = MapCSSParserRULE_alpha
-
-	return p
-}
-
-func (s *AlphaContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *AlphaContext) POSITIVE_INT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
-}
-
-func (s *AlphaContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *AlphaContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *AlphaContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.EnterAlpha(s)
-	}
-}
-
-func (s *AlphaContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MapCSSListener); ok {
-		listenerT.ExitAlpha(s)
-	}
-}
-
-func (p *MapCSSParser) Alpha() (localctx IAlphaContext) {
-	localctx = NewAlphaContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, MapCSSParserRULE_alpha)
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(68)
-		p.Match(MapCSSParserPOSITIVE_INT)
+		p.SetState(96)
+		p.Match(MapCSSParserSEMICOLON)
 	}
 
 	return localctx
@@ -1286,7 +1791,7 @@ func (s *ColorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Color() (localctx IColorContext) {
 	localctx = NewColorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, MapCSSParserRULE_color)
+	p.EnterRule(localctx, 24, MapCSSParserRULE_color)
 
 	defer func() {
 		p.ExitRule()
@@ -1304,28 +1809,28 @@ func (p *MapCSSParser) Color() (localctx IColorContext) {
 		}
 	}()
 
-	p.SetState(73)
+	p.SetState(101)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case MapCSSParserHEX:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(70)
+			p.SetState(98)
 			p.Match(MapCSSParserHEX)
 		}
 
-	case MapCSSParserT__1:
+	case MapCSSParserT__11:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(71)
+			p.SetState(99)
 			p.Rgb_color()
 		}
 
-	case MapCSSParserT__4:
+	case MapCSSParserT__13:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(72)
+			p.SetState(100)
 			p.Rgba_color()
 		}
 
@@ -1437,7 +1942,7 @@ func (s *Rgb_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 	localctx = NewRgb_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, MapCSSParserRULE_rgb_color)
+	p.EnterRule(localctx, 26, MapCSSParserRULE_rgb_color)
 
 	defer func() {
 		p.ExitRule()
@@ -1457,41 +1962,41 @@ func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(75)
-		p.Match(MapCSSParserT__1)
+		p.SetState(103)
+		p.Match(MapCSSParserT__11)
 	}
 	{
-		p.SetState(76)
+		p.SetState(104)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).r = _m
 	}
 	{
-		p.SetState(77)
-		p.Match(MapCSSParserT__2)
+		p.SetState(105)
+		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(78)
+		p.SetState(106)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).g = _m
 	}
 	{
-		p.SetState(79)
-		p.Match(MapCSSParserT__2)
+		p.SetState(107)
+		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(80)
+		p.SetState(108)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).b = _m
 	}
 	{
-		p.SetState(81)
-		p.Match(MapCSSParserT__3)
+		p.SetState(109)
+		p.Match(MapCSSParserT__12)
 	}
 
 	return localctx
@@ -1613,7 +2118,7 @@ func (s *Rgba_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 	localctx = NewRgba_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, MapCSSParserRULE_rgba_color)
+	p.EnterRule(localctx, 28, MapCSSParserRULE_rgba_color)
 	var _la int
 
 	defer func() {
@@ -1634,44 +2139,44 @@ func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(83)
-		p.Match(MapCSSParserT__4)
+		p.SetState(111)
+		p.Match(MapCSSParserT__13)
 	}
 	{
-		p.SetState(84)
+		p.SetState(112)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).r = _m
 	}
 	{
-		p.SetState(85)
-		p.Match(MapCSSParserT__2)
+		p.SetState(113)
+		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(86)
+		p.SetState(114)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).g = _m
 	}
 	{
-		p.SetState(87)
-		p.Match(MapCSSParserT__2)
+		p.SetState(115)
+		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(88)
+		p.SetState(116)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).b = _m
 	}
 	{
-		p.SetState(89)
-		p.Match(MapCSSParserT__2)
+		p.SetState(117)
+		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(90)
+		p.SetState(118)
 
 		var _lt = p.GetTokenStream().LT(1)
 
@@ -1689,8 +2194,8 @@ func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 		}
 	}
 	{
-		p.SetState(91)
-		p.Match(MapCSSParserT__3)
+		p.SetState(119)
+		p.Match(MapCSSParserT__12)
 	}
 
 	return localctx

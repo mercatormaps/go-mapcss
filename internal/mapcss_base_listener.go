@@ -39,41 +39,59 @@ func (s *BaseMapCSSListener) EnterRule_(ctx *Rule_Context) {}
 // ExitRule_ is called when production rule_ is exited.
 func (s *BaseMapCSSListener) ExitRule_(ctx *Rule_Context) {}
 
-// EnterCanvas_declaration_block is called when production canvas_declaration_block is entered.
-func (s *BaseMapCSSListener) EnterCanvas_declaration_block(ctx *Canvas_declaration_blockContext) {}
+// EnterSelector is called when production selector is entered.
+func (s *BaseMapCSSListener) EnterSelector(ctx *SelectorContext) {}
 
-// ExitCanvas_declaration_block is called when production canvas_declaration_block is exited.
-func (s *BaseMapCSSListener) ExitCanvas_declaration_block(ctx *Canvas_declaration_blockContext) {}
+// ExitSelector is called when production selector is exited.
+func (s *BaseMapCSSListener) ExitSelector(ctx *SelectorContext) {}
 
-// EnterCanvas_declaration is called when production canvas_declaration is entered.
-func (s *BaseMapCSSListener) EnterCanvas_declaration(ctx *Canvas_declarationContext) {}
+// EnterAttribute is called when production attribute is entered.
+func (s *BaseMapCSSListener) EnterAttribute(ctx *AttributeContext) {}
 
-// ExitCanvas_declaration is called when production canvas_declaration is exited.
-func (s *BaseMapCSSListener) ExitCanvas_declaration(ctx *Canvas_declarationContext) {}
+// ExitAttribute is called when production attribute is exited.
+func (s *BaseMapCSSListener) ExitAttribute(ctx *AttributeContext) {}
 
-// EnterAntialiasing is called when production antialiasing is entered.
-func (s *BaseMapCSSListener) EnterAntialiasing(ctx *AntialiasingContext) {}
+// EnterDecl_block is called when production decl_block is entered.
+func (s *BaseMapCSSListener) EnterDecl_block(ctx *Decl_blockContext) {}
 
-// ExitAntialiasing is called when production antialiasing is exited.
-func (s *BaseMapCSSListener) ExitAntialiasing(ctx *AntialiasingContext) {}
+// ExitDecl_block is called when production decl_block is exited.
+func (s *BaseMapCSSListener) ExitDecl_block(ctx *Decl_blockContext) {}
 
-// EnterFill_opacity is called when production fill_opacity is entered.
-func (s *BaseMapCSSListener) EnterFill_opacity(ctx *Fill_opacityContext) {}
+// EnterCanvas_rule is called when production canvas_rule is entered.
+func (s *BaseMapCSSListener) EnterCanvas_rule(ctx *Canvas_ruleContext) {}
 
-// ExitFill_opacity is called when production fill_opacity is exited.
-func (s *BaseMapCSSListener) ExitFill_opacity(ctx *Fill_opacityContext) {}
+// ExitCanvas_rule is called when production canvas_rule is exited.
+func (s *BaseMapCSSListener) ExitCanvas_rule(ctx *Canvas_ruleContext) {}
 
-// EnterFill_color is called when production fill_color is entered.
-func (s *BaseMapCSSListener) EnterFill_color(ctx *Fill_colorContext) {}
+// EnterCanvas_decl_block is called when production canvas_decl_block is entered.
+func (s *BaseMapCSSListener) EnterCanvas_decl_block(ctx *Canvas_decl_blockContext) {}
 
-// ExitFill_color is called when production fill_color is exited.
-func (s *BaseMapCSSListener) ExitFill_color(ctx *Fill_colorContext) {}
+// ExitCanvas_decl_block is called when production canvas_decl_block is exited.
+func (s *BaseMapCSSListener) ExitCanvas_decl_block(ctx *Canvas_decl_blockContext) {}
 
-// EnterAlpha is called when production alpha is entered.
-func (s *BaseMapCSSListener) EnterAlpha(ctx *AlphaContext) {}
+// EnterCanvas_decl is called when production canvas_decl is entered.
+func (s *BaseMapCSSListener) EnterCanvas_decl(ctx *Canvas_declContext) {}
 
-// ExitAlpha is called when production alpha is exited.
-func (s *BaseMapCSSListener) ExitAlpha(ctx *AlphaContext) {}
+// ExitCanvas_decl is called when production canvas_decl is exited.
+func (s *BaseMapCSSListener) ExitCanvas_decl(ctx *Canvas_declContext) {}
+
+// EnterAntialiasing_decl is called when production antialiasing_decl is entered.
+func (s *BaseMapCSSListener) EnterAntialiasing_decl(ctx *Antialiasing_declContext) {}
+
+// ExitAntialiasing_decl is called when production antialiasing_decl is exited.
+func (s *BaseMapCSSListener) ExitAntialiasing_decl(ctx *Antialiasing_declContext) {}
+
+// EnterFill_opacity_decl is called when production fill_opacity_decl is entered.
+func (s *BaseMapCSSListener) EnterFill_opacity_decl(ctx *Fill_opacity_declContext) {}
+
+// ExitFill_opacity_decl is called when production fill_opacity_decl is exited.
+func (s *BaseMapCSSListener) ExitFill_opacity_decl(ctx *Fill_opacity_declContext) {}
+
+// EnterFill_color_decl is called when production fill_color_decl is entered.
+func (s *BaseMapCSSListener) EnterFill_color_decl(ctx *Fill_color_declContext) {}
+
+// ExitFill_color_decl is called when production fill_color_decl is exited.
+func (s *BaseMapCSSListener) ExitFill_color_decl(ctx *Fill_color_declContext) {}
 
 // EnterColor is called when production color is entered.
 func (s *BaseMapCSSListener) EnterColor(ctx *ColorContext) {}

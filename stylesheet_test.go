@@ -16,11 +16,11 @@ func TestParseCanvasAntialiasing(t *testing.T) {
 		expected mapcss.Antialiasing
 		ok       bool
 	}{
-		{"", 0, true},
 		{"none", mapcss.AntialiasingNone, true},
 		{"text", mapcss.AntialiasingText, true},
 		{"full", mapcss.AntialiasingFull, true},
 		{"unknown", 0, false},
+		{"", 0, false},
 	}
 
 	for _, tt := range tests {
@@ -45,12 +45,12 @@ func TestParseCanvasFillOpacity(t *testing.T) {
 		expected float32
 		ok       bool
 	}{
-		{"", 1, true},
 		{"0", 0, true},
 		{"0.5", 0.5, true},
 		{"1", 1, true},
 		{"2", 0, false},
 		{"-1", 0, false},
+		{"", 1, false},
 	}
 
 	for _, tt := range tests {
@@ -138,6 +138,75 @@ func TestParseCanvasFillColor(t *testing.T) {
 				fill-color: %s;
 			}
 		`, tt.value)
+	}
+}
+
+func TestParseRuleSelector(t *testing.T) {
+	tests := []struct {
+		name     string
+		rule     string
+		expected mapcss.Rule
+	}{
+		{
+			name: "single selector with type",
+			rule: `node {}`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "node"},
+				},
+			},
+		},
+		{
+			name: "multiple selectors with type",
+			rule: `node, way, relation {}`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "node"},
+					{Type: "way"},
+					{Type: "relation"},
+				},
+			},
+		},
+		{
+			name: "selector with attribute",
+			rule: `way[highway]`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "way", Attributes: []mapcss.Attribute{
+						{Name: "highway"},
+					}},
+				},
+			},
+		},
+		{
+			name: "selector with negated attribute",
+			rule: `way[!highway]`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "way", Attributes: []mapcss.Attribute{
+						{Name: "highway", Not: true},
+					}},
+				},
+			},
+		},
+		{
+			name: "multiple attributes",
+			rule: `node[place][POI]`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "node", Attributes: []mapcss.Attribute{
+						{Name: "place"},
+						{Name: "POI"},
+					}},
+				},
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		run(t, tt.name, func(t *testing.T, s *mapcss.Stylesheet, err error) {
+			require.Contains(t, s.Rules, tt.expected)
+		}, tt.rule)
 	}
 }
 

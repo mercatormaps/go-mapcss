@@ -17,23 +17,32 @@ type MapCSSListener interface {
 	// EnterRule_ is called when entering the rule_ production.
 	EnterRule_(c *Rule_Context)
 
-	// EnterCanvas_declaration_block is called when entering the canvas_declaration_block production.
-	EnterCanvas_declaration_block(c *Canvas_declaration_blockContext)
+	// EnterSelector is called when entering the selector production.
+	EnterSelector(c *SelectorContext)
 
-	// EnterCanvas_declaration is called when entering the canvas_declaration production.
-	EnterCanvas_declaration(c *Canvas_declarationContext)
+	// EnterAttribute is called when entering the attribute production.
+	EnterAttribute(c *AttributeContext)
 
-	// EnterAntialiasing is called when entering the antialiasing production.
-	EnterAntialiasing(c *AntialiasingContext)
+	// EnterDecl_block is called when entering the decl_block production.
+	EnterDecl_block(c *Decl_blockContext)
 
-	// EnterFill_opacity is called when entering the fill_opacity production.
-	EnterFill_opacity(c *Fill_opacityContext)
+	// EnterCanvas_rule is called when entering the canvas_rule production.
+	EnterCanvas_rule(c *Canvas_ruleContext)
 
-	// EnterFill_color is called when entering the fill_color production.
-	EnterFill_color(c *Fill_colorContext)
+	// EnterCanvas_decl_block is called when entering the canvas_decl_block production.
+	EnterCanvas_decl_block(c *Canvas_decl_blockContext)
 
-	// EnterAlpha is called when entering the alpha production.
-	EnterAlpha(c *AlphaContext)
+	// EnterCanvas_decl is called when entering the canvas_decl production.
+	EnterCanvas_decl(c *Canvas_declContext)
+
+	// EnterAntialiasing_decl is called when entering the antialiasing_decl production.
+	EnterAntialiasing_decl(c *Antialiasing_declContext)
+
+	// EnterFill_opacity_decl is called when entering the fill_opacity_decl production.
+	EnterFill_opacity_decl(c *Fill_opacity_declContext)
+
+	// EnterFill_color_decl is called when entering the fill_color_decl production.
+	EnterFill_color_decl(c *Fill_color_declContext)
 
 	// EnterColor is called when entering the color production.
 	EnterColor(c *ColorContext)
@@ -53,23 +62,32 @@ type MapCSSListener interface {
 	// ExitRule_ is called when exiting the rule_ production.
 	ExitRule_(c *Rule_Context)
 
-	// ExitCanvas_declaration_block is called when exiting the canvas_declaration_block production.
-	ExitCanvas_declaration_block(c *Canvas_declaration_blockContext)
+	// ExitSelector is called when exiting the selector production.
+	ExitSelector(c *SelectorContext)
 
-	// ExitCanvas_declaration is called when exiting the canvas_declaration production.
-	ExitCanvas_declaration(c *Canvas_declarationContext)
+	// ExitAttribute is called when exiting the attribute production.
+	ExitAttribute(c *AttributeContext)
 
-	// ExitAntialiasing is called when exiting the antialiasing production.
-	ExitAntialiasing(c *AntialiasingContext)
+	// ExitDecl_block is called when exiting the decl_block production.
+	ExitDecl_block(c *Decl_blockContext)
 
-	// ExitFill_opacity is called when exiting the fill_opacity production.
-	ExitFill_opacity(c *Fill_opacityContext)
+	// ExitCanvas_rule is called when exiting the canvas_rule production.
+	ExitCanvas_rule(c *Canvas_ruleContext)
 
-	// ExitFill_color is called when exiting the fill_color production.
-	ExitFill_color(c *Fill_colorContext)
+	// ExitCanvas_decl_block is called when exiting the canvas_decl_block production.
+	ExitCanvas_decl_block(c *Canvas_decl_blockContext)
 
-	// ExitAlpha is called when exiting the alpha production.
-	ExitAlpha(c *AlphaContext)
+	// ExitCanvas_decl is called when exiting the canvas_decl production.
+	ExitCanvas_decl(c *Canvas_declContext)
+
+	// ExitAntialiasing_decl is called when exiting the antialiasing_decl production.
+	ExitAntialiasing_decl(c *Antialiasing_declContext)
+
+	// ExitFill_opacity_decl is called when exiting the fill_opacity_decl production.
+	ExitFill_opacity_decl(c *Fill_opacity_declContext)
+
+	// ExitFill_color_decl is called when exiting the fill_color_decl production.
+	ExitFill_color_decl(c *Fill_color_declContext)
 
 	// ExitColor is called when exiting the color production.
 	ExitColor(c *ColorContext)
