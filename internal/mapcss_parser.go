@@ -16,74 +16,86 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 29, 124,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 29, 152,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
-	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 3, 2, 7, 2, 34, 10, 2,
-	12, 2, 14, 2, 37, 11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 5, 3, 43, 10, 3, 3, 4,
-	3, 4, 3, 4, 6, 4, 48, 10, 4, 13, 4, 14, 4, 49, 3, 4, 3, 4, 3, 5, 3, 5,
-	6, 5, 56, 10, 5, 13, 5, 14, 5, 57, 3, 6, 3, 6, 5, 6, 62, 10, 6, 3, 6, 3,
-	6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 6, 9, 75, 10,
-	9, 13, 9, 14, 9, 76, 3, 9, 3, 9, 3, 10, 3, 10, 3, 10, 5, 10, 84, 10, 10,
-	3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3,
-	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 5, 14, 104, 10, 14,
-	3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 16, 3, 16, 3,
-	16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 2, 2, 17, 2,
-	4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 2, 4, 3, 2, 9, 11,
-	4, 2, 24, 24, 26, 26, 2, 118, 2, 35, 3, 2, 2, 2, 4, 42, 3, 2, 2, 2, 6,
-	44, 3, 2, 2, 2, 8, 53, 3, 2, 2, 2, 10, 59, 3, 2, 2, 2, 12, 66, 3, 2, 2,
-	2, 14, 69, 3, 2, 2, 2, 16, 72, 3, 2, 2, 2, 18, 83, 3, 2, 2, 2, 20, 85,
-	3, 2, 2, 2, 22, 90, 3, 2, 2, 2, 24, 95, 3, 2, 2, 2, 26, 103, 3, 2, 2, 2,
-	28, 105, 3, 2, 2, 2, 30, 113, 3, 2, 2, 2, 32, 34, 5, 4, 3, 2, 33, 32, 3,
-	2, 2, 2, 34, 37, 3, 2, 2, 2, 35, 33, 3, 2, 2, 2, 35, 36, 3, 2, 2, 2, 36,
-	38, 3, 2, 2, 2, 37, 35, 3, 2, 2, 2, 38, 39, 7, 2, 2, 3, 39, 3, 3, 2, 2,
-	2, 40, 43, 5, 14, 8, 2, 41, 43, 5, 6, 4, 2, 42, 40, 3, 2, 2, 2, 42, 41,
-	3, 2, 2, 2, 43, 5, 3, 2, 2, 2, 44, 47, 5, 8, 5, 2, 45, 46, 7, 3, 2, 2,
-	46, 48, 5, 8, 5, 2, 47, 45, 3, 2, 2, 2, 48, 49, 3, 2, 2, 2, 49, 47, 3,
-	2, 2, 2, 49, 50, 3, 2, 2, 2, 50, 51, 3, 2, 2, 2, 51, 52, 5, 12, 7, 2, 52,
-	7, 3, 2, 2, 2, 53, 55, 7, 29, 2, 2, 54, 56, 5, 10, 6, 2, 55, 54, 3, 2,
-	2, 2, 56, 57, 3, 2, 2, 2, 57, 55, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58, 9,
-	3, 2, 2, 2, 59, 61, 7, 4, 2, 2, 60, 62, 7, 5, 2, 2, 61, 60, 3, 2, 2, 2,
-	61, 62, 3, 2, 2, 2, 62, 63, 3, 2, 2, 2, 63, 64, 7, 29, 2, 2, 64, 65, 7,
-	6, 2, 2, 65, 11, 3, 2, 2, 2, 66, 67, 7, 18, 2, 2, 67, 68, 7, 19, 2, 2,
-	68, 13, 3, 2, 2, 2, 69, 70, 7, 7, 2, 2, 70, 71, 5, 16, 9, 2, 71, 15, 3,
-	2, 2, 2, 72, 74, 7, 18, 2, 2, 73, 75, 5, 18, 10, 2, 74, 73, 3, 2, 2, 2,
-	75, 76, 3, 2, 2, 2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 78, 3,
-	2, 2, 2, 78, 79, 7, 19, 2, 2, 79, 17, 3, 2, 2, 2, 80, 84, 5, 20, 11, 2,
-	81, 84, 5, 22, 12, 2, 82, 84, 5, 24, 13, 2, 83, 80, 3, 2, 2, 2, 83, 81,
-	3, 2, 2, 2, 83, 82, 3, 2, 2, 2, 84, 19, 3, 2, 2, 2, 85, 86, 7, 8, 2, 2,
-	86, 87, 7, 20, 2, 2, 87, 88, 9, 2, 2, 2, 88, 89, 7, 21, 2, 2, 89, 21, 3,
-	2, 2, 2, 90, 91, 7, 12, 2, 2, 91, 92, 7, 20, 2, 2, 92, 93, 9, 3, 2, 2,
-	93, 94, 7, 21, 2, 2, 94, 23, 3, 2, 2, 2, 95, 96, 7, 13, 2, 2, 96, 97, 7,
-	20, 2, 2, 97, 98, 5, 26, 14, 2, 98, 99, 7, 21, 2, 2, 99, 25, 3, 2, 2, 2,
-	100, 104, 7, 28, 2, 2, 101, 104, 5, 28, 15, 2, 102, 104, 5, 30, 16, 2,
-	103, 100, 3, 2, 2, 2, 103, 101, 3, 2, 2, 2, 103, 102, 3, 2, 2, 2, 104,
-	27, 3, 2, 2, 2, 105, 106, 7, 14, 2, 2, 106, 107, 7, 24, 2, 2, 107, 108,
-	7, 3, 2, 2, 108, 109, 7, 24, 2, 2, 109, 110, 7, 3, 2, 2, 110, 111, 7, 24,
-	2, 2, 111, 112, 7, 15, 2, 2, 112, 29, 3, 2, 2, 2, 113, 114, 7, 16, 2, 2,
-	114, 115, 7, 24, 2, 2, 115, 116, 7, 3, 2, 2, 116, 117, 7, 24, 2, 2, 117,
-	118, 7, 3, 2, 2, 118, 119, 7, 24, 2, 2, 119, 120, 7, 3, 2, 2, 120, 121,
-	9, 3, 2, 2, 121, 122, 7, 15, 2, 2, 122, 31, 3, 2, 2, 2, 10, 35, 42, 49,
-	57, 61, 76, 83, 103,
+	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
+	18, 4, 19, 9, 19, 4, 20, 9, 20, 3, 2, 7, 2, 42, 10, 2, 12, 2, 14, 2, 45,
+	11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 5, 3, 51, 10, 3, 3, 4, 3, 4, 3, 4, 6, 4,
+	56, 10, 4, 13, 4, 14, 4, 57, 3, 4, 3, 4, 3, 5, 3, 5, 5, 5, 64, 10, 5, 3,
+	5, 6, 5, 67, 10, 5, 13, 5, 14, 5, 68, 3, 6, 3, 6, 3, 6, 5, 6, 74, 10, 6,
+	3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 3, 9,
+	3, 10, 3, 10, 5, 10, 90, 10, 10, 3, 10, 3, 10, 3, 10, 3, 11, 3, 11, 3,
+	11, 3, 12, 3, 12, 3, 12, 3, 13, 3, 13, 6, 13, 103, 10, 13, 13, 13, 14,
+	13, 104, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 5, 14, 112, 10, 14, 3, 15,
+	3, 15, 3, 15, 3, 15, 3, 15, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 17, 3,
+	17, 3, 17, 3, 17, 3, 17, 3, 18, 3, 18, 3, 18, 5, 18, 132, 10, 18, 3, 19,
+	3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 20, 3, 20, 3, 20, 3,
+	20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 2, 2, 21, 2, 4, 6,
+	8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 2, 4, 3,
+	2, 11, 13, 3, 2, 26, 27, 2, 145, 2, 43, 3, 2, 2, 2, 4, 50, 3, 2, 2, 2,
+	6, 52, 3, 2, 2, 2, 8, 61, 3, 2, 2, 2, 10, 73, 3, 2, 2, 2, 12, 75, 3, 2,
+	2, 2, 14, 80, 3, 2, 2, 2, 16, 84, 3, 2, 2, 2, 18, 87, 3, 2, 2, 2, 20, 94,
+	3, 2, 2, 2, 22, 97, 3, 2, 2, 2, 24, 100, 3, 2, 2, 2, 26, 111, 3, 2, 2,
+	2, 28, 113, 3, 2, 2, 2, 30, 118, 3, 2, 2, 2, 32, 123, 3, 2, 2, 2, 34, 131,
+	3, 2, 2, 2, 36, 133, 3, 2, 2, 2, 38, 141, 3, 2, 2, 2, 40, 42, 5, 4, 3,
+	2, 41, 40, 3, 2, 2, 2, 42, 45, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2, 43, 44,
+	3, 2, 2, 2, 44, 46, 3, 2, 2, 2, 45, 43, 3, 2, 2, 2, 46, 47, 7, 2, 2, 3,
+	47, 3, 3, 2, 2, 2, 48, 51, 5, 22, 12, 2, 49, 51, 5, 6, 4, 2, 50, 48, 3,
+	2, 2, 2, 50, 49, 3, 2, 2, 2, 51, 5, 3, 2, 2, 2, 52, 55, 5, 8, 5, 2, 53,
+	54, 7, 3, 2, 2, 54, 56, 5, 8, 5, 2, 55, 53, 3, 2, 2, 2, 56, 57, 3, 2, 2,
+	2, 57, 55, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 60,
+	5, 20, 11, 2, 60, 7, 3, 2, 2, 2, 61, 63, 7, 29, 2, 2, 62, 64, 5, 10, 6,
+	2, 63, 62, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 66, 3, 2, 2, 2, 65, 67,
+	5, 18, 10, 2, 66, 65, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68, 66, 3, 2, 2,
+	2, 68, 69, 3, 2, 2, 2, 69, 9, 3, 2, 2, 2, 70, 74, 5, 12, 7, 2, 71, 74,
+	5, 14, 8, 2, 72, 74, 5, 16, 9, 2, 73, 70, 3, 2, 2, 2, 73, 71, 3, 2, 2,
+	2, 73, 72, 3, 2, 2, 2, 74, 11, 3, 2, 2, 2, 75, 76, 7, 4, 2, 2, 76, 77,
+	7, 26, 2, 2, 77, 78, 7, 5, 2, 2, 78, 79, 7, 26, 2, 2, 79, 13, 3, 2, 2,
+	2, 80, 81, 7, 4, 2, 2, 81, 82, 7, 26, 2, 2, 82, 83, 7, 5, 2, 2, 83, 15,
+	3, 2, 2, 2, 84, 85, 7, 4, 2, 2, 85, 86, 7, 26, 2, 2, 86, 17, 3, 2, 2, 2,
+	87, 89, 7, 6, 2, 2, 88, 90, 7, 7, 2, 2, 89, 88, 3, 2, 2, 2, 89, 90, 3,
+	2, 2, 2, 90, 91, 3, 2, 2, 2, 91, 92, 7, 29, 2, 2, 92, 93, 7, 8, 2, 2, 93,
+	19, 3, 2, 2, 2, 94, 95, 7, 20, 2, 2, 95, 96, 7, 21, 2, 2, 96, 21, 3, 2,
+	2, 2, 97, 98, 7, 9, 2, 2, 98, 99, 5, 24, 13, 2, 99, 23, 3, 2, 2, 2, 100,
+	102, 7, 20, 2, 2, 101, 103, 5, 26, 14, 2, 102, 101, 3, 2, 2, 2, 103, 104,
+	3, 2, 2, 2, 104, 102, 3, 2, 2, 2, 104, 105, 3, 2, 2, 2, 105, 106, 3, 2,
+	2, 2, 106, 107, 7, 21, 2, 2, 107, 25, 3, 2, 2, 2, 108, 112, 5, 28, 15,
+	2, 109, 112, 5, 30, 16, 2, 110, 112, 5, 32, 17, 2, 111, 108, 3, 2, 2, 2,
+	111, 109, 3, 2, 2, 2, 111, 110, 3, 2, 2, 2, 112, 27, 3, 2, 2, 2, 113, 114,
+	7, 10, 2, 2, 114, 115, 7, 22, 2, 2, 115, 116, 9, 2, 2, 2, 116, 117, 7,
+	23, 2, 2, 117, 29, 3, 2, 2, 2, 118, 119, 7, 14, 2, 2, 119, 120, 7, 22,
+	2, 2, 120, 121, 9, 3, 2, 2, 121, 122, 7, 23, 2, 2, 122, 31, 3, 2, 2, 2,
+	123, 124, 7, 15, 2, 2, 124, 125, 7, 22, 2, 2, 125, 126, 5, 34, 18, 2, 126,
+	127, 7, 23, 2, 2, 127, 33, 3, 2, 2, 2, 128, 132, 7, 28, 2, 2, 129, 132,
+	5, 36, 19, 2, 130, 132, 5, 38, 20, 2, 131, 128, 3, 2, 2, 2, 131, 129, 3,
+	2, 2, 2, 131, 130, 3, 2, 2, 2, 132, 35, 3, 2, 2, 2, 133, 134, 7, 16, 2,
+	2, 134, 135, 7, 26, 2, 2, 135, 136, 7, 3, 2, 2, 136, 137, 7, 26, 2, 2,
+	137, 138, 7, 3, 2, 2, 138, 139, 7, 26, 2, 2, 139, 140, 7, 17, 2, 2, 140,
+	37, 3, 2, 2, 2, 141, 142, 7, 18, 2, 2, 142, 143, 7, 26, 2, 2, 143, 144,
+	7, 3, 2, 2, 144, 145, 7, 26, 2, 2, 145, 146, 7, 3, 2, 2, 146, 147, 7, 26,
+	2, 2, 147, 148, 7, 3, 2, 2, 148, 149, 9, 3, 2, 2, 149, 150, 7, 17, 2, 2,
+	150, 39, 3, 2, 2, 2, 12, 43, 50, 57, 63, 68, 73, 89, 104, 111, 131,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "','", "'['", "'!'", "']'", "'canvas'", "'antialiasing'", "'full'",
-	"'text'", "'none'", "'fill-opacity'", "'fill-color'", "'rgb('", "')'",
-	"'rgba('", "", "'{'", "'}'", "':'", "';'",
+	"", "','", "'|z'", "'-'", "'['", "'!'", "']'", "'canvas'", "'antialiasing'",
+	"'full'", "'text'", "'none'", "'fill-opacity'", "'fill-color'", "'rgb('",
+	"')'", "'rgba('", "", "'{'", "'}'", "':'", "';'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "WS", "LBRACE",
-	"RBRACE", "COLON", "SEMICOLON", "DQUOTED_STRING", "SQUOTED_STRING", "POSITIVE_INT",
-	"NEGATIVE_INT", "POSITIVE_FLOAT", "NEGATIVE_FLOAT", "HEX", "IDENTIFIER",
+	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "WS",
+	"LBRACE", "RBRACE", "COLON", "SEMICOLON", "DQUOTED_STRING", "SQUOTED_STRING",
+	"POSITIVE_INT", "POSITIVE_FLOAT", "HEX", "IDENTIFIER",
 }
 
 var ruleNames = []string{
-	"stylesheet", "entry", "rule_", "selector", "attribute", "decl_block",
-	"canvas_rule", "canvas_decl_block", "canvas_decl", "antialiasing_decl",
-	"fill_opacity_decl", "fill_color_decl", "color", "rgb_color", "rgba_color",
+	"stylesheet", "entry", "rule_", "selector", "zoom", "zoom_range", "min_zoom",
+	"exact_zoom", "attribute", "decl_block", "canvas_rule", "canvas_decl_block",
+	"canvas_decl", "antialiasing_decl", "fill_opacity_decl", "fill_color_decl",
+	"color", "rgb_color", "rgba_color",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -128,17 +140,17 @@ const (
 	MapCSSParserT__11          = 12
 	MapCSSParserT__12          = 13
 	MapCSSParserT__13          = 14
-	MapCSSParserWS             = 15
-	MapCSSParserLBRACE         = 16
-	MapCSSParserRBRACE         = 17
-	MapCSSParserCOLON          = 18
-	MapCSSParserSEMICOLON      = 19
-	MapCSSParserDQUOTED_STRING = 20
-	MapCSSParserSQUOTED_STRING = 21
-	MapCSSParserPOSITIVE_INT   = 22
-	MapCSSParserNEGATIVE_INT   = 23
-	MapCSSParserPOSITIVE_FLOAT = 24
-	MapCSSParserNEGATIVE_FLOAT = 25
+	MapCSSParserT__14          = 15
+	MapCSSParserT__15          = 16
+	MapCSSParserWS             = 17
+	MapCSSParserLBRACE         = 18
+	MapCSSParserRBRACE         = 19
+	MapCSSParserCOLON          = 20
+	MapCSSParserSEMICOLON      = 21
+	MapCSSParserDQUOTED_STRING = 22
+	MapCSSParserSQUOTED_STRING = 23
+	MapCSSParserPOSITIVE_INT   = 24
+	MapCSSParserPOSITIVE_FLOAT = 25
 	MapCSSParserHEX            = 26
 	MapCSSParserIDENTIFIER     = 27
 )
@@ -149,17 +161,21 @@ const (
 	MapCSSParserRULE_entry             = 1
 	MapCSSParserRULE_rule_             = 2
 	MapCSSParserRULE_selector          = 3
-	MapCSSParserRULE_attribute         = 4
-	MapCSSParserRULE_decl_block        = 5
-	MapCSSParserRULE_canvas_rule       = 6
-	MapCSSParserRULE_canvas_decl_block = 7
-	MapCSSParserRULE_canvas_decl       = 8
-	MapCSSParserRULE_antialiasing_decl = 9
-	MapCSSParserRULE_fill_opacity_decl = 10
-	MapCSSParserRULE_fill_color_decl   = 11
-	MapCSSParserRULE_color             = 12
-	MapCSSParserRULE_rgb_color         = 13
-	MapCSSParserRULE_rgba_color        = 14
+	MapCSSParserRULE_zoom              = 4
+	MapCSSParserRULE_zoom_range        = 5
+	MapCSSParserRULE_min_zoom          = 6
+	MapCSSParserRULE_exact_zoom        = 7
+	MapCSSParserRULE_attribute         = 8
+	MapCSSParserRULE_decl_block        = 9
+	MapCSSParserRULE_canvas_rule       = 10
+	MapCSSParserRULE_canvas_decl_block = 11
+	MapCSSParserRULE_canvas_decl       = 12
+	MapCSSParserRULE_antialiasing_decl = 13
+	MapCSSParserRULE_fill_opacity_decl = 14
+	MapCSSParserRULE_fill_color_decl   = 15
+	MapCSSParserRULE_color             = 16
+	MapCSSParserRULE_rgb_color         = 17
+	MapCSSParserRULE_rgba_color        = 18
 )
 
 // IStylesheetContext is an interface to support dynamic dispatch.
@@ -269,22 +285,22 @@ func (p *MapCSSParser) Stylesheet() (localctx IStylesheetContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(33)
+	p.SetState(41)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == MapCSSParserT__4 || _la == MapCSSParserIDENTIFIER {
+	for _la == MapCSSParserT__6 || _la == MapCSSParserIDENTIFIER {
 		{
-			p.SetState(30)
+			p.SetState(38)
 			p.Entry()
 		}
 
-		p.SetState(35)
+		p.SetState(43)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(36)
+		p.SetState(44)
 		p.Match(MapCSSParserEOF)
 	}
 
@@ -389,21 +405,21 @@ func (p *MapCSSParser) Entry() (localctx IEntryContext) {
 		}
 	}()
 
-	p.SetState(40)
+	p.SetState(48)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case MapCSSParserT__4:
+	case MapCSSParserT__6:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(38)
+			p.SetState(46)
 			p.Canvas_rule()
 		}
 
 	case MapCSSParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(39)
+			p.SetState(47)
 			p.Rule_()
 		}
 
@@ -528,29 +544,29 @@ func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(42)
+		p.SetState(50)
 		p.Selector()
 	}
-	p.SetState(45)
+	p.SetState(53)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = _la == MapCSSParserT__0 {
 		{
-			p.SetState(43)
+			p.SetState(51)
 			p.Match(MapCSSParserT__0)
 		}
 		{
-			p.SetState(44)
+			p.SetState(52)
 			p.Selector()
 		}
 
-		p.SetState(47)
+		p.SetState(55)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(49)
+		p.SetState(57)
 		p.Decl_block()
 	}
 
@@ -608,6 +624,16 @@ func (s *SelectorContext) SetTyp(v antlr.Token) { s.typ = v }
 
 func (s *SelectorContext) IDENTIFIER() antlr.TerminalNode {
 	return s.GetToken(MapCSSParserIDENTIFIER, 0)
+}
+
+func (s *SelectorContext) Zoom() IZoomContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IZoomContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IZoomContext)
 }
 
 func (s *SelectorContext) AllAttribute() []IAttributeContext {
@@ -676,25 +702,530 @@ func (p *MapCSSParser) Selector() (localctx ISelectorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(51)
+		p.SetState(59)
 
 		var _m = p.Match(MapCSSParserIDENTIFIER)
 
 		localctx.(*SelectorContext).typ = _m
 	}
-	p.SetState(53)
+	p.SetState(61)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = _la == MapCSSParserT__1 {
+	if _la == MapCSSParserT__1 {
 		{
-			p.SetState(52)
+			p.SetState(60)
+			p.Zoom()
+		}
+
+	}
+	p.SetState(64)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = _la == MapCSSParserT__3 {
+		{
+			p.SetState(63)
 			p.Attribute()
 		}
 
-		p.SetState(55)
+		p.SetState(66)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
+	}
+
+	return localctx
+}
+
+// IZoomContext is an interface to support dynamic dispatch.
+type IZoomContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsZoomContext differentiates from other interfaces.
+	IsZoomContext()
+}
+
+type ZoomContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyZoomContext() *ZoomContext {
+	var p = new(ZoomContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_zoom
+	return p
+}
+
+func (*ZoomContext) IsZoomContext() {}
+
+func NewZoomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ZoomContext {
+	var p = new(ZoomContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_zoom
+
+	return p
+}
+
+func (s *ZoomContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *ZoomContext) Zoom_range() IZoom_rangeContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IZoom_rangeContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IZoom_rangeContext)
+}
+
+func (s *ZoomContext) Min_zoom() IMin_zoomContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IMin_zoomContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IMin_zoomContext)
+}
+
+func (s *ZoomContext) Exact_zoom() IExact_zoomContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExact_zoomContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExact_zoomContext)
+}
+
+func (s *ZoomContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ZoomContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *ZoomContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterZoom(s)
+	}
+}
+
+func (s *ZoomContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitZoom(s)
+	}
+}
+
+func (p *MapCSSParser) Zoom() (localctx IZoomContext) {
+	localctx = NewZoomContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 8, MapCSSParserRULE_zoom)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(71)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		{
+			p.SetState(68)
+			p.Zoom_range()
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(69)
+			p.Min_zoom()
+		}
+
+	case 3:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(70)
+			p.Exact_zoom()
+		}
+
+	}
+
+	return localctx
+}
+
+// IZoom_rangeContext is an interface to support dynamic dispatch.
+type IZoom_rangeContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetMin returns the min token.
+	GetMin() antlr.Token
+
+	// GetMax returns the max token.
+	GetMax() antlr.Token
+
+	// SetMin sets the min token.
+	SetMin(antlr.Token)
+
+	// SetMax sets the max token.
+	SetMax(antlr.Token)
+
+	// IsZoom_rangeContext differentiates from other interfaces.
+	IsZoom_rangeContext()
+}
+
+type Zoom_rangeContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+	min    antlr.Token
+	max    antlr.Token
+}
+
+func NewEmptyZoom_rangeContext() *Zoom_rangeContext {
+	var p = new(Zoom_rangeContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_zoom_range
+	return p
+}
+
+func (*Zoom_rangeContext) IsZoom_rangeContext() {}
+
+func NewZoom_rangeContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Zoom_rangeContext {
+	var p = new(Zoom_rangeContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_zoom_range
+
+	return p
+}
+
+func (s *Zoom_rangeContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Zoom_rangeContext) GetMin() antlr.Token { return s.min }
+
+func (s *Zoom_rangeContext) GetMax() antlr.Token { return s.max }
+
+func (s *Zoom_rangeContext) SetMin(v antlr.Token) { s.min = v }
+
+func (s *Zoom_rangeContext) SetMax(v antlr.Token) { s.max = v }
+
+func (s *Zoom_rangeContext) AllPOSITIVE_INT() []antlr.TerminalNode {
+	return s.GetTokens(MapCSSParserPOSITIVE_INT)
+}
+
+func (s *Zoom_rangeContext) POSITIVE_INT(i int) antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_INT, i)
+}
+
+func (s *Zoom_rangeContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Zoom_rangeContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Zoom_rangeContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterZoom_range(s)
+	}
+}
+
+func (s *Zoom_rangeContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitZoom_range(s)
+	}
+}
+
+func (p *MapCSSParser) Zoom_range() (localctx IZoom_rangeContext) {
+	localctx = NewZoom_rangeContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 10, MapCSSParserRULE_zoom_range)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(73)
+		p.Match(MapCSSParserT__1)
+	}
+	{
+		p.SetState(74)
+
+		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+
+		localctx.(*Zoom_rangeContext).min = _m
+	}
+	{
+		p.SetState(75)
+		p.Match(MapCSSParserT__2)
+	}
+	{
+		p.SetState(76)
+
+		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+
+		localctx.(*Zoom_rangeContext).max = _m
+	}
+
+	return localctx
+}
+
+// IMin_zoomContext is an interface to support dynamic dispatch.
+type IMin_zoomContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetMin returns the min token.
+	GetMin() antlr.Token
+
+	// SetMin sets the min token.
+	SetMin(antlr.Token)
+
+	// IsMin_zoomContext differentiates from other interfaces.
+	IsMin_zoomContext()
+}
+
+type Min_zoomContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+	min    antlr.Token
+}
+
+func NewEmptyMin_zoomContext() *Min_zoomContext {
+	var p = new(Min_zoomContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_min_zoom
+	return p
+}
+
+func (*Min_zoomContext) IsMin_zoomContext() {}
+
+func NewMin_zoomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Min_zoomContext {
+	var p = new(Min_zoomContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_min_zoom
+
+	return p
+}
+
+func (s *Min_zoomContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Min_zoomContext) GetMin() antlr.Token { return s.min }
+
+func (s *Min_zoomContext) SetMin(v antlr.Token) { s.min = v }
+
+func (s *Min_zoomContext) POSITIVE_INT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+}
+
+func (s *Min_zoomContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Min_zoomContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Min_zoomContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterMin_zoom(s)
+	}
+}
+
+func (s *Min_zoomContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitMin_zoom(s)
+	}
+}
+
+func (p *MapCSSParser) Min_zoom() (localctx IMin_zoomContext) {
+	localctx = NewMin_zoomContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 12, MapCSSParserRULE_min_zoom)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(78)
+		p.Match(MapCSSParserT__1)
+	}
+	{
+		p.SetState(79)
+
+		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+
+		localctx.(*Min_zoomContext).min = _m
+	}
+	{
+		p.SetState(80)
+		p.Match(MapCSSParserT__2)
+	}
+
+	return localctx
+}
+
+// IExact_zoomContext is an interface to support dynamic dispatch.
+type IExact_zoomContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetMin returns the min token.
+	GetMin() antlr.Token
+
+	// SetMin sets the min token.
+	SetMin(antlr.Token)
+
+	// IsExact_zoomContext differentiates from other interfaces.
+	IsExact_zoomContext()
+}
+
+type Exact_zoomContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+	min    antlr.Token
+}
+
+func NewEmptyExact_zoomContext() *Exact_zoomContext {
+	var p = new(Exact_zoomContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_exact_zoom
+	return p
+}
+
+func (*Exact_zoomContext) IsExact_zoomContext() {}
+
+func NewExact_zoomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Exact_zoomContext {
+	var p = new(Exact_zoomContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_exact_zoom
+
+	return p
+}
+
+func (s *Exact_zoomContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *Exact_zoomContext) GetMin() antlr.Token { return s.min }
+
+func (s *Exact_zoomContext) SetMin(v antlr.Token) { s.min = v }
+
+func (s *Exact_zoomContext) POSITIVE_INT() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+}
+
+func (s *Exact_zoomContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Exact_zoomContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Exact_zoomContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterExact_zoom(s)
+	}
+}
+
+func (s *Exact_zoomContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitExact_zoom(s)
+	}
+}
+
+func (p *MapCSSParser) Exact_zoom() (localctx IExact_zoomContext) {
+	localctx = NewExact_zoomContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 14, MapCSSParserRULE_exact_zoom)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(82)
+		p.Match(MapCSSParserT__1)
+	}
+	{
+		p.SetState(83)
+
+		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+
+		localctx.(*Exact_zoomContext).min = _m
 	}
 
 	return localctx
@@ -786,7 +1317,7 @@ func (s *AttributeContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
 	localctx = NewAttributeContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, MapCSSParserRULE_attribute)
+	p.EnterRule(localctx, 16, MapCSSParserRULE_attribute)
 	var _la int
 
 	defer func() {
@@ -807,33 +1338,33 @@ func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(57)
-		p.Match(MapCSSParserT__1)
+		p.SetState(85)
+		p.Match(MapCSSParserT__3)
 	}
-	p.SetState(59)
+	p.SetState(87)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == MapCSSParserT__2 {
+	if _la == MapCSSParserT__4 {
 		{
-			p.SetState(58)
+			p.SetState(86)
 
-			var _m = p.Match(MapCSSParserT__2)
+			var _m = p.Match(MapCSSParserT__4)
 
 			localctx.(*AttributeContext).neg = _m
 		}
 
 	}
 	{
-		p.SetState(61)
+		p.SetState(89)
 
 		var _m = p.Match(MapCSSParserIDENTIFIER)
 
 		localctx.(*AttributeContext).name = _m
 	}
 	{
-		p.SetState(62)
-		p.Match(MapCSSParserT__3)
+		p.SetState(90)
+		p.Match(MapCSSParserT__5)
 	}
 
 	return localctx
@@ -907,7 +1438,7 @@ func (s *Decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Decl_block() (localctx IDecl_blockContext) {
 	localctx = NewDecl_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, MapCSSParserRULE_decl_block)
+	p.EnterRule(localctx, 18, MapCSSParserRULE_decl_block)
 
 	defer func() {
 		p.ExitRule()
@@ -927,11 +1458,11 @@ func (p *MapCSSParser) Decl_block() (localctx IDecl_blockContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(64)
+		p.SetState(92)
 		p.Match(MapCSSParserLBRACE)
 	}
 	{
-		p.SetState(65)
+		p.SetState(93)
 		p.Match(MapCSSParserRBRACE)
 	}
 
@@ -1008,7 +1539,7 @@ func (s *Canvas_ruleContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_rule() (localctx ICanvas_ruleContext) {
 	localctx = NewCanvas_ruleContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, MapCSSParserRULE_canvas_rule)
+	p.EnterRule(localctx, 20, MapCSSParserRULE_canvas_rule)
 
 	defer func() {
 		p.ExitRule()
@@ -1028,11 +1559,11 @@ func (p *MapCSSParser) Canvas_rule() (localctx ICanvas_ruleContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(67)
-		p.Match(MapCSSParserT__4)
+		p.SetState(95)
+		p.Match(MapCSSParserT__6)
 	}
 	{
-		p.SetState(68)
+		p.SetState(96)
 		p.Canvas_decl_block()
 	}
 
@@ -1130,7 +1661,7 @@ func (s *Canvas_decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_decl_block() (localctx ICanvas_decl_blockContext) {
 	localctx = NewCanvas_decl_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, MapCSSParserRULE_canvas_decl_block)
+	p.EnterRule(localctx, 22, MapCSSParserRULE_canvas_decl_block)
 	var _la int
 
 	defer func() {
@@ -1151,25 +1682,25 @@ func (p *MapCSSParser) Canvas_decl_block() (localctx ICanvas_decl_blockContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(70)
+		p.SetState(98)
 		p.Match(MapCSSParserLBRACE)
 	}
-	p.SetState(72)
+	p.SetState(100)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__5)|(1<<MapCSSParserT__9)|(1<<MapCSSParserT__10))) != 0) {
+	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__7)|(1<<MapCSSParserT__11)|(1<<MapCSSParserT__12))) != 0) {
 		{
-			p.SetState(71)
+			p.SetState(99)
 			p.Canvas_decl()
 		}
 
-		p.SetState(74)
+		p.SetState(102)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(76)
+		p.SetState(104)
 		p.Match(MapCSSParserRBRACE)
 	}
 
@@ -1266,7 +1797,7 @@ func (s *Canvas_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_decl() (localctx ICanvas_declContext) {
 	localctx = NewCanvas_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, MapCSSParserRULE_canvas_decl)
+	p.EnterRule(localctx, 24, MapCSSParserRULE_canvas_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -1284,28 +1815,28 @@ func (p *MapCSSParser) Canvas_decl() (localctx ICanvas_declContext) {
 		}
 	}()
 
-	p.SetState(81)
+	p.SetState(109)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case MapCSSParserT__5:
+	case MapCSSParserT__7:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(78)
+			p.SetState(106)
 			p.Antialiasing_decl()
 		}
 
-	case MapCSSParserT__9:
+	case MapCSSParserT__11:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(79)
+			p.SetState(107)
 			p.Fill_opacity_decl()
 		}
 
-	case MapCSSParserT__10:
+	case MapCSSParserT__12:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(80)
+			p.SetState(108)
 			p.Fill_color_decl()
 		}
 
@@ -1395,7 +1926,7 @@ func (s *Antialiasing_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) {
 	localctx = NewAntialiasing_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, MapCSSParserRULE_antialiasing_decl)
+	p.EnterRule(localctx, 26, MapCSSParserRULE_antialiasing_decl)
 	var _la int
 
 	defer func() {
@@ -1416,15 +1947,15 @@ func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(83)
-		p.Match(MapCSSParserT__5)
+		p.SetState(111)
+		p.Match(MapCSSParserT__7)
 	}
 	{
-		p.SetState(84)
+		p.SetState(112)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(85)
+		p.SetState(113)
 
 		var _lt = p.GetTokenStream().LT(1)
 
@@ -1432,7 +1963,7 @@ func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) 
 
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__6)|(1<<MapCSSParserT__7)|(1<<MapCSSParserT__8))) != 0) {
+		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__8)|(1<<MapCSSParserT__9)|(1<<MapCSSParserT__10))) != 0) {
 			var _ri = p.GetErrorHandler().RecoverInline(p)
 
 			localctx.(*Antialiasing_declContext).v = _ri
@@ -1442,7 +1973,7 @@ func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) 
 		}
 	}
 	{
-		p.SetState(86)
+		p.SetState(114)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -1536,7 +2067,7 @@ func (s *Fill_opacity_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) {
 	localctx = NewFill_opacity_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, MapCSSParserRULE_fill_opacity_decl)
+	p.EnterRule(localctx, 28, MapCSSParserRULE_fill_opacity_decl)
 	var _la int
 
 	defer func() {
@@ -1557,15 +2088,15 @@ func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(88)
-		p.Match(MapCSSParserT__9)
+		p.SetState(116)
+		p.Match(MapCSSParserT__11)
 	}
 	{
-		p.SetState(89)
+		p.SetState(117)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(90)
+		p.SetState(118)
 
 		var _lt = p.GetTokenStream().LT(1)
 
@@ -1583,7 +2114,7 @@ func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) 
 		}
 	}
 	{
-		p.SetState(91)
+		p.SetState(119)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -1668,7 +2199,7 @@ func (s *Fill_color_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Fill_color_decl() (localctx IFill_color_declContext) {
 	localctx = NewFill_color_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, MapCSSParserRULE_fill_color_decl)
+	p.EnterRule(localctx, 30, MapCSSParserRULE_fill_color_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -1688,19 +2219,19 @@ func (p *MapCSSParser) Fill_color_decl() (localctx IFill_color_declContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(93)
-		p.Match(MapCSSParserT__10)
+		p.SetState(121)
+		p.Match(MapCSSParserT__12)
 	}
 	{
-		p.SetState(94)
+		p.SetState(122)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(95)
+		p.SetState(123)
 		p.Color()
 	}
 	{
-		p.SetState(96)
+		p.SetState(124)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -1791,7 +2322,7 @@ func (s *ColorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Color() (localctx IColorContext) {
 	localctx = NewColorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, MapCSSParserRULE_color)
+	p.EnterRule(localctx, 32, MapCSSParserRULE_color)
 
 	defer func() {
 		p.ExitRule()
@@ -1809,28 +2340,28 @@ func (p *MapCSSParser) Color() (localctx IColorContext) {
 		}
 	}()
 
-	p.SetState(101)
+	p.SetState(129)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case MapCSSParserHEX:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(98)
+			p.SetState(126)
 			p.Match(MapCSSParserHEX)
 		}
 
-	case MapCSSParserT__11:
+	case MapCSSParserT__13:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(99)
+			p.SetState(127)
 			p.Rgb_color()
 		}
 
-	case MapCSSParserT__13:
+	case MapCSSParserT__15:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(100)
+			p.SetState(128)
 			p.Rgba_color()
 		}
 
@@ -1942,7 +2473,7 @@ func (s *Rgb_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 	localctx = NewRgb_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, MapCSSParserRULE_rgb_color)
+	p.EnterRule(localctx, 34, MapCSSParserRULE_rgb_color)
 
 	defer func() {
 		p.ExitRule()
@@ -1962,41 +2493,41 @@ func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(103)
-		p.Match(MapCSSParserT__11)
+		p.SetState(131)
+		p.Match(MapCSSParserT__13)
 	}
 	{
-		p.SetState(104)
+		p.SetState(132)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).r = _m
 	}
 	{
-		p.SetState(105)
+		p.SetState(133)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(106)
+		p.SetState(134)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).g = _m
 	}
 	{
-		p.SetState(107)
+		p.SetState(135)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(108)
+		p.SetState(136)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgb_colorContext).b = _m
 	}
 	{
-		p.SetState(109)
-		p.Match(MapCSSParserT__12)
+		p.SetState(137)
+		p.Match(MapCSSParserT__14)
 	}
 
 	return localctx
@@ -2118,7 +2649,7 @@ func (s *Rgba_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 	localctx = NewRgba_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, MapCSSParserRULE_rgba_color)
+	p.EnterRule(localctx, 36, MapCSSParserRULE_rgba_color)
 	var _la int
 
 	defer func() {
@@ -2139,44 +2670,44 @@ func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(111)
-		p.Match(MapCSSParserT__13)
+		p.SetState(139)
+		p.Match(MapCSSParserT__15)
 	}
 	{
-		p.SetState(112)
+		p.SetState(140)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).r = _m
 	}
 	{
-		p.SetState(113)
+		p.SetState(141)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(114)
+		p.SetState(142)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).g = _m
 	}
 	{
-		p.SetState(115)
+		p.SetState(143)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(116)
+		p.SetState(144)
 
 		var _m = p.Match(MapCSSParserPOSITIVE_INT)
 
 		localctx.(*Rgba_colorContext).b = _m
 	}
 	{
-		p.SetState(117)
+		p.SetState(145)
 		p.Match(MapCSSParserT__0)
 	}
 	{
-		p.SetState(118)
+		p.SetState(146)
 
 		var _lt = p.GetTokenStream().LT(1)
 
@@ -2194,8 +2725,8 @@ func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 		}
 	}
 	{
-		p.SetState(119)
-		p.Match(MapCSSParserT__12)
+		p.SetState(147)
+		p.Match(MapCSSParserT__14)
 	}
 
 	return localctx

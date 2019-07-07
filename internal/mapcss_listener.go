@@ -20,6 +20,18 @@ type MapCSSListener interface {
 	// EnterSelector is called when entering the selector production.
 	EnterSelector(c *SelectorContext)
 
+	// EnterZoom is called when entering the zoom production.
+	EnterZoom(c *ZoomContext)
+
+	// EnterZoom_range is called when entering the zoom_range production.
+	EnterZoom_range(c *Zoom_rangeContext)
+
+	// EnterMin_zoom is called when entering the min_zoom production.
+	EnterMin_zoom(c *Min_zoomContext)
+
+	// EnterExact_zoom is called when entering the exact_zoom production.
+	EnterExact_zoom(c *Exact_zoomContext)
+
 	// EnterAttribute is called when entering the attribute production.
 	EnterAttribute(c *AttributeContext)
 
@@ -64,6 +76,18 @@ type MapCSSListener interface {
 
 	// ExitSelector is called when exiting the selector production.
 	ExitSelector(c *SelectorContext)
+
+	// ExitZoom is called when exiting the zoom production.
+	ExitZoom(c *ZoomContext)
+
+	// ExitZoom_range is called when exiting the zoom_range production.
+	ExitZoom_range(c *Zoom_rangeContext)
+
+	// ExitMin_zoom is called when exiting the min_zoom production.
+	ExitMin_zoom(c *Min_zoomContext)
+
+	// ExitExact_zoom is called when exiting the exact_zoom production.
+	ExitExact_zoom(c *Exact_zoomContext)
 
 	// ExitAttribute is called when exiting the attribute production.
 	ExitAttribute(c *AttributeContext)

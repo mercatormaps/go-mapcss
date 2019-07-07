@@ -45,6 +45,30 @@ func (s *BaseMapCSSListener) EnterSelector(ctx *SelectorContext) {}
 // ExitSelector is called when production selector is exited.
 func (s *BaseMapCSSListener) ExitSelector(ctx *SelectorContext) {}
 
+// EnterZoom is called when production zoom is entered.
+func (s *BaseMapCSSListener) EnterZoom(ctx *ZoomContext) {}
+
+// ExitZoom is called when production zoom is exited.
+func (s *BaseMapCSSListener) ExitZoom(ctx *ZoomContext) {}
+
+// EnterZoom_range is called when production zoom_range is entered.
+func (s *BaseMapCSSListener) EnterZoom_range(ctx *Zoom_rangeContext) {}
+
+// ExitZoom_range is called when production zoom_range is exited.
+func (s *BaseMapCSSListener) ExitZoom_range(ctx *Zoom_rangeContext) {}
+
+// EnterMin_zoom is called when production min_zoom is entered.
+func (s *BaseMapCSSListener) EnterMin_zoom(ctx *Min_zoomContext) {}
+
+// ExitMin_zoom is called when production min_zoom is exited.
+func (s *BaseMapCSSListener) ExitMin_zoom(ctx *Min_zoomContext) {}
+
+// EnterExact_zoom is called when production exact_zoom is entered.
+func (s *BaseMapCSSListener) EnterExact_zoom(ctx *Exact_zoomContext) {}
+
+// ExitExact_zoom is called when production exact_zoom is exited.
+func (s *BaseMapCSSListener) ExitExact_zoom(ctx *Exact_zoomContext) {}
+
 // EnterAttribute is called when production attribute is entered.
 func (s *BaseMapCSSListener) EnterAttribute(ctx *AttributeContext) {}
 

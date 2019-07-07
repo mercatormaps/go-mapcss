@@ -148,7 +148,7 @@ func TestParseRuleSelector(t *testing.T) {
 		expected mapcss.Rule
 	}{
 		{
-			name: "single selector with type",
+			name: "with type",
 			rule: `node {}`,
 			expected: mapcss.Rule{
 				Selectors: []mapcss.Selector{
@@ -157,13 +157,46 @@ func TestParseRuleSelector(t *testing.T) {
 			},
 		},
 		{
-			name: "multiple selectors with type",
+			name: "multiple types",
 			rule: `node, way, relation {}`,
 			expected: mapcss.Rule{
 				Selectors: []mapcss.Selector{
 					{Type: "node"},
 					{Type: "way"},
 					{Type: "relation"},
+				},
+			},
+		},
+		{
+			name: "zoom range",
+			rule: `way|z1-10 {}`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "way", Zoom: &mapcss.Zoom{
+						Type: mapcss.ZoomRange, Min: 1, Max: 10,
+					}},
+				},
+			},
+		},
+		{
+			name: "minimum zoom",
+			rule: `way|z5- {}`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "way", Zoom: &mapcss.Zoom{
+						Type: mapcss.MinZoom, Min: 5,
+					}},
+				},
+			},
+		},
+		{
+			name: "exact zoom",
+			rule: `way|z5 {}`,
+			expected: mapcss.Rule{
+				Selectors: []mapcss.Selector{
+					{Type: "way", Zoom: &mapcss.Zoom{
+						Type: mapcss.ExactZoom, Min: 5, Max: 5,
+					}},
 				},
 			},
 		},

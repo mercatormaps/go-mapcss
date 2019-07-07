@@ -16,9 +16,7 @@ DQUOTED_STRING:      '"' (' ' | '!' | '#'..'[' | ']'..'~' | '°' | UNICODE | EDQ
 SQUOTED_STRING:      '\'' (' '..'&' | '('..'[' | ']'..'~' | '°' | UNICODE | ESQUOTE | EBACKSLASH)* '\'';
 
 POSITIVE_INT:   [0-9]+;
-NEGATIVE_INT:   '-' POSITIVE_INT;
 POSITIVE_FLOAT: [0-9]+ | [0-9]* '.' [0-9]+;
-NEGATIVE_FLOAT: '-' POSITIVE_FLOAT;
 
 // Colors
 
@@ -51,7 +49,25 @@ rule_
     ;
 
 selector
-    : typ=IDENTIFIER (attribute)+
+    : typ=IDENTIFIER zoom? (attribute)+
+    ;
+
+zoom
+    : zoom_range
+    | min_zoom
+    | exact_zoom
+    ;
+
+zoom_range
+    : '|z' min=POSITIVE_INT '-' max=POSITIVE_INT
+    ;
+
+min_zoom
+    : '|z' min=POSITIVE_INT '-'
+    ;
+
+exact_zoom
+    : '|z' min=POSITIVE_INT
     ;
 
 attribute
