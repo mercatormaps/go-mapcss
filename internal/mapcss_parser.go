@@ -16,86 +16,106 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 29, 152,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 29, 193,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
 	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
-	18, 4, 19, 9, 19, 4, 20, 9, 20, 3, 2, 7, 2, 42, 10, 2, 12, 2, 14, 2, 45,
-	11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 5, 3, 51, 10, 3, 3, 4, 3, 4, 3, 4, 6, 4,
-	56, 10, 4, 13, 4, 14, 4, 57, 3, 4, 3, 4, 3, 5, 3, 5, 5, 5, 64, 10, 5, 3,
-	5, 6, 5, 67, 10, 5, 13, 5, 14, 5, 68, 3, 6, 3, 6, 3, 6, 5, 6, 74, 10, 6,
-	3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 3, 9,
-	3, 10, 3, 10, 5, 10, 90, 10, 10, 3, 10, 3, 10, 3, 10, 3, 11, 3, 11, 3,
-	11, 3, 12, 3, 12, 3, 12, 3, 13, 3, 13, 6, 13, 103, 10, 13, 13, 13, 14,
-	13, 104, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 5, 14, 112, 10, 14, 3, 15,
-	3, 15, 3, 15, 3, 15, 3, 15, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 17, 3,
-	17, 3, 17, 3, 17, 3, 17, 3, 18, 3, 18, 3, 18, 5, 18, 132, 10, 18, 3, 19,
-	3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 20, 3, 20, 3, 20, 3,
-	20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 2, 2, 21, 2, 4, 6,
-	8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 2, 4, 3,
-	2, 11, 13, 3, 2, 26, 27, 2, 145, 2, 43, 3, 2, 2, 2, 4, 50, 3, 2, 2, 2,
-	6, 52, 3, 2, 2, 2, 8, 61, 3, 2, 2, 2, 10, 73, 3, 2, 2, 2, 12, 75, 3, 2,
-	2, 2, 14, 80, 3, 2, 2, 2, 16, 84, 3, 2, 2, 2, 18, 87, 3, 2, 2, 2, 20, 94,
-	3, 2, 2, 2, 22, 97, 3, 2, 2, 2, 24, 100, 3, 2, 2, 2, 26, 111, 3, 2, 2,
-	2, 28, 113, 3, 2, 2, 2, 30, 118, 3, 2, 2, 2, 32, 123, 3, 2, 2, 2, 34, 131,
-	3, 2, 2, 2, 36, 133, 3, 2, 2, 2, 38, 141, 3, 2, 2, 2, 40, 42, 5, 4, 3,
-	2, 41, 40, 3, 2, 2, 2, 42, 45, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2, 43, 44,
-	3, 2, 2, 2, 44, 46, 3, 2, 2, 2, 45, 43, 3, 2, 2, 2, 46, 47, 7, 2, 2, 3,
-	47, 3, 3, 2, 2, 2, 48, 51, 5, 22, 12, 2, 49, 51, 5, 6, 4, 2, 50, 48, 3,
-	2, 2, 2, 50, 49, 3, 2, 2, 2, 51, 5, 3, 2, 2, 2, 52, 55, 5, 8, 5, 2, 53,
-	54, 7, 3, 2, 2, 54, 56, 5, 8, 5, 2, 55, 53, 3, 2, 2, 2, 56, 57, 3, 2, 2,
-	2, 57, 55, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58, 59, 3, 2, 2, 2, 59, 60,
-	5, 20, 11, 2, 60, 7, 3, 2, 2, 2, 61, 63, 7, 29, 2, 2, 62, 64, 5, 10, 6,
-	2, 63, 62, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 66, 3, 2, 2, 2, 65, 67,
-	5, 18, 10, 2, 66, 65, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68, 66, 3, 2, 2,
-	2, 68, 69, 3, 2, 2, 2, 69, 9, 3, 2, 2, 2, 70, 74, 5, 12, 7, 2, 71, 74,
-	5, 14, 8, 2, 72, 74, 5, 16, 9, 2, 73, 70, 3, 2, 2, 2, 73, 71, 3, 2, 2,
-	2, 73, 72, 3, 2, 2, 2, 74, 11, 3, 2, 2, 2, 75, 76, 7, 4, 2, 2, 76, 77,
-	7, 26, 2, 2, 77, 78, 7, 5, 2, 2, 78, 79, 7, 26, 2, 2, 79, 13, 3, 2, 2,
-	2, 80, 81, 7, 4, 2, 2, 81, 82, 7, 26, 2, 2, 82, 83, 7, 5, 2, 2, 83, 15,
-	3, 2, 2, 2, 84, 85, 7, 4, 2, 2, 85, 86, 7, 26, 2, 2, 86, 17, 3, 2, 2, 2,
-	87, 89, 7, 6, 2, 2, 88, 90, 7, 7, 2, 2, 89, 88, 3, 2, 2, 2, 89, 90, 3,
-	2, 2, 2, 90, 91, 3, 2, 2, 2, 91, 92, 7, 29, 2, 2, 92, 93, 7, 8, 2, 2, 93,
-	19, 3, 2, 2, 2, 94, 95, 7, 20, 2, 2, 95, 96, 7, 21, 2, 2, 96, 21, 3, 2,
-	2, 2, 97, 98, 7, 9, 2, 2, 98, 99, 5, 24, 13, 2, 99, 23, 3, 2, 2, 2, 100,
-	102, 7, 20, 2, 2, 101, 103, 5, 26, 14, 2, 102, 101, 3, 2, 2, 2, 103, 104,
-	3, 2, 2, 2, 104, 102, 3, 2, 2, 2, 104, 105, 3, 2, 2, 2, 105, 106, 3, 2,
-	2, 2, 106, 107, 7, 21, 2, 2, 107, 25, 3, 2, 2, 2, 108, 112, 5, 28, 15,
-	2, 109, 112, 5, 30, 16, 2, 110, 112, 5, 32, 17, 2, 111, 108, 3, 2, 2, 2,
-	111, 109, 3, 2, 2, 2, 111, 110, 3, 2, 2, 2, 112, 27, 3, 2, 2, 2, 113, 114,
-	7, 10, 2, 2, 114, 115, 7, 22, 2, 2, 115, 116, 9, 2, 2, 2, 116, 117, 7,
-	23, 2, 2, 117, 29, 3, 2, 2, 2, 118, 119, 7, 14, 2, 2, 119, 120, 7, 22,
-	2, 2, 120, 121, 9, 3, 2, 2, 121, 122, 7, 23, 2, 2, 122, 31, 3, 2, 2, 2,
-	123, 124, 7, 15, 2, 2, 124, 125, 7, 22, 2, 2, 125, 126, 5, 34, 18, 2, 126,
-	127, 7, 23, 2, 2, 127, 33, 3, 2, 2, 2, 128, 132, 7, 28, 2, 2, 129, 132,
-	5, 36, 19, 2, 130, 132, 5, 38, 20, 2, 131, 128, 3, 2, 2, 2, 131, 129, 3,
-	2, 2, 2, 131, 130, 3, 2, 2, 2, 132, 35, 3, 2, 2, 2, 133, 134, 7, 16, 2,
-	2, 134, 135, 7, 26, 2, 2, 135, 136, 7, 3, 2, 2, 136, 137, 7, 26, 2, 2,
-	137, 138, 7, 3, 2, 2, 138, 139, 7, 26, 2, 2, 139, 140, 7, 17, 2, 2, 140,
-	37, 3, 2, 2, 2, 141, 142, 7, 18, 2, 2, 142, 143, 7, 26, 2, 2, 143, 144,
-	7, 3, 2, 2, 144, 145, 7, 26, 2, 2, 145, 146, 7, 3, 2, 2, 146, 147, 7, 26,
-	2, 2, 147, 148, 7, 3, 2, 2, 148, 149, 9, 3, 2, 2, 149, 150, 7, 17, 2, 2,
-	150, 39, 3, 2, 2, 2, 12, 43, 50, 57, 63, 68, 73, 89, 104, 111, 131,
+	18, 4, 19, 9, 19, 4, 20, 9, 20, 4, 21, 9, 21, 4, 22, 9, 22, 4, 23, 9, 23,
+	3, 2, 5, 2, 48, 10, 2, 3, 2, 6, 2, 51, 10, 2, 13, 2, 14, 2, 52, 3, 3, 6,
+	3, 56, 10, 3, 13, 3, 14, 3, 57, 3, 4, 5, 4, 61, 10, 4, 3, 4, 6, 4, 64,
+	10, 4, 13, 4, 14, 4, 65, 3, 4, 7, 4, 69, 10, 4, 12, 4, 14, 4, 72, 11, 4,
+	3, 4, 3, 4, 6, 4, 76, 10, 4, 13, 4, 14, 4, 77, 5, 4, 80, 10, 4, 3, 5, 7,
+	5, 83, 10, 5, 12, 5, 14, 5, 86, 11, 5, 3, 5, 3, 5, 3, 6, 3, 6, 5, 6, 92,
+	10, 6, 3, 7, 3, 7, 3, 7, 6, 7, 97, 10, 7, 13, 7, 14, 7, 98, 3, 7, 3, 7,
+	3, 8, 3, 8, 5, 8, 105, 10, 8, 3, 8, 6, 8, 108, 10, 8, 13, 8, 14, 8, 109,
+	3, 9, 3, 9, 3, 9, 5, 9, 115, 10, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10,
+	3, 11, 3, 11, 3, 11, 3, 11, 3, 12, 3, 12, 3, 12, 3, 13, 3, 13, 5, 13, 131,
+	10, 13, 3, 13, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 3, 15, 3, 15, 3, 15,
+	3, 16, 3, 16, 6, 16, 144, 10, 16, 13, 16, 14, 16, 145, 3, 16, 3, 16, 3,
+	17, 3, 17, 3, 17, 5, 17, 153, 10, 17, 3, 18, 3, 18, 3, 18, 3, 18, 3, 18,
+	3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3,
+	21, 3, 21, 3, 21, 5, 21, 173, 10, 21, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22,
+	3, 22, 3, 22, 3, 22, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3,
+	23, 3, 23, 3, 23, 3, 23, 2, 2, 24, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
+	22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 2, 3, 3, 2, 11, 13, 2,
+	191, 2, 47, 3, 2, 2, 2, 4, 55, 3, 2, 2, 2, 6, 79, 3, 2, 2, 2, 8, 84, 3,
+	2, 2, 2, 10, 91, 3, 2, 2, 2, 12, 93, 3, 2, 2, 2, 14, 102, 3, 2, 2, 2, 16,
+	114, 3, 2, 2, 2, 18, 116, 3, 2, 2, 2, 20, 121, 3, 2, 2, 2, 22, 125, 3,
+	2, 2, 2, 24, 128, 3, 2, 2, 2, 26, 135, 3, 2, 2, 2, 28, 138, 3, 2, 2, 2,
+	30, 141, 3, 2, 2, 2, 32, 152, 3, 2, 2, 2, 34, 154, 3, 2, 2, 2, 36, 159,
+	3, 2, 2, 2, 38, 164, 3, 2, 2, 2, 40, 172, 3, 2, 2, 2, 42, 174, 3, 2, 2,
+	2, 44, 182, 3, 2, 2, 2, 46, 48, 7, 24, 2, 2, 47, 46, 3, 2, 2, 2, 47, 48,
+	3, 2, 2, 2, 48, 50, 3, 2, 2, 2, 49, 51, 7, 27, 2, 2, 50, 49, 3, 2, 2, 2,
+	51, 52, 3, 2, 2, 2, 52, 50, 3, 2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 3, 3, 2,
+	2, 2, 54, 56, 7, 27, 2, 2, 55, 54, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57,
+	55, 3, 2, 2, 2, 57, 58, 3, 2, 2, 2, 58, 5, 3, 2, 2, 2, 59, 61, 7, 24, 2,
+	2, 60, 59, 3, 2, 2, 2, 60, 61, 3, 2, 2, 2, 61, 63, 3, 2, 2, 2, 62, 64,
+	7, 27, 2, 2, 63, 62, 3, 2, 2, 2, 64, 65, 3, 2, 2, 2, 65, 63, 3, 2, 2, 2,
+	65, 66, 3, 2, 2, 2, 66, 80, 3, 2, 2, 2, 67, 69, 7, 27, 2, 2, 68, 67, 3,
+	2, 2, 2, 69, 72, 3, 2, 2, 2, 70, 68, 3, 2, 2, 2, 70, 71, 3, 2, 2, 2, 71,
+	73, 3, 2, 2, 2, 72, 70, 3, 2, 2, 2, 73, 75, 7, 3, 2, 2, 74, 76, 7, 27,
+	2, 2, 75, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 75, 3, 2, 2, 2, 77, 78,
+	3, 2, 2, 2, 78, 80, 3, 2, 2, 2, 79, 60, 3, 2, 2, 2, 79, 70, 3, 2, 2, 2,
+	80, 7, 3, 2, 2, 2, 81, 83, 5, 10, 6, 2, 82, 81, 3, 2, 2, 2, 83, 86, 3,
+	2, 2, 2, 84, 82, 3, 2, 2, 2, 84, 85, 3, 2, 2, 2, 85, 87, 3, 2, 2, 2, 86,
+	84, 3, 2, 2, 2, 87, 88, 7, 2, 2, 3, 88, 9, 3, 2, 2, 2, 89, 92, 5, 28, 15,
+	2, 90, 92, 5, 12, 7, 2, 91, 89, 3, 2, 2, 2, 91, 90, 3, 2, 2, 2, 92, 11,
+	3, 2, 2, 2, 93, 96, 5, 14, 8, 2, 94, 95, 7, 4, 2, 2, 95, 97, 5, 14, 8,
+	2, 96, 94, 3, 2, 2, 2, 97, 98, 3, 2, 2, 2, 98, 96, 3, 2, 2, 2, 98, 99,
+	3, 2, 2, 2, 99, 100, 3, 2, 2, 2, 100, 101, 5, 26, 14, 2, 101, 13, 3, 2,
+	2, 2, 102, 104, 7, 29, 2, 2, 103, 105, 5, 16, 9, 2, 104, 103, 3, 2, 2,
+	2, 104, 105, 3, 2, 2, 2, 105, 107, 3, 2, 2, 2, 106, 108, 5, 24, 13, 2,
+	107, 106, 3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109, 107, 3, 2, 2, 2, 109,
+	110, 3, 2, 2, 2, 110, 15, 3, 2, 2, 2, 111, 115, 5, 18, 10, 2, 112, 115,
+	5, 20, 11, 2, 113, 115, 5, 22, 12, 2, 114, 111, 3, 2, 2, 2, 114, 112, 3,
+	2, 2, 2, 114, 113, 3, 2, 2, 2, 115, 17, 3, 2, 2, 2, 116, 117, 7, 5, 2,
+	2, 117, 118, 5, 4, 3, 2, 118, 119, 7, 24, 2, 2, 119, 120, 5, 4, 3, 2, 120,
+	19, 3, 2, 2, 2, 121, 122, 7, 5, 2, 2, 122, 123, 5, 4, 3, 2, 123, 124, 7,
+	24, 2, 2, 124, 21, 3, 2, 2, 2, 125, 126, 7, 5, 2, 2, 126, 127, 5, 4, 3,
+	2, 127, 23, 3, 2, 2, 2, 128, 130, 7, 6, 2, 2, 129, 131, 7, 7, 2, 2, 130,
+	129, 3, 2, 2, 2, 130, 131, 3, 2, 2, 2, 131, 132, 3, 2, 2, 2, 132, 133,
+	7, 29, 2, 2, 133, 134, 7, 8, 2, 2, 134, 25, 3, 2, 2, 2, 135, 136, 7, 20,
+	2, 2, 136, 137, 7, 21, 2, 2, 137, 27, 3, 2, 2, 2, 138, 139, 7, 9, 2, 2,
+	139, 140, 5, 30, 16, 2, 140, 29, 3, 2, 2, 2, 141, 143, 7, 20, 2, 2, 142,
+	144, 5, 32, 17, 2, 143, 142, 3, 2, 2, 2, 144, 145, 3, 2, 2, 2, 145, 143,
+	3, 2, 2, 2, 145, 146, 3, 2, 2, 2, 146, 147, 3, 2, 2, 2, 147, 148, 7, 21,
+	2, 2, 148, 31, 3, 2, 2, 2, 149, 153, 5, 34, 18, 2, 150, 153, 5, 36, 19,
+	2, 151, 153, 5, 38, 20, 2, 152, 149, 3, 2, 2, 2, 152, 150, 3, 2, 2, 2,
+	152, 151, 3, 2, 2, 2, 153, 33, 3, 2, 2, 2, 154, 155, 7, 10, 2, 2, 155,
+	156, 7, 22, 2, 2, 156, 157, 9, 2, 2, 2, 157, 158, 7, 23, 2, 2, 158, 35,
+	3, 2, 2, 2, 159, 160, 7, 14, 2, 2, 160, 161, 7, 22, 2, 2, 161, 162, 5,
+	6, 4, 2, 162, 163, 7, 23, 2, 2, 163, 37, 3, 2, 2, 2, 164, 165, 7, 15, 2,
+	2, 165, 166, 7, 22, 2, 2, 166, 167, 5, 40, 21, 2, 167, 168, 7, 23, 2, 2,
+	168, 39, 3, 2, 2, 2, 169, 173, 7, 28, 2, 2, 170, 173, 5, 42, 22, 2, 171,
+	173, 5, 44, 23, 2, 172, 169, 3, 2, 2, 2, 172, 170, 3, 2, 2, 2, 172, 171,
+	3, 2, 2, 2, 173, 41, 3, 2, 2, 2, 174, 175, 7, 16, 2, 2, 175, 176, 5, 4,
+	3, 2, 176, 177, 7, 4, 2, 2, 177, 178, 5, 4, 3, 2, 178, 179, 7, 4, 2, 2,
+	179, 180, 5, 4, 3, 2, 180, 181, 7, 17, 2, 2, 181, 43, 3, 2, 2, 2, 182,
+	183, 7, 18, 2, 2, 183, 184, 5, 4, 3, 2, 184, 185, 7, 4, 2, 2, 185, 186,
+	5, 4, 3, 2, 186, 187, 7, 4, 2, 2, 187, 188, 5, 4, 3, 2, 188, 189, 7, 4,
+	2, 2, 189, 190, 5, 6, 4, 2, 190, 191, 7, 17, 2, 2, 191, 45, 3, 2, 2, 2,
+	20, 47, 52, 57, 60, 65, 70, 77, 79, 84, 91, 98, 104, 109, 114, 130, 145,
+	152, 172,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "','", "'|z'", "'-'", "'['", "'!'", "']'", "'canvas'", "'antialiasing'",
+	"", "'.'", "','", "'|z'", "'['", "'!'", "']'", "'canvas'", "'antialiasing'",
 	"'full'", "'text'", "'none'", "'fill-opacity'", "'fill-color'", "'rgb('",
-	"')'", "'rgba('", "", "'{'", "'}'", "':'", "';'",
+	"')'", "'rgba('", "", "'{'", "'}'", "':'", "';'", "'-'",
 }
 var symbolicNames = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "WS",
-	"LBRACE", "RBRACE", "COLON", "SEMICOLON", "DQUOTED_STRING", "SQUOTED_STRING",
-	"POSITIVE_INT", "POSITIVE_FLOAT", "HEX", "IDENTIFIER",
+	"LBRACE", "RBRACE", "COLON", "SEMICOLON", "HYPHEN", "DQUOTED_STRING", "SQUOTED_STRING",
+	"DIGIT", "HEX", "IDENTIFIER",
 }
 
 var ruleNames = []string{
-	"stylesheet", "entry", "rule_", "selector", "zoom", "zoom_range", "min_zoom",
-	"exact_zoom", "attribute", "decl_block", "canvas_rule", "canvas_decl_block",
-	"canvas_decl", "antialiasing_decl", "fill_opacity_decl", "fill_color_decl",
-	"color", "rgb_color", "rgba_color",
+	"int_", "uint_", "float_", "stylesheet", "entry", "rule_", "selector",
+	"zoom", "zoom_range", "min_zoom", "exact_zoom", "attribute", "decl_block",
+	"canvas_rule", "canvas_decl_block", "canvas_decl", "antialiasing_decl",
+	"fill_opacity_decl", "fill_color_decl", "color", "rgb_color", "rgba_color",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -147,36 +167,428 @@ const (
 	MapCSSParserRBRACE         = 19
 	MapCSSParserCOLON          = 20
 	MapCSSParserSEMICOLON      = 21
-	MapCSSParserDQUOTED_STRING = 22
-	MapCSSParserSQUOTED_STRING = 23
-	MapCSSParserPOSITIVE_INT   = 24
-	MapCSSParserPOSITIVE_FLOAT = 25
+	MapCSSParserHYPHEN         = 22
+	MapCSSParserDQUOTED_STRING = 23
+	MapCSSParserSQUOTED_STRING = 24
+	MapCSSParserDIGIT          = 25
 	MapCSSParserHEX            = 26
 	MapCSSParserIDENTIFIER     = 27
 )
 
 // MapCSSParser rules.
 const (
-	MapCSSParserRULE_stylesheet        = 0
-	MapCSSParserRULE_entry             = 1
-	MapCSSParserRULE_rule_             = 2
-	MapCSSParserRULE_selector          = 3
-	MapCSSParserRULE_zoom              = 4
-	MapCSSParserRULE_zoom_range        = 5
-	MapCSSParserRULE_min_zoom          = 6
-	MapCSSParserRULE_exact_zoom        = 7
-	MapCSSParserRULE_attribute         = 8
-	MapCSSParserRULE_decl_block        = 9
-	MapCSSParserRULE_canvas_rule       = 10
-	MapCSSParserRULE_canvas_decl_block = 11
-	MapCSSParserRULE_canvas_decl       = 12
-	MapCSSParserRULE_antialiasing_decl = 13
-	MapCSSParserRULE_fill_opacity_decl = 14
-	MapCSSParserRULE_fill_color_decl   = 15
-	MapCSSParserRULE_color             = 16
-	MapCSSParserRULE_rgb_color         = 17
-	MapCSSParserRULE_rgba_color        = 18
+	MapCSSParserRULE_int_              = 0
+	MapCSSParserRULE_uint_             = 1
+	MapCSSParserRULE_float_            = 2
+	MapCSSParserRULE_stylesheet        = 3
+	MapCSSParserRULE_entry             = 4
+	MapCSSParserRULE_rule_             = 5
+	MapCSSParserRULE_selector          = 6
+	MapCSSParserRULE_zoom              = 7
+	MapCSSParserRULE_zoom_range        = 8
+	MapCSSParserRULE_min_zoom          = 9
+	MapCSSParserRULE_exact_zoom        = 10
+	MapCSSParserRULE_attribute         = 11
+	MapCSSParserRULE_decl_block        = 12
+	MapCSSParserRULE_canvas_rule       = 13
+	MapCSSParserRULE_canvas_decl_block = 14
+	MapCSSParserRULE_canvas_decl       = 15
+	MapCSSParserRULE_antialiasing_decl = 16
+	MapCSSParserRULE_fill_opacity_decl = 17
+	MapCSSParserRULE_fill_color_decl   = 18
+	MapCSSParserRULE_color             = 19
+	MapCSSParserRULE_rgb_color         = 20
+	MapCSSParserRULE_rgba_color        = 21
 )
+
+// IInt_Context is an interface to support dynamic dispatch.
+type IInt_Context interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsInt_Context differentiates from other interfaces.
+	IsInt_Context()
+}
+
+type Int_Context struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyInt_Context() *Int_Context {
+	var p = new(Int_Context)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_int_
+	return p
+}
+
+func (*Int_Context) IsInt_Context() {}
+
+func NewInt_Context(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Int_Context {
+	var p = new(Int_Context)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_int_
+
+	return p
+}
+
+func (s *Int_Context) GetParser() antlr.Parser { return s.parser }
+
+func (s *Int_Context) HYPHEN() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserHYPHEN, 0)
+}
+
+func (s *Int_Context) AllDIGIT() []antlr.TerminalNode {
+	return s.GetTokens(MapCSSParserDIGIT)
+}
+
+func (s *Int_Context) DIGIT(i int) antlr.TerminalNode {
+	return s.GetToken(MapCSSParserDIGIT, i)
+}
+
+func (s *Int_Context) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Int_Context) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Int_Context) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterInt_(s)
+	}
+}
+
+func (s *Int_Context) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitInt_(s)
+	}
+}
+
+func (p *MapCSSParser) Int_() (localctx IInt_Context) {
+	localctx = NewInt_Context(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 0, MapCSSParserRULE_int_)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(45)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == MapCSSParserHYPHEN {
+		{
+			p.SetState(44)
+			p.Match(MapCSSParserHYPHEN)
+		}
+
+	}
+	p.SetState(48)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = _la == MapCSSParserDIGIT {
+		{
+			p.SetState(47)
+			p.Match(MapCSSParserDIGIT)
+		}
+
+		p.SetState(50)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+
+	return localctx
+}
+
+// IUint_Context is an interface to support dynamic dispatch.
+type IUint_Context interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsUint_Context differentiates from other interfaces.
+	IsUint_Context()
+}
+
+type Uint_Context struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyUint_Context() *Uint_Context {
+	var p = new(Uint_Context)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_uint_
+	return p
+}
+
+func (*Uint_Context) IsUint_Context() {}
+
+func NewUint_Context(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Uint_Context {
+	var p = new(Uint_Context)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_uint_
+
+	return p
+}
+
+func (s *Uint_Context) GetParser() antlr.Parser { return s.parser }
+
+func (s *Uint_Context) AllDIGIT() []antlr.TerminalNode {
+	return s.GetTokens(MapCSSParserDIGIT)
+}
+
+func (s *Uint_Context) DIGIT(i int) antlr.TerminalNode {
+	return s.GetToken(MapCSSParserDIGIT, i)
+}
+
+func (s *Uint_Context) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Uint_Context) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Uint_Context) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterUint_(s)
+	}
+}
+
+func (s *Uint_Context) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitUint_(s)
+	}
+}
+
+func (p *MapCSSParser) Uint_() (localctx IUint_Context) {
+	localctx = NewUint_Context(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, MapCSSParserRULE_uint_)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(53)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	for ok := true; ok; ok = _la == MapCSSParserDIGIT {
+		{
+			p.SetState(52)
+			p.Match(MapCSSParserDIGIT)
+		}
+
+		p.SetState(55)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+
+	return localctx
+}
+
+// IFloat_Context is an interface to support dynamic dispatch.
+type IFloat_Context interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsFloat_Context differentiates from other interfaces.
+	IsFloat_Context()
+}
+
+type Float_Context struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFloat_Context() *Float_Context {
+	var p = new(Float_Context)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = MapCSSParserRULE_float_
+	return p
+}
+
+func (*Float_Context) IsFloat_Context() {}
+
+func NewFloat_Context(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Float_Context {
+	var p = new(Float_Context)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = MapCSSParserRULE_float_
+
+	return p
+}
+
+func (s *Float_Context) GetParser() antlr.Parser { return s.parser }
+
+func (s *Float_Context) HYPHEN() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserHYPHEN, 0)
+}
+
+func (s *Float_Context) AllDIGIT() []antlr.TerminalNode {
+	return s.GetTokens(MapCSSParserDIGIT)
+}
+
+func (s *Float_Context) DIGIT(i int) antlr.TerminalNode {
+	return s.GetToken(MapCSSParserDIGIT, i)
+}
+
+func (s *Float_Context) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *Float_Context) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *Float_Context) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.EnterFloat_(s)
+	}
+}
+
+func (s *Float_Context) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MapCSSListener); ok {
+		listenerT.ExitFloat_(s)
+	}
+}
+
+func (p *MapCSSParser) Float_() (localctx IFloat_Context) {
+	localctx = NewFloat_Context(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 4, MapCSSParserRULE_float_)
+	var _la int
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.SetState(77)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext()) {
+	case 1:
+		p.EnterOuterAlt(localctx, 1)
+		p.SetState(58)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == MapCSSParserHYPHEN {
+			{
+				p.SetState(57)
+				p.Match(MapCSSParserHYPHEN)
+			}
+
+		}
+		p.SetState(61)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == MapCSSParserDIGIT {
+			{
+				p.SetState(60)
+				p.Match(MapCSSParserDIGIT)
+			}
+
+			p.SetState(63)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		p.SetState(68)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for _la == MapCSSParserDIGIT {
+			{
+				p.SetState(65)
+				p.Match(MapCSSParserDIGIT)
+			}
+
+			p.SetState(70)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(71)
+			p.Match(MapCSSParserT__0)
+		}
+		p.SetState(73)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == MapCSSParserDIGIT {
+			{
+				p.SetState(72)
+				p.Match(MapCSSParserDIGIT)
+			}
+
+			p.SetState(75)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+
+	}
+
+	return localctx
+}
 
 // IStylesheetContext is an interface to support dynamic dispatch.
 type IStylesheetContext interface {
@@ -265,7 +677,7 @@ func (s *StylesheetContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Stylesheet() (localctx IStylesheetContext) {
 	localctx = NewStylesheetContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 0, MapCSSParserRULE_stylesheet)
+	p.EnterRule(localctx, 6, MapCSSParserRULE_stylesheet)
 	var _la int
 
 	defer func() {
@@ -285,22 +697,22 @@ func (p *MapCSSParser) Stylesheet() (localctx IStylesheetContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(41)
+	p.SetState(82)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == MapCSSParserT__6 || _la == MapCSSParserIDENTIFIER {
 		{
-			p.SetState(38)
+			p.SetState(79)
 			p.Entry()
 		}
 
-		p.SetState(43)
+		p.SetState(84)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(44)
+		p.SetState(85)
 		p.Match(MapCSSParserEOF)
 	}
 
@@ -387,7 +799,7 @@ func (s *EntryContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Entry() (localctx IEntryContext) {
 	localctx = NewEntryContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, MapCSSParserRULE_entry)
+	p.EnterRule(localctx, 8, MapCSSParserRULE_entry)
 
 	defer func() {
 		p.ExitRule()
@@ -405,21 +817,21 @@ func (p *MapCSSParser) Entry() (localctx IEntryContext) {
 		}
 	}()
 
-	p.SetState(48)
+	p.SetState(89)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case MapCSSParserT__6:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(46)
+			p.SetState(87)
 			p.Canvas_rule()
 		}
 
 	case MapCSSParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(47)
+			p.SetState(88)
 			p.Rule_()
 		}
 
@@ -523,7 +935,7 @@ func (s *Rule_Context) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 	localctx = NewRule_Context(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, MapCSSParserRULE_rule_)
+	p.EnterRule(localctx, 10, MapCSSParserRULE_rule_)
 	var _la int
 
 	defer func() {
@@ -544,29 +956,29 @@ func (p *MapCSSParser) Rule_() (localctx IRule_Context) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(50)
+		p.SetState(91)
 		p.Selector()
 	}
-	p.SetState(53)
+	p.SetState(94)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = _la == MapCSSParserT__0 {
+	for ok := true; ok; ok = _la == MapCSSParserT__1 {
 		{
-			p.SetState(51)
-			p.Match(MapCSSParserT__0)
+			p.SetState(92)
+			p.Match(MapCSSParserT__1)
 		}
 		{
-			p.SetState(52)
+			p.SetState(93)
 			p.Selector()
 		}
 
-		p.SetState(55)
+		p.SetState(96)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(57)
+		p.SetState(98)
 		p.Decl_block()
 	}
 
@@ -681,7 +1093,7 @@ func (s *SelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Selector() (localctx ISelectorContext) {
 	localctx = NewSelectorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, MapCSSParserRULE_selector)
+	p.EnterRule(localctx, 12, MapCSSParserRULE_selector)
 	var _la int
 
 	defer func() {
@@ -702,34 +1114,34 @@ func (p *MapCSSParser) Selector() (localctx ISelectorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(59)
+		p.SetState(100)
 
 		var _m = p.Match(MapCSSParserIDENTIFIER)
 
 		localctx.(*SelectorContext).typ = _m
 	}
-	p.SetState(61)
+	p.SetState(102)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if _la == MapCSSParserT__1 {
+	if _la == MapCSSParserT__2 {
 		{
-			p.SetState(60)
+			p.SetState(101)
 			p.Zoom()
 		}
 
 	}
-	p.SetState(64)
+	p.SetState(105)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = _la == MapCSSParserT__3 {
 		{
-			p.SetState(63)
+			p.SetState(104)
 			p.Attribute()
 		}
 
-		p.SetState(66)
+		p.SetState(107)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -827,7 +1239,7 @@ func (s *ZoomContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Zoom() (localctx IZoomContext) {
 	localctx = NewZoomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, MapCSSParserRULE_zoom)
+	p.EnterRule(localctx, 14, MapCSSParserRULE_zoom)
 
 	defer func() {
 		p.ExitRule()
@@ -845,27 +1257,27 @@ func (p *MapCSSParser) Zoom() (localctx IZoomContext) {
 		}
 	}()
 
-	p.SetState(71)
+	p.SetState(112)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 13, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(68)
+			p.SetState(109)
 			p.Zoom_range()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(69)
+			p.SetState(110)
 			p.Min_zoom()
 		}
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(70)
+			p.SetState(111)
 			p.Exact_zoom()
 		}
 
@@ -881,17 +1293,17 @@ type IZoom_rangeContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetMin returns the min token.
-	GetMin() antlr.Token
+	// GetMin returns the min rule contexts.
+	GetMin() IUint_Context
 
-	// GetMax returns the max token.
-	GetMax() antlr.Token
+	// GetMax returns the max rule contexts.
+	GetMax() IUint_Context
 
-	// SetMin sets the min token.
-	SetMin(antlr.Token)
+	// SetMin sets the min rule contexts.
+	SetMin(IUint_Context)
 
-	// SetMax sets the max token.
-	SetMax(antlr.Token)
+	// SetMax sets the max rule contexts.
+	SetMax(IUint_Context)
 
 	// IsZoom_rangeContext differentiates from other interfaces.
 	IsZoom_rangeContext()
@@ -900,8 +1312,8 @@ type IZoom_rangeContext interface {
 type Zoom_rangeContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	min    antlr.Token
-	max    antlr.Token
+	min    IUint_Context
+	max    IUint_Context
 }
 
 func NewEmptyZoom_rangeContext() *Zoom_rangeContext {
@@ -926,20 +1338,39 @@ func NewZoom_rangeContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *Zoom_rangeContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Zoom_rangeContext) GetMin() antlr.Token { return s.min }
+func (s *Zoom_rangeContext) GetMin() IUint_Context { return s.min }
 
-func (s *Zoom_rangeContext) GetMax() antlr.Token { return s.max }
+func (s *Zoom_rangeContext) GetMax() IUint_Context { return s.max }
 
-func (s *Zoom_rangeContext) SetMin(v antlr.Token) { s.min = v }
+func (s *Zoom_rangeContext) SetMin(v IUint_Context) { s.min = v }
 
-func (s *Zoom_rangeContext) SetMax(v antlr.Token) { s.max = v }
+func (s *Zoom_rangeContext) SetMax(v IUint_Context) { s.max = v }
 
-func (s *Zoom_rangeContext) AllPOSITIVE_INT() []antlr.TerminalNode {
-	return s.GetTokens(MapCSSParserPOSITIVE_INT)
+func (s *Zoom_rangeContext) HYPHEN() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserHYPHEN, 0)
 }
 
-func (s *Zoom_rangeContext) POSITIVE_INT(i int) antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, i)
+func (s *Zoom_rangeContext) AllUint_() []IUint_Context {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IUint_Context)(nil)).Elem())
+	var tst = make([]IUint_Context, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IUint_Context)
+		}
+	}
+
+	return tst
+}
+
+func (s *Zoom_rangeContext) Uint_(i int) IUint_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IUint_Context)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUint_Context)
 }
 
 func (s *Zoom_rangeContext) GetRuleContext() antlr.RuleContext {
@@ -964,7 +1395,7 @@ func (s *Zoom_rangeContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Zoom_range() (localctx IZoom_rangeContext) {
 	localctx = NewZoom_rangeContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, MapCSSParserRULE_zoom_range)
+	p.EnterRule(localctx, 16, MapCSSParserRULE_zoom_range)
 
 	defer func() {
 		p.ExitRule()
@@ -984,26 +1415,26 @@ func (p *MapCSSParser) Zoom_range() (localctx IZoom_rangeContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(73)
-		p.Match(MapCSSParserT__1)
-	}
-	{
-		p.SetState(74)
-
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
-
-		localctx.(*Zoom_rangeContext).min = _m
-	}
-	{
-		p.SetState(75)
+		p.SetState(114)
 		p.Match(MapCSSParserT__2)
 	}
 	{
-		p.SetState(76)
+		p.SetState(115)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Zoom_rangeContext).max = _m
+		localctx.(*Zoom_rangeContext).min = _x
+	}
+	{
+		p.SetState(116)
+		p.Match(MapCSSParserHYPHEN)
+	}
+	{
+		p.SetState(117)
+
+		var _x = p.Uint_()
+
+		localctx.(*Zoom_rangeContext).max = _x
 	}
 
 	return localctx
@@ -1016,11 +1447,11 @@ type IMin_zoomContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetMin returns the min token.
-	GetMin() antlr.Token
+	// GetMin returns the min rule contexts.
+	GetMin() IUint_Context
 
-	// SetMin sets the min token.
-	SetMin(antlr.Token)
+	// SetMin sets the min rule contexts.
+	SetMin(IUint_Context)
 
 	// IsMin_zoomContext differentiates from other interfaces.
 	IsMin_zoomContext()
@@ -1029,7 +1460,7 @@ type IMin_zoomContext interface {
 type Min_zoomContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	min    antlr.Token
+	min    IUint_Context
 }
 
 func NewEmptyMin_zoomContext() *Min_zoomContext {
@@ -1054,12 +1485,22 @@ func NewMin_zoomContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 
 func (s *Min_zoomContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Min_zoomContext) GetMin() antlr.Token { return s.min }
+func (s *Min_zoomContext) GetMin() IUint_Context { return s.min }
 
-func (s *Min_zoomContext) SetMin(v antlr.Token) { s.min = v }
+func (s *Min_zoomContext) SetMin(v IUint_Context) { s.min = v }
 
-func (s *Min_zoomContext) POSITIVE_INT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+func (s *Min_zoomContext) HYPHEN() antlr.TerminalNode {
+	return s.GetToken(MapCSSParserHYPHEN, 0)
+}
+
+func (s *Min_zoomContext) Uint_() IUint_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IUint_Context)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUint_Context)
 }
 
 func (s *Min_zoomContext) GetRuleContext() antlr.RuleContext {
@@ -1084,7 +1525,7 @@ func (s *Min_zoomContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Min_zoom() (localctx IMin_zoomContext) {
 	localctx = NewMin_zoomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, MapCSSParserRULE_min_zoom)
+	p.EnterRule(localctx, 18, MapCSSParserRULE_min_zoom)
 
 	defer func() {
 		p.ExitRule()
@@ -1104,19 +1545,19 @@ func (p *MapCSSParser) Min_zoom() (localctx IMin_zoomContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(78)
-		p.Match(MapCSSParserT__1)
-	}
-	{
-		p.SetState(79)
-
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
-
-		localctx.(*Min_zoomContext).min = _m
-	}
-	{
-		p.SetState(80)
+		p.SetState(119)
 		p.Match(MapCSSParserT__2)
+	}
+	{
+		p.SetState(120)
+
+		var _x = p.Uint_()
+
+		localctx.(*Min_zoomContext).min = _x
+	}
+	{
+		p.SetState(121)
+		p.Match(MapCSSParserHYPHEN)
 	}
 
 	return localctx
@@ -1129,11 +1570,11 @@ type IExact_zoomContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetMin returns the min token.
-	GetMin() antlr.Token
+	// GetMin returns the min rule contexts.
+	GetMin() IUint_Context
 
-	// SetMin sets the min token.
-	SetMin(antlr.Token)
+	// SetMin sets the min rule contexts.
+	SetMin(IUint_Context)
 
 	// IsExact_zoomContext differentiates from other interfaces.
 	IsExact_zoomContext()
@@ -1142,7 +1583,7 @@ type IExact_zoomContext interface {
 type Exact_zoomContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	min    antlr.Token
+	min    IUint_Context
 }
 
 func NewEmptyExact_zoomContext() *Exact_zoomContext {
@@ -1167,12 +1608,18 @@ func NewExact_zoomContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *Exact_zoomContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Exact_zoomContext) GetMin() antlr.Token { return s.min }
+func (s *Exact_zoomContext) GetMin() IUint_Context { return s.min }
 
-func (s *Exact_zoomContext) SetMin(v antlr.Token) { s.min = v }
+func (s *Exact_zoomContext) SetMin(v IUint_Context) { s.min = v }
 
-func (s *Exact_zoomContext) POSITIVE_INT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
+func (s *Exact_zoomContext) Uint_() IUint_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IUint_Context)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUint_Context)
 }
 
 func (s *Exact_zoomContext) GetRuleContext() antlr.RuleContext {
@@ -1197,7 +1644,7 @@ func (s *Exact_zoomContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Exact_zoom() (localctx IExact_zoomContext) {
 	localctx = NewExact_zoomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, MapCSSParserRULE_exact_zoom)
+	p.EnterRule(localctx, 20, MapCSSParserRULE_exact_zoom)
 
 	defer func() {
 		p.ExitRule()
@@ -1217,15 +1664,15 @@ func (p *MapCSSParser) Exact_zoom() (localctx IExact_zoomContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(82)
-		p.Match(MapCSSParserT__1)
+		p.SetState(123)
+		p.Match(MapCSSParserT__2)
 	}
 	{
-		p.SetState(83)
+		p.SetState(124)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Exact_zoomContext).min = _m
+		localctx.(*Exact_zoomContext).min = _x
 	}
 
 	return localctx
@@ -1317,7 +1764,7 @@ func (s *AttributeContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
 	localctx = NewAttributeContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, MapCSSParserRULE_attribute)
+	p.EnterRule(localctx, 22, MapCSSParserRULE_attribute)
 	var _la int
 
 	defer func() {
@@ -1338,16 +1785,16 @@ func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(85)
+		p.SetState(126)
 		p.Match(MapCSSParserT__3)
 	}
-	p.SetState(87)
+	p.SetState(128)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == MapCSSParserT__4 {
 		{
-			p.SetState(86)
+			p.SetState(127)
 
 			var _m = p.Match(MapCSSParserT__4)
 
@@ -1356,14 +1803,14 @@ func (p *MapCSSParser) Attribute() (localctx IAttributeContext) {
 
 	}
 	{
-		p.SetState(89)
+		p.SetState(130)
 
 		var _m = p.Match(MapCSSParserIDENTIFIER)
 
 		localctx.(*AttributeContext).name = _m
 	}
 	{
-		p.SetState(90)
+		p.SetState(131)
 		p.Match(MapCSSParserT__5)
 	}
 
@@ -1438,7 +1885,7 @@ func (s *Decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Decl_block() (localctx IDecl_blockContext) {
 	localctx = NewDecl_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, MapCSSParserRULE_decl_block)
+	p.EnterRule(localctx, 24, MapCSSParserRULE_decl_block)
 
 	defer func() {
 		p.ExitRule()
@@ -1458,11 +1905,11 @@ func (p *MapCSSParser) Decl_block() (localctx IDecl_blockContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(92)
+		p.SetState(133)
 		p.Match(MapCSSParserLBRACE)
 	}
 	{
-		p.SetState(93)
+		p.SetState(134)
 		p.Match(MapCSSParserRBRACE)
 	}
 
@@ -1539,7 +1986,7 @@ func (s *Canvas_ruleContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_rule() (localctx ICanvas_ruleContext) {
 	localctx = NewCanvas_ruleContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, MapCSSParserRULE_canvas_rule)
+	p.EnterRule(localctx, 26, MapCSSParserRULE_canvas_rule)
 
 	defer func() {
 		p.ExitRule()
@@ -1559,11 +2006,11 @@ func (p *MapCSSParser) Canvas_rule() (localctx ICanvas_ruleContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(95)
+		p.SetState(136)
 		p.Match(MapCSSParserT__6)
 	}
 	{
-		p.SetState(96)
+		p.SetState(137)
 		p.Canvas_decl_block()
 	}
 
@@ -1661,7 +2108,7 @@ func (s *Canvas_decl_blockContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_decl_block() (localctx ICanvas_decl_blockContext) {
 	localctx = NewCanvas_decl_blockContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, MapCSSParserRULE_canvas_decl_block)
+	p.EnterRule(localctx, 28, MapCSSParserRULE_canvas_decl_block)
 	var _la int
 
 	defer func() {
@@ -1682,25 +2129,25 @@ func (p *MapCSSParser) Canvas_decl_block() (localctx ICanvas_decl_blockContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(98)
+		p.SetState(139)
 		p.Match(MapCSSParserLBRACE)
 	}
-	p.SetState(100)
+	p.SetState(141)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MapCSSParserT__7)|(1<<MapCSSParserT__11)|(1<<MapCSSParserT__12))) != 0) {
 		{
-			p.SetState(99)
+			p.SetState(140)
 			p.Canvas_decl()
 		}
 
-		p.SetState(102)
+		p.SetState(143)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(104)
+		p.SetState(145)
 		p.Match(MapCSSParserRBRACE)
 	}
 
@@ -1797,7 +2244,7 @@ func (s *Canvas_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Canvas_decl() (localctx ICanvas_declContext) {
 	localctx = NewCanvas_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, MapCSSParserRULE_canvas_decl)
+	p.EnterRule(localctx, 30, MapCSSParserRULE_canvas_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -1815,28 +2262,28 @@ func (p *MapCSSParser) Canvas_decl() (localctx ICanvas_declContext) {
 		}
 	}()
 
-	p.SetState(109)
+	p.SetState(150)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case MapCSSParserT__7:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(106)
+			p.SetState(147)
 			p.Antialiasing_decl()
 		}
 
 	case MapCSSParserT__11:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(107)
+			p.SetState(148)
 			p.Fill_opacity_decl()
 		}
 
 	case MapCSSParserT__12:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(108)
+			p.SetState(149)
 			p.Fill_color_decl()
 		}
 
@@ -1926,7 +2373,7 @@ func (s *Antialiasing_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) {
 	localctx = NewAntialiasing_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, MapCSSParserRULE_antialiasing_decl)
+	p.EnterRule(localctx, 32, MapCSSParserRULE_antialiasing_decl)
 	var _la int
 
 	defer func() {
@@ -1947,15 +2394,15 @@ func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(111)
+		p.SetState(152)
 		p.Match(MapCSSParserT__7)
 	}
 	{
-		p.SetState(112)
+		p.SetState(153)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(113)
+		p.SetState(154)
 
 		var _lt = p.GetTokenStream().LT(1)
 
@@ -1973,7 +2420,7 @@ func (p *MapCSSParser) Antialiasing_decl() (localctx IAntialiasing_declContext) 
 		}
 	}
 	{
-		p.SetState(114)
+		p.SetState(155)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -1987,11 +2434,11 @@ type IFill_opacity_declContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetV returns the v token.
-	GetV() antlr.Token
+	// GetV returns the v rule contexts.
+	GetV() IFloat_Context
 
-	// SetV sets the v token.
-	SetV(antlr.Token)
+	// SetV sets the v rule contexts.
+	SetV(IFloat_Context)
 
 	// IsFill_opacity_declContext differentiates from other interfaces.
 	IsFill_opacity_declContext()
@@ -2000,7 +2447,7 @@ type IFill_opacity_declContext interface {
 type Fill_opacity_declContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	v      antlr.Token
+	v      IFloat_Context
 }
 
 func NewEmptyFill_opacity_declContext() *Fill_opacity_declContext {
@@ -2025,9 +2472,9 @@ func NewFill_opacity_declContext(parser antlr.Parser, parent antlr.ParserRuleCon
 
 func (s *Fill_opacity_declContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Fill_opacity_declContext) GetV() antlr.Token { return s.v }
+func (s *Fill_opacity_declContext) GetV() IFloat_Context { return s.v }
 
-func (s *Fill_opacity_declContext) SetV(v antlr.Token) { s.v = v }
+func (s *Fill_opacity_declContext) SetV(v IFloat_Context) { s.v = v }
 
 func (s *Fill_opacity_declContext) COLON() antlr.TerminalNode {
 	return s.GetToken(MapCSSParserCOLON, 0)
@@ -2037,12 +2484,14 @@ func (s *Fill_opacity_declContext) SEMICOLON() antlr.TerminalNode {
 	return s.GetToken(MapCSSParserSEMICOLON, 0)
 }
 
-func (s *Fill_opacity_declContext) POSITIVE_INT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, 0)
-}
+func (s *Fill_opacity_declContext) Float_() IFloat_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFloat_Context)(nil)).Elem(), 0)
 
-func (s *Fill_opacity_declContext) POSITIVE_FLOAT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_FLOAT, 0)
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFloat_Context)
 }
 
 func (s *Fill_opacity_declContext) GetRuleContext() antlr.RuleContext {
@@ -2067,8 +2516,7 @@ func (s *Fill_opacity_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) {
 	localctx = NewFill_opacity_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, MapCSSParserRULE_fill_opacity_decl)
-	var _la int
+	p.EnterRule(localctx, 34, MapCSSParserRULE_fill_opacity_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -2088,33 +2536,22 @@ func (p *MapCSSParser) Fill_opacity_decl() (localctx IFill_opacity_declContext) 
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(116)
+		p.SetState(157)
 		p.Match(MapCSSParserT__11)
 	}
 	{
-		p.SetState(117)
+		p.SetState(158)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(118)
+		p.SetState(159)
 
-		var _lt = p.GetTokenStream().LT(1)
+		var _x = p.Float_()
 
-		localctx.(*Fill_opacity_declContext).v = _lt
-
-		_la = p.GetTokenStream().LA(1)
-
-		if !(_la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT) {
-			var _ri = p.GetErrorHandler().RecoverInline(p)
-
-			localctx.(*Fill_opacity_declContext).v = _ri
-		} else {
-			p.GetErrorHandler().ReportMatch(p)
-			p.Consume()
-		}
+		localctx.(*Fill_opacity_declContext).v = _x
 	}
 	{
-		p.SetState(119)
+		p.SetState(160)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -2199,7 +2636,7 @@ func (s *Fill_color_declContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Fill_color_decl() (localctx IFill_color_declContext) {
 	localctx = NewFill_color_declContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, MapCSSParserRULE_fill_color_decl)
+	p.EnterRule(localctx, 36, MapCSSParserRULE_fill_color_decl)
 
 	defer func() {
 		p.ExitRule()
@@ -2219,19 +2656,19 @@ func (p *MapCSSParser) Fill_color_decl() (localctx IFill_color_declContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(121)
+		p.SetState(162)
 		p.Match(MapCSSParserT__12)
 	}
 	{
-		p.SetState(122)
+		p.SetState(163)
 		p.Match(MapCSSParserCOLON)
 	}
 	{
-		p.SetState(123)
+		p.SetState(164)
 		p.Color()
 	}
 	{
-		p.SetState(124)
+		p.SetState(165)
 		p.Match(MapCSSParserSEMICOLON)
 	}
 
@@ -2322,7 +2759,7 @@ func (s *ColorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Color() (localctx IColorContext) {
 	localctx = NewColorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 32, MapCSSParserRULE_color)
+	p.EnterRule(localctx, 38, MapCSSParserRULE_color)
 
 	defer func() {
 		p.ExitRule()
@@ -2340,28 +2777,28 @@ func (p *MapCSSParser) Color() (localctx IColorContext) {
 		}
 	}()
 
-	p.SetState(129)
+	p.SetState(170)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case MapCSSParserHEX:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(126)
+			p.SetState(167)
 			p.Match(MapCSSParserHEX)
 		}
 
 	case MapCSSParserT__13:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(127)
+			p.SetState(168)
 			p.Rgb_color()
 		}
 
 	case MapCSSParserT__15:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(128)
+			p.SetState(169)
 			p.Rgba_color()
 		}
 
@@ -2379,23 +2816,23 @@ type IRgb_colorContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetR returns the r token.
-	GetR() antlr.Token
+	// GetR returns the r rule contexts.
+	GetR() IUint_Context
 
-	// GetG returns the g token.
-	GetG() antlr.Token
+	// GetG returns the g rule contexts.
+	GetG() IUint_Context
 
-	// GetB returns the b token.
-	GetB() antlr.Token
+	// GetB returns the b rule contexts.
+	GetB() IUint_Context
 
-	// SetR sets the r token.
-	SetR(antlr.Token)
+	// SetR sets the r rule contexts.
+	SetR(IUint_Context)
 
-	// SetG sets the g token.
-	SetG(antlr.Token)
+	// SetG sets the g rule contexts.
+	SetG(IUint_Context)
 
-	// SetB sets the b token.
-	SetB(antlr.Token)
+	// SetB sets the b rule contexts.
+	SetB(IUint_Context)
 
 	// IsRgb_colorContext differentiates from other interfaces.
 	IsRgb_colorContext()
@@ -2404,9 +2841,9 @@ type IRgb_colorContext interface {
 type Rgb_colorContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	r      antlr.Token
-	g      antlr.Token
-	b      antlr.Token
+	r      IUint_Context
+	g      IUint_Context
+	b      IUint_Context
 }
 
 func NewEmptyRgb_colorContext() *Rgb_colorContext {
@@ -2431,24 +2868,39 @@ func NewRgb_colorContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *Rgb_colorContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Rgb_colorContext) GetR() antlr.Token { return s.r }
+func (s *Rgb_colorContext) GetR() IUint_Context { return s.r }
 
-func (s *Rgb_colorContext) GetG() antlr.Token { return s.g }
+func (s *Rgb_colorContext) GetG() IUint_Context { return s.g }
 
-func (s *Rgb_colorContext) GetB() antlr.Token { return s.b }
+func (s *Rgb_colorContext) GetB() IUint_Context { return s.b }
 
-func (s *Rgb_colorContext) SetR(v antlr.Token) { s.r = v }
+func (s *Rgb_colorContext) SetR(v IUint_Context) { s.r = v }
 
-func (s *Rgb_colorContext) SetG(v antlr.Token) { s.g = v }
+func (s *Rgb_colorContext) SetG(v IUint_Context) { s.g = v }
 
-func (s *Rgb_colorContext) SetB(v antlr.Token) { s.b = v }
+func (s *Rgb_colorContext) SetB(v IUint_Context) { s.b = v }
 
-func (s *Rgb_colorContext) AllPOSITIVE_INT() []antlr.TerminalNode {
-	return s.GetTokens(MapCSSParserPOSITIVE_INT)
+func (s *Rgb_colorContext) AllUint_() []IUint_Context {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IUint_Context)(nil)).Elem())
+	var tst = make([]IUint_Context, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IUint_Context)
+		}
+	}
+
+	return tst
 }
 
-func (s *Rgb_colorContext) POSITIVE_INT(i int) antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, i)
+func (s *Rgb_colorContext) Uint_(i int) IUint_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IUint_Context)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUint_Context)
 }
 
 func (s *Rgb_colorContext) GetRuleContext() antlr.RuleContext {
@@ -2473,7 +2925,7 @@ func (s *Rgb_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 	localctx = NewRgb_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 34, MapCSSParserRULE_rgb_color)
+	p.EnterRule(localctx, 40, MapCSSParserRULE_rgb_color)
 
 	defer func() {
 		p.ExitRule()
@@ -2493,40 +2945,40 @@ func (p *MapCSSParser) Rgb_color() (localctx IRgb_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(131)
+		p.SetState(172)
 		p.Match(MapCSSParserT__13)
 	}
 	{
-		p.SetState(132)
+		p.SetState(173)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgb_colorContext).r = _m
+		localctx.(*Rgb_colorContext).r = _x
 	}
 	{
-		p.SetState(133)
-		p.Match(MapCSSParserT__0)
+		p.SetState(174)
+		p.Match(MapCSSParserT__1)
 	}
 	{
-		p.SetState(134)
+		p.SetState(175)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgb_colorContext).g = _m
+		localctx.(*Rgb_colorContext).g = _x
 	}
 	{
-		p.SetState(135)
-		p.Match(MapCSSParserT__0)
+		p.SetState(176)
+		p.Match(MapCSSParserT__1)
 	}
 	{
-		p.SetState(136)
+		p.SetState(177)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgb_colorContext).b = _m
+		localctx.(*Rgb_colorContext).b = _x
 	}
 	{
-		p.SetState(137)
+		p.SetState(178)
 		p.Match(MapCSSParserT__14)
 	}
 
@@ -2540,29 +2992,29 @@ type IRgba_colorContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// GetR returns the r token.
-	GetR() antlr.Token
+	// GetR returns the r rule contexts.
+	GetR() IUint_Context
 
-	// GetG returns the g token.
-	GetG() antlr.Token
+	// GetG returns the g rule contexts.
+	GetG() IUint_Context
 
-	// GetB returns the b token.
-	GetB() antlr.Token
+	// GetB returns the b rule contexts.
+	GetB() IUint_Context
 
-	// GetA returns the a token.
-	GetA() antlr.Token
+	// GetA returns the a rule contexts.
+	GetA() IFloat_Context
 
-	// SetR sets the r token.
-	SetR(antlr.Token)
+	// SetR sets the r rule contexts.
+	SetR(IUint_Context)
 
-	// SetG sets the g token.
-	SetG(antlr.Token)
+	// SetG sets the g rule contexts.
+	SetG(IUint_Context)
 
-	// SetB sets the b token.
-	SetB(antlr.Token)
+	// SetB sets the b rule contexts.
+	SetB(IUint_Context)
 
-	// SetA sets the a token.
-	SetA(antlr.Token)
+	// SetA sets the a rule contexts.
+	SetA(IFloat_Context)
 
 	// IsRgba_colorContext differentiates from other interfaces.
 	IsRgba_colorContext()
@@ -2571,10 +3023,10 @@ type IRgba_colorContext interface {
 type Rgba_colorContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
-	r      antlr.Token
-	g      antlr.Token
-	b      antlr.Token
-	a      antlr.Token
+	r      IUint_Context
+	g      IUint_Context
+	b      IUint_Context
+	a      IFloat_Context
 }
 
 func NewEmptyRgba_colorContext() *Rgba_colorContext {
@@ -2599,32 +3051,53 @@ func NewRgba_colorContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *Rgba_colorContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Rgba_colorContext) GetR() antlr.Token { return s.r }
+func (s *Rgba_colorContext) GetR() IUint_Context { return s.r }
 
-func (s *Rgba_colorContext) GetG() antlr.Token { return s.g }
+func (s *Rgba_colorContext) GetG() IUint_Context { return s.g }
 
-func (s *Rgba_colorContext) GetB() antlr.Token { return s.b }
+func (s *Rgba_colorContext) GetB() IUint_Context { return s.b }
 
-func (s *Rgba_colorContext) GetA() antlr.Token { return s.a }
+func (s *Rgba_colorContext) GetA() IFloat_Context { return s.a }
 
-func (s *Rgba_colorContext) SetR(v antlr.Token) { s.r = v }
+func (s *Rgba_colorContext) SetR(v IUint_Context) { s.r = v }
 
-func (s *Rgba_colorContext) SetG(v antlr.Token) { s.g = v }
+func (s *Rgba_colorContext) SetG(v IUint_Context) { s.g = v }
 
-func (s *Rgba_colorContext) SetB(v antlr.Token) { s.b = v }
+func (s *Rgba_colorContext) SetB(v IUint_Context) { s.b = v }
 
-func (s *Rgba_colorContext) SetA(v antlr.Token) { s.a = v }
+func (s *Rgba_colorContext) SetA(v IFloat_Context) { s.a = v }
 
-func (s *Rgba_colorContext) AllPOSITIVE_INT() []antlr.TerminalNode {
-	return s.GetTokens(MapCSSParserPOSITIVE_INT)
+func (s *Rgba_colorContext) AllUint_() []IUint_Context {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IUint_Context)(nil)).Elem())
+	var tst = make([]IUint_Context, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IUint_Context)
+		}
+	}
+
+	return tst
 }
 
-func (s *Rgba_colorContext) POSITIVE_INT(i int) antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_INT, i)
+func (s *Rgba_colorContext) Uint_(i int) IUint_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IUint_Context)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUint_Context)
 }
 
-func (s *Rgba_colorContext) POSITIVE_FLOAT() antlr.TerminalNode {
-	return s.GetToken(MapCSSParserPOSITIVE_FLOAT, 0)
+func (s *Rgba_colorContext) Float_() IFloat_Context {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFloat_Context)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFloat_Context)
 }
 
 func (s *Rgba_colorContext) GetRuleContext() antlr.RuleContext {
@@ -2649,8 +3122,7 @@ func (s *Rgba_colorContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 	localctx = NewRgba_colorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, MapCSSParserRULE_rgba_color)
-	var _la int
+	p.EnterRule(localctx, 42, MapCSSParserRULE_rgba_color)
 
 	defer func() {
 		p.ExitRule()
@@ -2670,62 +3142,51 @@ func (p *MapCSSParser) Rgba_color() (localctx IRgba_colorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(139)
+		p.SetState(180)
 		p.Match(MapCSSParserT__15)
 	}
 	{
-		p.SetState(140)
+		p.SetState(181)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgba_colorContext).r = _m
+		localctx.(*Rgba_colorContext).r = _x
 	}
 	{
-		p.SetState(141)
-		p.Match(MapCSSParserT__0)
+		p.SetState(182)
+		p.Match(MapCSSParserT__1)
 	}
 	{
-		p.SetState(142)
+		p.SetState(183)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgba_colorContext).g = _m
+		localctx.(*Rgba_colorContext).g = _x
 	}
 	{
-		p.SetState(143)
-		p.Match(MapCSSParserT__0)
+		p.SetState(184)
+		p.Match(MapCSSParserT__1)
 	}
 	{
-		p.SetState(144)
+		p.SetState(185)
 
-		var _m = p.Match(MapCSSParserPOSITIVE_INT)
+		var _x = p.Uint_()
 
-		localctx.(*Rgba_colorContext).b = _m
+		localctx.(*Rgba_colorContext).b = _x
 	}
 	{
-		p.SetState(145)
-		p.Match(MapCSSParserT__0)
+		p.SetState(186)
+		p.Match(MapCSSParserT__1)
 	}
 	{
-		p.SetState(146)
+		p.SetState(187)
 
-		var _lt = p.GetTokenStream().LT(1)
+		var _x = p.Float_()
 
-		localctx.(*Rgba_colorContext).a = _lt
-
-		_la = p.GetTokenStream().LA(1)
-
-		if !(_la == MapCSSParserPOSITIVE_INT || _la == MapCSSParserPOSITIVE_FLOAT) {
-			var _ri = p.GetErrorHandler().RecoverInline(p)
-
-			localctx.(*Rgba_colorContext).a = _ri
-		} else {
-			p.GetErrorHandler().ReportMatch(p)
-			p.Consume()
-		}
+		localctx.(*Rgba_colorContext).a = _x
 	}
 	{
-		p.SetState(147)
+		p.SetState(188)
 		p.Match(MapCSSParserT__14)
 	}
 

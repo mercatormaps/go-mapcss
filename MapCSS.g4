@@ -7,6 +7,7 @@ LBRACE:    '{';
 RBRACE:    '}';
 COLON:     ':';
 SEMICOLON: ';';
+HYPHEN:    '-';
 
 fragment EBACKSLASH: '\\\\';
 fragment UNICODE:    '\u0080'..'\uFFFE';
@@ -15,8 +16,7 @@ fragment ESQUOTE:    '\\\'';
 DQUOTED_STRING:      '"' (' ' | '!' | '#'..'[' | ']'..'~' | '°' | UNICODE | EDQUOTE | EBACKSLASH)* '"';
 SQUOTED_STRING:      '\'' (' '..'&' | '('..'[' | ']'..'~' | '°' | UNICODE | ESQUOTE | EBACKSLASH)* '\'';
 
-POSITIVE_INT:   [0-9]+;
-POSITIVE_FLOAT: [0-9]+ | [0-9]* '.' [0-9]+;
+DIGIT: [0-9];
 
 // Colors
 
@@ -26,6 +26,19 @@ fragment HEX_4_DIGITS: '#' HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR;
 fragment HEX_6_DIGITS: '#' HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR;
 fragment HEX_8_DIGITS: '#' HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR HEX_CHAR;
 HEX:                   (HEX_3_DIGITS | HEX_4_DIGITS | HEX_6_DIGITS | HEX_8_DIGITS);
+
+// Numbers
+
+int_
+    : '-'? DIGIT+
+    ;
+
+uint_
+    : DIGIT+
+    ;
+
+float_
+    : '-'? DIGIT+ | DIGIT* '.' DIGIT+;
 
 // Properties
 
@@ -59,15 +72,15 @@ zoom
     ;
 
 zoom_range
-    : '|z' min=POSITIVE_INT '-' max=POSITIVE_INT
+    : '|z' min=uint_ HYPHEN max=uint_
     ;
 
 min_zoom
-    : '|z' min=POSITIVE_INT '-'
+    : '|z' min=uint_ '-'
     ;
 
 exact_zoom
-    : '|z' min=POSITIVE_INT
+    : '|z' min=uint_
     ;
 
 attribute
@@ -101,7 +114,7 @@ antialiasing_decl
     ;
 
 fill_opacity_decl
-    : 'fill-opacity' COLON v=(POSITIVE_INT | POSITIVE_FLOAT) SEMICOLON
+    : 'fill-opacity' COLON v=float_ SEMICOLON
     ;
 
 fill_color_decl
@@ -115,9 +128,9 @@ color
     ;
 
 rgb_color
-    : 'rgb(' r=POSITIVE_INT ',' g=POSITIVE_INT ',' b=POSITIVE_INT ')'
+    : 'rgb(' r=uint_ ',' g=uint_ ',' b=uint_ ')'
     ;
 
 rgba_color
-    : 'rgba(' r=POSITIVE_INT ',' g=POSITIVE_INT ',' b=POSITIVE_INT ',' a=(POSITIVE_INT | POSITIVE_FLOAT) ')'
+    : 'rgba(' r=uint_ ',' g=uint_ ',' b=uint_ ',' a=float_ ')'
     ;

@@ -27,7 +27,7 @@ func TestParseCanvasAntialiasing(t *testing.T) {
 		run(t, tt.value, func(t *testing.T, s *mapcss.Stylesheet, err error) {
 			if tt.ok {
 				require.NoError(t, err)
-				require.Equal(t, tt.expected, s.Canvas.Antialiasing)
+				require.Equal(t, &tt.expected, s.Canvas.Antialiasing)
 			} else {
 				require.Error(t, err)
 			}
@@ -50,14 +50,13 @@ func TestParseCanvasFillOpacity(t *testing.T) {
 		{"1", 1, true},
 		{"2", 0, false},
 		{"-1", 0, false},
-		{"", 1, false},
 	}
 
 	for _, tt := range tests {
 		run(t, tt.value, func(t *testing.T, s *mapcss.Stylesheet, err error) {
 			if tt.ok {
 				require.NoError(t, err)
-				require.Equal(t, tt.expected, s.Canvas.FillOpacity)
+				require.Equal(t, &tt.expected, s.Canvas.FillOpacity)
 			} else {
 				require.Error(t, err)
 			}

@@ -10,15 +10,12 @@ import (
 )
 
 type Canvas struct {
-	Antialiasing Antialiasing
-	FillOpacity  float32
+	Antialiasing *Antialiasing
+	FillOpacity  *float32
 	FillColor    *Color
 }
 
 func (c *Canvas) parse(ctx *parser.Canvas_ruleContext) error {
-	c.Antialiasing = AntialiasingFull
-	c.FillOpacity = 1
-
 	return c.walk(&parser.BaseMapCSSListener{}, ctx)
 }
 
@@ -60,23 +57,33 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 	return nil
 }
 
-func antialiasing(str string) (Antialiasing, error) {
+func antialiasing(str string) (*Antialiasing, error) {
+	val := AntialiasingFull
 	if str == "" {
-		return AntialiasingFull, nil
+		return &val, nil
 	}
-	return AntialiasingString(str)
+
+	var err error
+	val, err = AntialiasingString(str)
+	if err != nil {
+		return nil, err
+	}
+	return &val, nil
 }
 
-func zeroToOneValue(str string) (float32, error) {
+func zeroToOneValue(str string) (*float32, error) {
+	var val float32 = 1
 	if str == "" {
-		return 1, nil
+		return &val, nil
 	}
 
-	val, err := strconv.ParseFloat(str, 32)
+	v, err := strconv.ParseFloat(str, 32)
 	if err != nil {
-		return 0, err
-	} else if val < 0 || val > 1 {
-		return 0, fmt.Errorf("fill-opacity invalid value '%f'", val)
+		return nil, err
+	} else if v < 0 || v > 1 {
+		return nil, fmt.Errorf("fill-opacity invalid value '%f'", val)
 	}
-	return float32(val), nil
+
+	val = float32(v)
+	return &val, nil
 }

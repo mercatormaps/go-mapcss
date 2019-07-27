@@ -21,6 +21,24 @@ func (s *BaseMapCSSListener) EnterEveryRule(ctx antlr.ParserRuleContext) {}
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseMapCSSListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
+// EnterInt_ is called when production int_ is entered.
+func (s *BaseMapCSSListener) EnterInt_(ctx *Int_Context) {}
+
+// ExitInt_ is called when production int_ is exited.
+func (s *BaseMapCSSListener) ExitInt_(ctx *Int_Context) {}
+
+// EnterUint_ is called when production uint_ is entered.
+func (s *BaseMapCSSListener) EnterUint_(ctx *Uint_Context) {}
+
+// ExitUint_ is called when production uint_ is exited.
+func (s *BaseMapCSSListener) ExitUint_(ctx *Uint_Context) {}
+
+// EnterFloat_ is called when production float_ is entered.
+func (s *BaseMapCSSListener) EnterFloat_(ctx *Float_Context) {}
+
+// ExitFloat_ is called when production float_ is exited.
+func (s *BaseMapCSSListener) ExitFloat_(ctx *Float_Context) {}
+
 // EnterStylesheet is called when production stylesheet is entered.
 func (s *BaseMapCSSListener) EnterStylesheet(ctx *StylesheetContext) {}
 

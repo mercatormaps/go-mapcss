@@ -8,6 +8,15 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type MapCSSListener interface {
 	antlr.ParseTreeListener
 
+	// EnterInt_ is called when entering the int_ production.
+	EnterInt_(c *Int_Context)
+
+	// EnterUint_ is called when entering the uint_ production.
+	EnterUint_(c *Uint_Context)
+
+	// EnterFloat_ is called when entering the float_ production.
+	EnterFloat_(c *Float_Context)
+
 	// EnterStylesheet is called when entering the stylesheet production.
 	EnterStylesheet(c *StylesheetContext)
 
@@ -64,6 +73,15 @@ type MapCSSListener interface {
 
 	// EnterRgba_color is called when entering the rgba_color production.
 	EnterRgba_color(c *Rgba_colorContext)
+
+	// ExitInt_ is called when exiting the int_ production.
+	ExitInt_(c *Int_Context)
+
+	// ExitUint_ is called when exiting the uint_ production.
+	ExitUint_(c *Uint_Context)
+
+	// ExitFloat_ is called when exiting the float_ production.
+	ExitFloat_(c *Float_Context)
 
 	// ExitStylesheet is called when exiting the stylesheet production.
 	ExitStylesheet(c *StylesheetContext)
