@@ -1,15 +1,26 @@
 # go-mapcss #
 
+`go-mapcss` is a Go parser for MapCSS.
+
 ## Features ##
 
-### `canvas` ###
+### Rules ###
 
-| Properties     | Supported                                           |
-| -------------- | --------------------------------------------------- |
-| `antialiasing` | :heavy_check_mark: `full`, `text`, `none`           |
-| `fill-color`   |                                                     |
-| `fill-opacity` | :heavy_check_mark: `0` (transparent) — `1` (opaque) |
-| `fill-image`   |                                                     |
+| Selectors           | Supported                                                                |
+| ------------------- | ------------------------------------------------------------------------ |
+| multiple selectors  | :heavy_check_mark:                                                       |
+| multiple attributes | :heavy_check_mark:                                                       |
+| negated attributes  | :heavy_check_mark:                                                       |
+| zoom level (`|z`)   | :heavy_check_mark: range (`|z1-9`), exact (`|z1`), minimum (`|z1-`)      |
+
+### `canvas` rule properties ###
+
+| Properties     | Supported                                                   |
+| -------------- | ----------------------------------------------------------- |
+| `antialiasing` | :heavy_check_mark: `full`, `text`, `none`                   |
+| `fill-color`   | :heavy_check_mark: `rgb`, `rgba`, hex (3, 4, 6 and 8-digit) |
+| `fill-opacity` | :heavy_check_mark: `0` (transparent) — `1` (opaque)         |
+| `fill-image`   |                                                             |
 
 ## Development ##
 
