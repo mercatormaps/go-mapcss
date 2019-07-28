@@ -1,3 +1,5 @@
+//go:generate enumer -type=Antialiasing -trimprefix=Antialiasing -transform=snake
+
 package mapcss
 
 import (
@@ -9,6 +11,7 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
+// Canvas represents a "canvas" rule in a MapCSS document.
 type Canvas struct {
 	Antialiasing *Antialiasing
 	FillOpacity  *float32
@@ -56,6 +59,18 @@ func (c *Canvas) walk(listener *parser.BaseMapCSSListener, t antlr.Tree) error {
 
 	return nil
 }
+
+// Antialiasing property value.
+type Antialiasing int
+
+const (
+	// AntialiasingFull 'full' applies to lines and text.
+	AntialiasingFull Antialiasing = iota
+	// AntialiasingText 'text' applies to text only.
+	AntialiasingText
+	// AntialiasingNone disables antialasing.
+	AntialiasingNone
+)
 
 func antialiasing(str string) (*Antialiasing, error) {
 	val := AntialiasingFull

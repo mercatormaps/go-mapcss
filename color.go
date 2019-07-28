@@ -8,6 +8,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Color where RGB values are 0-255, and alpha component is 0-1.
 type Color struct {
 	R, G, B uint8
 	A       float32

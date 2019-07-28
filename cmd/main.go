@@ -14,14 +14,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	ss, err := mapcss.NewStylesheet(f)
+	ss, err := mapcss.Parse(f)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
-	if err := ss.Parse(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	_ = ss
 }

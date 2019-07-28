@@ -11,11 +11,13 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Stylesheet represents a MapCSS document.
 type Stylesheet struct {
 	Canvas Canvas
 	Rules  []Rule
 }
 
+// Parse a MapCSS document.
 func Parse(r io.Reader, opts ...Option) (*Stylesheet, error) {
 	conf := config{}
 	for _, opt := range opts {
@@ -27,7 +29,7 @@ func Parse(r io.Reader, opts ...Option) (*Stylesheet, error) {
 		return nil, err
 	}
 
-	eh := &ErrorHandler{Reporter: conf.reporter}
+	eh := &ErrorHandler{Report: conf.reporter}
 	antlr.NewDefaultErrorListener()
 
 	lexer := parser.NewMapCSSLexer(&antlr.FileStream{
@@ -92,8 +94,10 @@ func walk(listener *parser.BaseMapCSSListener, t antlr.Tree) (antlr.ParserRuleCo
 	}
 }
 
+// Option funcs can be passed to Parse().
 type Option func(*config)
 
+// WithErrorReporter configures a reporter for error messages.
 func WithErrorReporter(r ErrorReporter) Option {
 	return func(c *config) {
 		c.reporter = r
